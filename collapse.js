@@ -47,3 +47,8 @@ function credits() {
 	document.querySelector(".overlay").style.display = "block";
 	document.querySelector(".creditpopup").style.display = "block";
 }
+
+if(localStorage.getItem("speedtimer") == null && document.location.href != "index.html")
+{
+	document.location.href = "index.html";
+}
