@@ -1,0 +1,136 @@
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>SpeedTimer</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="sessions.css">
+	<link rel="icon" href="logo1.jpg">
+	<!-- This link -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+		integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="left">
+		<div class="logo">
+			<a class="web" target="_blank" href="https://speed-timer.netlify.app/">
+				<img src="logo1.jpg">
+			</a>
+		</div>
+		<div class="text">SpeedTimer</div>
+		<div>
+			<a class="link" href="index.html" id="timer">
+				<i class="fas fa-stopwatch"></i>
+				<span>Timer</span>
+			</a>
+		</div>
+		<div>
+			<a class="link active" href="sessions.html" id="sessions">
+				<i class="fas fa-list"></i>
+				<span>Sessions</span>
+			</a>
+		</div>
+		<div>
+			<a class="link" href="algs-3-pll.html" id="algorithms">
+				<i class="fas fa-th"></i>
+				<span>Algorithms</span>
+			</a>
+		</div>
+		<div>
+			<a class="link" href="settings.html" id="settings">
+				<i class="fas fa-cog"></i>
+				<span>Settings</span>
+			</a>
+		</div>
+		<div class="lastPart">
+			<div>
+				<!-- <a class="discord" href="https://discord.gg/pnuBXU8Sgg" target="_blank">
+					<i class="fab fa-discord" style="color: rgb(88 101 242);"></i>
+				</a> -->
+				<button class="credits" onclick="credits()" id="info">?</button>
+			</div>
+			<button class="collapse" onclick="collapse()"><i id="col" class="fas fa-angle-left"></i></button>
+		</div>
+	</div>
+
+	<div class="right">
+		<div class="overlay"></div>
+		<div class="creditpopup">Credits!</div>
+
+		<div class = "sesTitle">
+			<div>Sessions</div>
+			<button class = "newSes">New Session</button>
+		</div>
+
+		<div class = "ses">
+			<div class = "leftses">
+			</div>
+			<div class = "rightses">
+				<div class = "sesName">
+					<input type = "text" value = "Session 01" id = "sesName">
+					<div id = "delSes">X</div>
+				</div>
+				<div class = "sesName" style = "font-size: 15px">
+					Type:&nbsp;
+					<select class="scrambleDrop">
+						<option value="2x2">2x2</option>
+						<option value="3x3">3x3</option>
+						<option value="4x4">4x4</option>
+						<option value="5x5">5x5</option>
+						<option value="6x6">6x6</option>
+						<option value="7x7">7x7</option>
+						<option value="Megaminx">Megaminx</option>
+						<option value="Pyraminx">Pyraminx</option>
+						<option value="Skewb">Skewb</option>
+						<option value="Square-1">Square-1</option>
+						<option value="Clock">Clock</option>
+						<option value="Other">Other</option>
+					</select>
+				</div>
+				<div class = "sesInfo" style = "display: flex">
+					<div class="timerStats">
+						<div class="best">
+							<div class="bestCaption">Best:</div>
+							<div class="bestTime">-</div>
+						</div>
+						<div class="item">
+							<div class="caption">Avg:</div>
+							<div class="valTime" id="avg">-</div>
+						</div>
+						<div class="item">
+							<div class="caption">Worst:</div>
+							<div class="valTime" id="worst">-</div>
+						</div>
+						<div class="item">
+							<div class="caption">Ao5:</div>
+							<div class="valTime" id="ao5">-</div>
+						</div>
+						<div class="item">
+							<div class="caption">Ao12:</div>
+							<div class="valTime" id="ao12">-</div>
+						</div>
+						<div class="item">
+							<div class="caption">Ao100:</div>
+							<div class="valTime" id="ao100">-</div>
+						</div>
+						<div class="item">
+							<div class="caption">Range:</div>
+							<div class="valTime" id="range">-</div>
+						</div>
+					</div>
+					<div class="solves">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="collapse.js" async defer></script>
+	<script src="sessions.js" async defer></script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+#getval
+{
+	padding: 7.5px;
+
+	background-color: var(--buttonbg);
+	border: var(--border);
+	color: var(--font-colour);
+
+	margin-top: 10px;
+
+	outline: none;
+	border-radius: var(--bradius);
+}
+
+#colorPicker
+{
+	background-color: #151515;
+}
+
+.inputSet
+{
+	padding: 7.5px;
+
+	background-color: var(--buttonbg);
+	border: 3px solid #151515;
+	color: var(--font-colour);
+
+	outline: none;
+	border-radius: var(--bradius);
+}
+
+.btnset
+{
+	padding: 10px;
+
+	background-color: var(--buttonbg);
+	border: 3px solid #151515;
+	color: var(--font-colour);
+
+	outline: none;
+	border-radius: var(--bradius);
+}
+
+#timerSize {
+	padding: 0;
+	border: none;
+}
+
+.bgimg div p {
+	color: var(--font-colour);
+	font-size: 2vh;
+	margin-top: -2vh;
+}
+
+#colorPicker {
+	  border: var(--border);
+    background: var(--buttonbg);
+		padding: 0;
+    cursor: pointer;
+		border-radius: var(--bradiusSmall);
+}

@@ -1,0 +1,1 @@
+document.querySelector(".digits").style.fontSize = localStorage.digitSize != null ? localStorage.digitSize + "vh" : "15vh";

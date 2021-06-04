@@ -1,0 +1,291 @@
+body {
+    display: flex;
+    background: var(--midBlack);
+
+    /* Variables */
+
+    --white: whitesmoke;
+    --black: #151515;
+    --midBlack: #222;
+    --lightBlack: rgb(24, 24, 24);
+	--ok: rgb(53, 52, 52);
+    --blue: #0F3460;
+    --buttonbg: #333;
+    --animDuration: 0s;
+	--bradiusSmall: 5px;
+	--bradius: 10px;
+}
+
+.sesTitle
+{
+	font-size: 7.5vh;
+	font-weight: 100;
+
+	margin: 20px;
+
+	color: var(--white);
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.newSes
+{
+	padding: 10px;
+	margin: 10px;
+
+	color: var(--white);
+	border: 2px solid #151515;
+	background-color: var(--ok);
+
+	border-radius: 8px;
+}
+
+.sesBarBtn.highlight
+{
+	background-color: rgb(37, 33, 63);
+}
+
+.ses
+{
+	display: flex;
+
+	width: 100%;
+	height: 100%;
+}
+
+.leftses
+{
+	width: 30%;
+	height: 91.5%;
+
+	margin: 20px;
+
+	background-color: var(--ok);
+
+	border-radius: 10px;
+
+	overflow-y: scroll;
+}
+
+.rightses
+{
+	width: 70%;
+	height: 91.5%;
+
+	margin: 20px;
+
+	background-color: var(--ok);
+
+	border-radius: 10px;
+}
+
+.sesBar
+{
+	width: 94%;
+	height: 50px;
+
+	border-radius: 10px;
+
+	padding: 7.5px;
+
+	margin: 7.5px;
+	margin-bottom: none;
+
+	background-color: var(--midBlack);
+
+	color: var(--white);
+
+	display: flex;
+	justify-content: space-between;
+
+	outline: none;
+}
+
+.sesBarBtn
+{
+	width: 35px;
+	height: 35px;
+
+	background-color: rgb(64, 64, 64);
+	border: 3px solid rgb(32, 32, 32);
+
+	outline: none;
+	border-radius: 8px;
+
+	color: var(--white);
+
+	font-size: 13px;
+}
+
+.sesName
+{
+	width: 97.5%;
+
+	border-radius: 10px;
+
+	padding: 7.5px;
+
+	margin: 7.5px;
+	background-color: var(--midBlack);
+
+	color: var(--white);
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.sesName input
+{
+	background-color: var(--midBlack);
+
+	border: 1.5px solid rgb(64, 64, 64);
+	
+	padding: 5px;
+	color: var(--white);
+
+	border-radius: 7.5px;
+}
+
+.best {
+    width: 95%;
+    padding: 10px;
+    margin: 3%;
+    margin-bottom: 2%;
+
+    border-radius: var(--bradius);
+
+    background-color: rgb(64, 64, 64);
+
+    font-size: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bestCaption {
+    color: var(--white);
+    font-weight: bold;
+}
+
+.bestTime {
+    color: #0069e9;
+    font-weight: 500;
+}
+
+.data {
+    width: 100%;
+
+    display: inline-block;
+}
+
+.groupData {
+    width: 100%;
+
+    display: flex;
+}
+
+.item {
+    width: 45%;
+
+    margin-left: 3.25%;
+    margin-bottom: 2%;
+    padding: 10px;
+
+	padding-left: none;
+
+    font-size: 15px;
+
+    background-color: rgb(64, 64, 64);
+
+    border-radius: var(--bradius);
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.scrambleDrop {
+    width: 80px;
+    min-width: 80px;
+
+    border: 2px solid #151515;
+    color: var(--white);
+    background-color: rgb(64, 64, 64);
+
+    padding: 3px;
+
+    border-radius: var(--bradius);
+
+    outline: none;
+}
+
+.caption {
+    color: var(--white);
+    font-weight: bold;
+}
+
+.valTime {
+    color: #0069e9;
+    font-weight: 500;
+}
+
+.timerStats {
+    width: 45%;
+    height: 50%;
+    min-height: 190px;
+
+	padding-bottom: 5px;
+
+	margin: 7.5px;
+
+    background-color: var(--midBlack);
+
+    border-radius: var(--bradius);
+    display: flex;
+    flex-wrap: wrap;
+	overflow: none;
+}
+
+.solves
+{
+	margin-top: 8px;
+	margin-left: 15px;
+
+	background-color: var(--midBlack);
+
+	width: 45%;
+    height: 100%;
+    max-height: 190px;
+
+    border-radius: var(--bradius);
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#delSes {
+    cursor: pointer;
+    background-color: rgb(190, 0, 0);
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+
+    border-radius: var(--bradiusSmall);
+
+    font-weight: bold;
+    color: rgb(77, 0, 0);
+}
+
+#delSes div {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
