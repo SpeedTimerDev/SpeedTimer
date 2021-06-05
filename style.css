@@ -7,7 +7,7 @@
 body {
     /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
 
-	font-family: sans-serif;
+    font-family: sans-serif;
     display: flex;
     background: var(--midBlack);
 
@@ -20,9 +20,9 @@ body {
     --blue: #0F3460;
     --buttonbg: #333;
     --animDuration: 0s;
-		--bradiusSmall: 5px;
-		--bradius: 10px;
-		--border: 2px solid rgb(21 21 21);
+    --bradiusSmall: 5px;
+    --bradius: 10px;
+    --border: 2px solid rgb(21 21 21);
 }
 
 /* Navbar */
@@ -141,9 +141,38 @@ body {
     cursor: pointer;
     margin: 10px;
     transition: width, height ease var(--animDuration);
+
+    -webkit-text-stroke: 1px var(--buttonbg);
+}
+
+.infoBtn {
+    font-size: 18px;
+    border: none;
+    text-decoration: none;
+    color: var(--font-colour);
+    background-color: var(--buttonbg);
+    width: 40px;
+    height: 40px;
+    border-radius: var(--bradius);
+    cursor: pointer;
+    margin: 10px;
+    transition: width, height ease var(--animDuration);
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    -webkit-text-stroke: -5px;
+
+    -webkit-text-stroke: 1px var(--buttonbg);
 }
 
 .credits.collapsed {
+    width: 30px;
+    height: 30px;
+}
+
+.infoBtn.collapsed {
     width: 30px;
     height: 30px;
 }
@@ -177,9 +206,9 @@ body {
 
     background-color: var(--midBlack);
 
-	background-image:url('');
-    background-size:cover;
-    background-position: center;
+    background-image: url('');
+    background-size: 100%;
+    background-position: 50% 50%;
 }
 
 .overlay {
@@ -222,9 +251,9 @@ body {
 }
 
 button.digits {
-		background: transparent;
-		border: none;
-		width: 100%;
+    background: transparent;
+    border: none;
+    width: 100%;
     height: 50%;
 
     color: var(--font-colour);
@@ -232,20 +261,22 @@ button.digits {
     display: flex;
     justify-content: space-around;
     align-items: center;
-		cursor: default;
+    cursor: default;
 }
 
-input.digits {
-		margin: auto;
-		color: var(--font-colour);
-		border: var(--border);
-		width: 30%;
-    height: 30%;
-		font-size: 80px;
-		text-align: center;
+.inputTime {
+    margin: auto;
+    color: var(--font-colour);
+    border: var(--border);
+    width: 35%;
+    height: 35%;
+    font-size: 400%;
+    text-align: center;
     display: flex;
-		border-radius: var(--bradius);
-		background: var(--buttonbg);
+    border-radius: var(--bradius);
+    background: var(--buttonbg);
+
+    margin-top: 4%;
 }
 
 .digits::-moz-selection {
@@ -272,9 +303,8 @@ input.digits {
     text-align: center;
 }
 
-.set p
-{
-	color: var(--font-colour);
+.set p {
+    color: var(--font-colour);
 }
 
 .type {
@@ -287,7 +317,7 @@ input.digits {
     color: var(--font-colour);
     padding: 2px 8px;
     border-radius: 10px;
-		cursor: pointer;
+    cursor: pointer;
 }
 
 .scrambleType {
@@ -547,7 +577,7 @@ input.digits {
     height: min-content;
 
     margin: 10px;
-	margin-bottom: none;
+    margin-bottom: none;
 
     display: flex;
     flex-direction: row;
@@ -560,7 +590,7 @@ input.digits {
     border-radius: var(--bradius);
 
     margin: 10px;
-	margin-top: none;
+    margin-top: none;
 
     display: flex;
     justify-content: space-around;
@@ -586,7 +616,7 @@ input.digits {
 
     outline: none;
 
-	display: flex;
+    display: flex;
     justify-content: space-around;
     align-items: center;
 }
@@ -633,7 +663,7 @@ input.digits {
     overflow-y: scroll;
 
     display: flex;
-	flex-wrap: wrap;
+    flex-wrap: wrap;
 
     background-color: var(--midBlack);
 }
@@ -644,7 +674,7 @@ input.digits {
     display: flex;
     flex-direction: row;
 
-	flex-wrap: wrap;
+    flex-wrap: wrap;
 }
 
 .alg {
@@ -663,9 +693,9 @@ input.digits {
 }
 
 .img {
-	width: 60%;
+    width: 60%;
 
-	margin-bottom: 25px;
+    margin-bottom: 25px;
 
     margin-left: 25px;
     margin-right: 25px;
@@ -692,14 +722,14 @@ input.digits {
 .leftAlg {
     display: inline-block;
 
-	width: 20vh;
+    width: 20vh;
 }
 
 .rightAlg {
     display: inline-block;
     margin-right: 20px;
 
-	width: 20vh;
+    width: 20vh;
 
     justify-content: space-between;
 }
@@ -718,7 +748,7 @@ input.digits {
     justify-content: space-around;
     align-items: center;
 
-   font-size: 80%;
+    font-size: 80%;
     font-weight: 500;
 
     border-radius: var(--bradius);
@@ -758,7 +788,7 @@ input.digits {
     justify-content: space-around;
     align-items: center;
 
-   font-size: 80%;
+    font-size: 80%;
     font-weight: 500;
 
     margin-bottom: 10px;
@@ -781,7 +811,7 @@ input.digits {
     margin-top: 7%;
     margin-bottom: 7%;
 
-   font-size: 100%;
+    font-size: 100%;
 
     color: var(--font-colour);
 
@@ -928,40 +958,40 @@ input.digits {
 /* Settings */
 
 .bgimg {
-	display: flex;
+    display: flex;
 }
 
 .bgimg button {
-	/* height: 30px; */
-	margin-top: 30px;
-	margin-bottom: 30px;
-	margin-left: 50px;
+    /* height: 30px; */
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 50px;
 }
 
 .CSImport {
-	text-align: center;
-	width: 250px;
-	height: 50px;
-	background-color: #181818;
-	border-radius: var(--bradius);
-	border: dashed 2px grey;
-	color: var(--font-colour);
-	cursor: pointer;
+    text-align: center;
+    width: 250px;
+    height: 50px;
+    background-color: #181818;
+    border-radius: var(--bradius);
+    border: dashed 2px grey;
+    color: var(--font-colour);
+    cursor: pointer;
 }
 
 .CSImport span {
-	margin-top: -100px;
+    margin-top: -100px;
 
-	padding: 10px;
+    padding: 10px;
 }
 
 .CSImport input {
-	opacity: 0;
-	/* margin-top: -24px; */
-	width: 100%;
-	height: 100%;
-	cursor: pointer;
-	z-index: 100;
+    opacity: 0;
+    /* margin-top: -24px; */
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 100;
 
-	margin: 5px;
+    margin: 5px;
 }
