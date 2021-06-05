@@ -10,17 +10,17 @@ localStorage.setItem("algVersion", version);
 //     var version = JSON.parse(localStorage.getItem("version"));
 // }
 
-// if (localStorage.getItem("algDatabase") == null) {
-//     createDatabase();
+if (localStorage.getItem("algDatabase") == null) {
+    createDatabase();
 
-//     localStorage.setItem("algDatabase", JSON.stringify(database));
-// } else {
-//     var database = JSON.parse(localStorage.getItem("algDatabase"));
+    localStorage.setItem("algDatabase", JSON.stringify(database));
+} else {
+    var database = JSON.parse(localStorage.getItem("algDatabase"));
 
-//     if (version != "0.0.1") {
-//         createDatabase();
-//     }
-// }
+    if (version != "0.0.1") {
+        createDatabase();
+    }
+}
 
 var database;
 
@@ -86,9 +86,6 @@ function createDatabase() {
 
 //pllBtn.addEventListener("click", loadAlgsPLL(database.pll.names, database.pll.algs, database.pll.imgs, database.pll.rots));
 //ollBtn.addEventListener("click", loadAlgsPLL(database.oll.names, database.oll.algs, database.oll.imgs, database.oll.rots));
-
-
-createDatabase();
 
 if (document.URL.includes("algs-3-pll")) {
     loadAlgsPLL(database.pll.names, database.pll.algs, database.pll.imgs, database.pll.rots);
