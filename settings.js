@@ -11,7 +11,6 @@ document.querySelector(".bgimg button").addEventListener('click', () => {
 	if (input.value == "" && confirm("Are you sure you want to Reset the Image Background?")) {
 		localStorage.removeItem("bgimg");
 	}
-	input.value = "";
 	document.querySelector(".bgimg button").innerHTML = 'Default';
 }, true);
 
@@ -37,9 +36,7 @@ clrAllSolves.addEventListener("click", function () {
 	var danger = prompt("Are You Sure You Want to Delete all of Your Solves? Type 'confirm' to proceed.").toLowerCase();
 
 	if (danger == "confirm") {
-		localStorage.removeItem("buttonbg");
-		localStorage.removeItem("timerSize");
-		localStorage.removeItem("bgimg");
+		localStorage.removeItem("speedtimer");
 		document.location.href = "index.html";
 	}
 });
@@ -49,7 +46,9 @@ clrAllSettings.addEventListener("click", function () {
 	var danger = prompt("Are You Sure You Want to Delete all of Your Settings? Type 'confirm' to proceed.").toLowerCase();
 
 	if (danger == "confirm") {
-		localStorage.removeItem("speedtimer");
+		localStorage.removeItem("buttonbg");
+		localStorage.removeItem("timerSize");
+		localStorage.removeItem("bgimg");
 		document.location.href = "index.html";
 	}
 });

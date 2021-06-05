@@ -325,7 +325,6 @@ function increment() {
 }
 
 document.body.onkeydown = function (e) {
-
 	if (e[plus2[0]] && e.key == plus2[1]) {
 		e.preventDefault();
 		if (sessions[currentSessionIdx].times[0].slice(-1) == "+") {
@@ -360,25 +359,29 @@ document.body.onkeydown = function (e) {
 		generateTimes();
 		generateStats();
 	}
-	if (e.keyCode == 32 && timer.nodeName == "BUTTON") {
-		timer.style.color = "lightgreen";
-	}
-	if (e.key == "Escape") {
-		document.querySelector(".digits").innerHTML = "00:00.00";
+	if (localStorage.getItem("inputType") == "timer") {
+		if (e.keyCode == 32 && timer.nodeName == "BUTTON") {
+			timer.style.color = "lightgreen";
+		}
+		if (e.key == "Escape") {
+			document.querySelector(".digits").innerHTML = "00:00.00";
+		}
 	}
 }
 
 document.body.onkeyup = function (e) {
-	if (timer.nodeName == "BUTTON") {
-		timer.style.color = "white";
-		if (e.keyCode == 32 && running == 0) {
-			start();
-		} else if (running == 1) {
-			running = 0;
-			getTime();
-			localStorage.setItem("speedtimer", JSON.stringify(sessions));
-			generateScramble(sType);
+	if (localStorage.getItem("inputType") == "timer") {
+		if (timer.nodeName == "BUTTON") {
 			timer.style.color = "white";
+			if (e.keyCode == 32 && running == 0) {
+				start();
+			} else if (running == 1) {
+				running = 0;
+				getTime();
+				localStorage.setItem("speedtimer", JSON.stringify(sessions));
+				generateScramble(sType);
+				timer.style.color = "white";
+			}
 		}
 	}
 }
@@ -390,27 +393,63 @@ function start() {
 }
 
 function enter() {
-	let input = document.querySelector("input.digits");
-	input.value = input.value.replace(/[^0-9:.+DNFdnf]/g,'');
+	let input = document.querySelector(".inputTime");
+	input.value = input.value.replace(/[^0-9+DNFdnf]/g, '');
 }
 
-// Useful Functions
+enter();
 
-function getData(name, exeception) {
-	if (localStorage.getItem(name) == null) {
-		return exeception;
-	} else {
-		return localStorage.getItem(null);
+function setInputFilter(textbox, inputFilter) {
+	["input", "keydown", "keyup", "mousedown", "mouseup", "select", "contextmenu", "drop"].forEach(function (event) {
+		textbox.addEventListener(event, function () {
+			if (inputFilter(this.value)) {
+				this.oldValue = this.value;
+				this.oldSelectionStart = this.selectionStart;
+				this.oldSelectionEnd = this.selectionEnd;
+			} else if (this.hasOwnProperty("oldValue")) {
+				this.value = this.oldValue;
+				this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+			} else {
+				this.value = "";
+			}
+		});
+	});
+}
+
+setInputFilter(document.querySelector(".inputTime"), function (value) {
+	return /^-?\d*$/.test(value);
+});
+
+document.querySelector(".inputTime").addEventListener("change", function () {
+	if (localStorage.getItem("inputType") == 'manual') {
+		let input = document.querySelector(".inputTime");
+		let tempTime;
+		if (input.value.length > 6 && input.value.slice(-1) != "+") {
+			input.value = "";
+		} else {
+			if (input.value.slice(-1) == "+" && input.value.legnth < 8) {
+				input.value = "";
+			} else {
+				var timeofSolve = manualFormat(input.value);
+
+				sessions[currentSessionIdx].times.unshift(timeofSolve);
+				sessions[currentSessionIdx].scrambles.unshift(JSON.parse(localStorage.getItem("scrambleTemp")));
+				localStorage.setItem("speedtimer", JSON.stringify(sessions));
+
+				generateTimes();
+				generateStats();
+
+				input.value = "";
+			}
+		}
 	}
-}
+});
 
 function format(time) {
 	var temp = time.toString();
 	var temp2;
-
-	if (temp == "DNF") {
-		return "DNF";
-	} else if (temp.length == 6) {
+	
+	if (temp.length == 6) {
 		temp2 = temp.slice(0, 2) + ":" + temp.slice(2, 4) + "." + temp.slice(4, 6);
 		return temp2;
 	} else if (temp.length == 5) {
@@ -429,19 +468,92 @@ function format(time) {
 		temp2 = "0.0" + temp.slice(0, 1);
 		return temp2;
 	}
+	else if (temp.includes == "DNF") {
+		return "DNF";
+	} 
+
+	// return time;
+}
+
+function manualFormat(time) {
+	var temp = time;
+	var temp2;
+
+	if (temp == "DNF" || temp == "dnf") {
+		return "DNF";
+	} else if (temp.slice(-1) == "+") {
+		temp = time.slice(0, time.length - 1)
+		if (temp.length == 6) {
+			temp2 = temp;
+			return temp2.toString() + "+";
+		} else if (temp.length == 5) {
+			temp2 = "0" + temp.slice(0, 5);
+			return temp2.toString() + "+";
+		} else if (temp.length == 4) {
+			temp2 = "00" + temp.slice(0, 4);
+			return temp2.toString() + "+";
+		} else if (temp.length == 3) {
+			temp2 = "000" + temp.slice(0, 3);
+			return temp2.toString() + "+";
+		} else if (temp.length == 2) {
+			temp2 = "0000" + temp.slice(0, 2);
+			return temp2.toString() + "+";
+		} else if (temp.length == 1) {
+			temp2 = "00000" + temp.slice(0, 1);
+			return temp2.toString() + "+";
+		}
+	} else if (temp.length == 6) {
+		temp2 = temp;
+		return temp2.toString();
+	} else if (temp.length == 5) {
+		temp2 = "0" + temp.slice(0, 5);
+		return temp2.toString();
+	} else if (temp.length == 4) {
+		temp2 = "00" + temp.slice(0, 4);
+		return temp2.toString();
+	} else if (temp.length == 3) {
+		temp2 = "000" + temp.slice(0, 3);
+		return temp2.toString();
+	} else if (temp.length == 2) {
+		temp2 = "0000" + temp.slice(0, 2);
+		return temp2.toString();
+	} else if (temp.length == 1) {
+		temp2 = "00000" + temp.slice(0, 1);
+		return temp2.toString();
+	}
 
 	//return time;
 }
 
-// document.querySelector(".type").onclick = e => {
-// 	let type = document.querySelector(".type");
-// 	type.blur();
-// 	document.querySelector(".digits").outerHTML = type.textContent == "⌨️" ? '<input class="digits" onkeyup="enter()"></input>' : `<button disabled="disabled" class="digits" style="font-size: ${localStorage.digitSize}vh;">00:00.00</button>`;
-// 	type.innerHTML = type.textContent == "⌨️" ? "⏱" : "⌨️";
-// 	timer = document.querySelector(".digits");
-// }
+if (localStorage.getItem("inputType") !== null) {
+	let type = document.querySelector(".type");
+	if (localStorage.getItem("inputType") == 'manual') {
+		document.querySelector(".inputTime").style.display = "flex";
+		document.querySelector(".digits").style.display = "none";
+		type.innerHTML = "⏱"
+	} else {
+		document.querySelector(".inputTime").style.display = "none";
+		document.querySelector(".digits").style.display = "flex";
+		type.innerHTML = "⌨️"
+	}
+} else {
+	localStorage.setItem("inputType", 'timer');
+}
 
-// Sessions
+document.querySelector(".type").onclick = e => {
+	let type = document.querySelector(".type");
+	type.blur();
+	if (type.innerHTML == "⌨️") {
+		document.querySelector(".inputTime").style.display = "flex";
+		document.querySelector(".digits").style.display = "none";
+		localStorage.setItem("inputType", 'manual');
+	} else {
+		document.querySelector(".inputTime").style.display = "none";
+		document.querySelector(".digits").style.display = "flex";
+		localStorage.setItem("inputType", 'timer');
+	}
+	type.innerHTML = type.textContent == "⌨️" ? "⏱" : "⌨️";
+}
 
 function getTime() {
 	var timeFinish = timer.innerHTML.slice(0, 2) + timer.innerHTML.slice(3, 5);
@@ -515,7 +627,6 @@ function generateTimes() {
 	}
 }
 
-
 function generateStats() {
 	var best = document.querySelector(".bestTime");
 	var avg = document.getElementById("avg");
@@ -573,7 +684,8 @@ function generateStats() {
 		worst.innerHTML = format(Math.max(...times.filter(e => !isNaN(parseInt(e)))) == -Infinity ? "DNF" : Math.max(...times.filter(e => !isNaN(parseInt(e)))));
 
 		// Range
-		if (sessions[currentSessionIdx].times.length > 1) range.innerHTML = format(Math.round(parseFloat(worst.innerHTML) * 100 - parseFloat(best.innerHTML) * 100));
+		if (sessions[currentSessionIdx].times.length > 1) 
+		{ range.innerHTML = format(Math.round(parseFloat(worst.innerHTML) - parseFloat(best.innerHTML))) };
 
 		// ao5
 		average = ao(5);
@@ -613,6 +725,7 @@ function deleteSolve() {
 	if (confirm('Are You Sure You Want To Delete This Solve?')) {
 
 		sessions[currentSessionIdx].times.splice(sessions[currentSessionIdx].times.length - parseInt(this.parentElement ?.parentElement.id ?? document.querySelector(".solves").childNodes[0].id) - 1, 1);
+		sessions[currentSessionIdx].scrambles.splice(sessions[currentSessionIdx].scrambles.length - parseInt(this.parentElement ?.parentElement.id ?? document.querySelector(".solves").childNodes[0].id) - 1, 1);
 
 		localStorage.setItem("speedtimer", JSON.stringify(sessions));
 
