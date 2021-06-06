@@ -10,6 +10,9 @@ localStorage.setItem("algVersion", version);
 //     var version = JSON.parse(localStorage.getItem("version"));
 // }
 
+
+var database;
+
 if (localStorage.getItem("algDatabase") == null) {
     createDatabase();
 
@@ -21,8 +24,6 @@ if (localStorage.getItem("algDatabase") == null) {
         createDatabase();
     }
 }
-
-var database;
 
 function createDatabase() {
     database = {
