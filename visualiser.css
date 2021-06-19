@@ -1,0 +1,93 @@
+.scrambleShow {
+    width: 30%;
+    height: 100%;
+    min-height: 190px;
+
+    background-color: var(--black);
+
+    border-radius: var(--bradius);
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+body {
+	background: #333;
+	
+	--height: 50px;
+	--n: 2;
+	--border: 1px;
+}
+
+body {
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+
+    font-family: sans-serif;
+    display: flex;
+    background: var(--midBlack);
+
+    /* Variables */
+
+    --font-colour: whitesmoke;
+    --black: #151515;
+    --midBlack: #222;
+    --lightBlack: rgb(24, 24, 24);
+    --blue: #0F3460;
+    --buttonbg: #333;
+    --animDuration: 0s;
+    --bradiusSmall: 5px;
+    --bradius: 10px;
+    --border: 2px solid rgb(21 21 21);
+}
+
+.n {
+	width: 10%;
+	height: 20px;
+	margin: 10px;
+}
+
+.up, .down {
+	height: calc(var(--height) + (var(--n) * 2 * var(--border)));
+	width: calc(var(--height) + (var(--n) * 2 * var(--border)));
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+	left: calc(-5px - ((var(--height) + (var(--n) * 2 * var(--border))) / 2));
+}
+
+.middle {
+	height: calc(var(--height) + (var(--n) * 2 * var(--border)));
+	display: flex;
+	width: calc((var(--height) + (var(--n) * 2 * var(--border))) * 4 + 50px);
+	justify-content: space-evenly;
+}
+
+.middle div {
+	width: calc(var(--height) + (var(--n) * 2 * var(--border)));
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.piece, .middle div div {
+	background: white;
+	height: calc(var(--height) / var(--n));
+	width: calc(var(--height) / var(--n));
+	border: solid var(--border) black;
+	border-radius: 2px;
+}
+
+.container {
+	border-radius: 20px;
+	background: #222;
+	width: 500px;
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}

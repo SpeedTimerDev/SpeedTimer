@@ -8,7 +8,6 @@ localStorage.setItem("algVersion", version);
 //     localStorage.setItem("version", JSON.stringify(version));
 // } else {
 //     var version = JSON.parse(localStorage.getItem("version"));
-// }
 
 var database;
 

@@ -300,28 +300,28 @@ function reset() {
 	timer.innerHTML = "00:00.00";
 }
 
-function increment() {
-	setTimeout(function () {
+function increment(start) {
+	advance = setInterval(function () {
+		timer.style.color = "white";
 		if (running == 1) {
-			time++;
-			var mins = Math.floor(time / 100 / 60);
+			time = Date.now() - start;
+			var mins = Math.floor(time / 1000 / 60);
 			if (mins <= 9) {
 				mins = "0" + mins;
 			}
-			var secs = Math.floor(time / 100 % 60);
+			var secs = Math.floor(time / 1000 % 60);
 			if (secs <= 9) {
 				secs = "0" + secs;
 			}
 
-			var hundredths = Math.floor(time % 100);
+			var hundredths = Math.round(time % 1000 / 10);
 			if (hundredths <= 9) {
 				hundredths = "0" + hundredths;
 			}
 
 			timer.innerHTML = mins + ":" + secs + "." + hundredths;
-			increment();
-		}
-	}, 10);
+		} else clearInterval(advance);
+	});
 }
 
 document.body.onkeydown = function (e) {
@@ -389,7 +389,7 @@ document.body.onkeyup = function (e) {
 function start() {
 	reset();
 	running = 1;
-	increment();
+	increment(Date.now());
 }
 
 function enter() {
