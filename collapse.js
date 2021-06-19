@@ -32,14 +32,14 @@ if (JSON.parse(localStorage.getItem("col")) == true) { close(); }
 collapse("First");
 
 function open() {
-	document.querySelector(".leftT").classList.remove("collapsed");
-	[].slice.call(document.querySelector(".leftT").getElementsByTagName("*"), 0).forEach(e => e.classList.remove("collapsed"));
+	document.querySelector(".left").classList.remove("collapsed");
+	[].slice.call(document.querySelector(".left").getElementsByTagName("*"), 0).forEach(e => e.classList.remove("collapsed"));
 	document.querySelector(".collapse").innerHTML = `<i id="col" class="fas fa-angle-left"></i>`;
 }
 
 function close() {
-	document.querySelector(".leftT").classList.add("collapsed");
-	[].slice.call(document.querySelector(".leftT").getElementsByTagName("*"), 0).forEach(e => e.classList.add("collapsed"));
+	document.querySelector(".left").classList.add("collapsed");
+	[].slice.call(document.querySelector(".left").getElementsByTagName("*"), 0).forEach(e => e.classList.add("collapsed"));
 	document.querySelector(".collapse").innerHTML = `<i id="col" class="fas fa-angle-right"></i>`;
 }
 
