@@ -1,3 +1,204 @@
+// Visualiser
+
+let n;
+const createCube = size => {
+	cube = [];
+	n = size;
+	const scale = 50;
+	const xOff = 50;
+	const yOff = 100;
+	document.querySelector(".scrambleShow").innerHTML = '<div class="up"></div><div class="middle"><div class="left"></div><div class="front"></div><div class="right"></div><div class="back"></div></div><div class="down"></div>';
+
+	document.body.style.setProperty("--n", n);
+
+	for (let i = 0; i < 6; i++) {
+		let temp2 = [];
+		for (let j = 0; j < n; j++) {
+			let temp = [];
+			for (let k = 0; k < n; k++) {
+				if (i == 0) document.querySelector(".up").innerHTML += '<div class="piece"></div>';
+				if (i == 1) document.querySelector(".left").innerHTML += '<div class="piece"></div>';
+				if (i == 2) document.querySelector(".front").innerHTML += '<div class="piece"></div>';
+				if (i == 3) document.querySelector(".right").innerHTML += '<div class="piece"></div>';
+				if (i == 4) document.querySelector(".back").innerHTML += '<div class="piece"></div>';
+				if (i == 5) document.querySelector(".down").innerHTML += '<div class="piece"></div>';
+
+				if (i == 0) temp.push("U");
+				if (i == 1) temp.push("L");
+				if (i == 2) temp.push("F");
+				if (i == 3) temp.push("R");
+				if (i == 4) temp.push("B");
+				if (i == 5) temp.push("D");
+			}
+			temp2.push(temp);
+		}
+		cube.push(temp2);
+	}
+	draw();
+}
+
+const resetCube = () => {
+	cube = [];
+	for (let i = 0; i < 6; i++) {
+		let temp2 = [];
+		for (let j = 0; j < n; j++) {
+			let temp = [];
+			for (let k = 0; k < n; k++) {
+				if (i == 0) temp.push("U");
+				if (i == 1) temp.push("L");
+				if (i == 2) temp.push("F");
+				if (i == 3) temp.push("R");
+				if (i == 4) temp.push("B");
+				if (i == 5) temp.push("D");
+			}
+			temp2.push(temp);
+		}
+		cube.push(temp2);
+	}
+}
+
+let cube;
+const colours = {
+	"U": "white",
+	"R": "red",
+	"F": "green",
+	"L": "#FD6A02",
+	"D": "gold",
+	"B": "blue"
+}
+
+const draw = () => {
+	let l = 0;
+	for (let i = 0; i < cube.length; i++) {
+		for (let j = 0; j < cube[i].length; j++) {
+			for (let k = 0; k < cube[i][j].length; k++) {
+				document.querySelectorAll(".piece")[l++].style.background = colours[cube[i][j][k]];
+			}
+		}
+	}
+}
+
+const rotate = arr => arr.map((e, i) => arr.map(e => e[i]).reverse());
+const arotate = arr => rotate(rotate(rotate(arr)));
+
+const perform = moves => {
+	resetCube();
+	if (moves.length == 0) { resetCube(); draw(); return; }
+	if (!moves.match(/[a-zA-Z]/) || moves.match(/([^ 0-9'RUFLDBrufldbMESxyzw])/g) || moves.match(/([0-9][0-9RUFLDBrufldbMESxyz](?![w'2]{0,3} ))/g)?.length > 1) {
+		return;
+	}
+
+	moves = moves.replaceAll(",", "").split(" ");
+
+	axies = { "U": "y", "D": "y", "E": "y", "Y": "y", "R": "x", "L": "x", "M": "x", "X": "x", "F": "z", "B": "z", "S": "z", "Z": "z" };
+
+	idx = { "U": [0], "D": [n - 1], "R": [0], "L": [n - 1], "F": [0], "B": [n - 1], "M": [...Array(n - 1).keys()].slice(1), "E": [...Array(n - 1).keys()].slice(1), "S": [...Array(n - 1).keys()].slice(1), "x": [...Array(n).keys()], "y": [...Array(n).keys()], "z": [...Array(n).keys()], "u": n == 3 ? [0, 1] : [0], "d": n == 3 ? [2, 1] : [n - 1], "r": n == 3 ? [0, 1] : [0], "l": n == 3 ? [2, 1] : [n - 1], "f": n == 3 ? [0, 1] : [0], "b": n == 3 ? [2, 1] : [n - 1], "Uw": n == 3 ? [0, 1] : [0], "Dw": n == 3 ? [2, 1] : [n - 1], "Rw": n == 3 ? [0, 1] : [0], "Lw": n == 3 ? [2, 1] : [n - 1], "Fw": n == 3 ? [0, 1] : [0], "Bw": n == 3 ? [2, 1] : [n - 1] };
+	for (move of moves) {
+		if (move == "") break;
+		let layers = idx[move.replace(/[0-9']/g, "")];
+		let slice = (n != 3 && move.replace(/[0-9']/g, "") == move.replace(/[0-9']/g, "").match(/^[udrlfb]$|^[UDRLFB]w$/g)) ? (((temp = move.match(/[0-9][A-Za-z]/g)) ? parseInt(move.replace(/[a-zA-Z]+[0-9]/g, "")) - 1 : 1) * (move.includes("d") || move.includes("l") || move.includes("b") ? -1 : 1)) : 0;
+		if (move.match(/[RUF]w/g)) layers = [...Array(slice + 1).keys()];
+		if (move.match(/[LDB]w/g)) layers = [...Array(n).keys()].slice(-slice - 1);
+		let newCube = cube, i, j = 0;
+
+		for (layer of layers) {
+
+			if (!move.match(/[RUFLDB]w/g)) slice = (n != 3 && move.replace(/[0-9']/g, "") == move.replace(/[0-9']/g, "").match(/^[udrlfb]$|^[UDRLFB]w$/g)) ? (((temp = move.match(/[0-9][A-Za-z]/g)) ? parseInt(move.replace(/[a-zA-Z]+[0-9]/g, "")) - 1 : 1) * (move.includes("d") || move.includes("l") || move.includes("b") ? -1 : 1)) : 0;
+			if (!move.match(/[RUFLDB]w/g)) layer = layer + slice >= 0 ? layer + slice : n - layer - slice;
+			let axis = axies[move.replace(/[0-9'w]/g, "").toUpperCase()];
+			let double = (temp = move.match(/[A-Za-z][0-9]/g)) ? parseInt(temp[0].replace(/[a-zA-Z]/g, "")) : 1;
+			let direction = move.toUpperCase().includes("L") || move.toUpperCase().includes("M") || move.toUpperCase().includes("U") || move.toUpperCase().includes("B") || move.toUpperCase().includes("Y") ? "ACW" : "CW";
+			direction = move.includes("'") ? direction == "ACW" ? "CW" : "ACW" : direction;
+			for (let d = 0; d < double; d++) {
+				if (axis == "x") {
+					let up = arotate(cube[0])[layer];
+					let back = arotate(cube[4])[newCube[4].length - layer - 1];
+					let down = arotate(cube[5])[layer];
+					let front = arotate(cube[2])[layer];
+
+					if (direction == "CW") {
+						up.reverse();
+						back.reverse();
+						i = 0; newCube[0].forEach(e => e[newCube[0].length - layer - 1] = front[i++]);
+						i = 0; newCube[4].forEach(e => e[layer] = up[i++]);
+						i = 0; newCube[5].forEach(e => e[newCube[4].length - layer - 1] = back[i++]);
+						i = 0; newCube[2].forEach(e => e[newCube[2].length - layer - 1] = down[i++]);
+
+						if (layer == 0) cube[3] = rotate(cube[3]);
+						if (layer == cube[0].length - 1) cube[1] = arotate(cube[1]);
+					} else {
+						down.reverse();
+						back.reverse();
+						i = 0; newCube[0].forEach(e => e[newCube[0].length - layer - 1] = back[i++]);
+						i = 0; newCube[4].forEach(e => e[layer] = down[i++]);
+						i = 0; newCube[5].forEach(e => e[newCube[4].length - layer - 1] = front[i++]);
+						i = 0; newCube[2].forEach(e => e[newCube[2].length - layer - 1] = up[i++]);
+
+						if (layer == 0) cube[3] = arotate(cube[3]);
+						if (layer == cube[0].length - 1) cube[1] = rotate(cube[1]);
+					}
+
+				}
+				if (axis == "y") {
+					let right = cube[3][layer];
+					let front = cube[2][layer];
+					let left = cube[1][layer];
+					let back = cube[4][layer];
+
+					if (direction == "CW") {
+						newCube[3][layer] = front;
+						newCube[4][layer] = right;
+						newCube[1][layer] = back;
+						newCube[2][layer] = left;
+
+						if (layer == 0) cube[0] = arotate(cube[0]);
+						if (layer == cube[0].length - 1) cube[5] = rotate(cube[5]);
+					} else {
+						newCube[3][layer] = back;
+						newCube[4][layer] = left;
+						newCube[1][layer] = front;
+						newCube[2][layer] = right;
+
+						if (layer == 0) cube[0] = rotate(cube[0]);
+						if (layer == cube[0].length - 1) cube[5] = arotate(cube[5]);
+					}
+
+				}
+				if (axis == "z") {
+					let up = cube[0][cube[1].length - layer - 1];
+					let left = arotate(cube[1])[layer];
+					let down = cube[5][layer];
+					let right = arotate(cube[3])[cube[3].length - layer - 1];
+
+					if (direction == "CW") {
+						right.reverse();
+						left.reverse();
+						newCube[0][cube[0].length - layer - 1] = left;
+						i = 0; newCube[3].forEach(e => e[layer] = up[i++]);
+						newCube[5][layer] = right;
+						i = 0; newCube[1].forEach(e => e[cube[1].length - layer - 1] = down[i++]);
+
+						if (layer == 0) cube[2] = rotate(cube[2]);
+						if (layer == cube[0].length - 1) cube[4] = arotate(cube[4]);
+					} else {
+						up.reverse();
+						down.reverse();
+						newCube[0][cube[0].length - layer - 1] = right;
+						i = 0; newCube[3].forEach(e => e[layer] = down[i++]);
+						newCube[5][layer] = left;
+						i = 0; newCube[1].forEach(e => e[cube[1].length - layer - 1] = up[i++]);
+
+						if (layer == 0) cube[2] = arotate(cube[2]);
+						if (layer == cube[0].length - 1) cube[4] = rotate(cube[4]);
+					}
+				}
+				cube = newCube;
+				draw();
+			}
+		}
+	}
+}
+
 // Main Vars
 var plus2 = ['altKey', "2"];
 var dnf = ['altKey', "d"];
@@ -7,7 +208,8 @@ var clear = ['esc'];
 let plus2col = 'orange';
 let dnfcol = 'red';
 
-if (localStorage.bgimg) document.querySelector(".right").style.backgroundImage = "url(" + localStorage.bgimg + ")";
+if (localStorage.bgimg) document.querySelector(".rightT").style.backgroundImage = "url(" + localStorage.bgimg + ")";
+if (localStorage.borderView) document.body.style.setProperty("--border", localStorage.borderView == "true" ? "1px" : "0px");
 if (localStorage.buttonbg != null) document.body.style.setProperty("--buttonbg", localStorage.buttonbg);
 
 var sType;
@@ -73,29 +275,32 @@ function generateScramble(type) {
 	switch (type) {
 		case "2x":
 			notation = ["R", "U", "F"];
-			nxn(2, 8, 2.5);
+			nxn(2, 8, 75, 64);
 			break;
 		case "3x":
 			notation = ["R", "U", "F", "L", "D", "B"];
-			nxn(3, 17, 2.25);
+			nxn(3, 17, 75, 63);
 			break;
 		case "4x":
 			notation = ["R", "U", "F", "L", "D", "B", "Rw", "Uw", "Fw"];
-			nxn(4, 30, 2);
+			nxn(4, 30, 100, 62.5);
 			break;
 		case "5x":
 			notation = ["R", "U", "F", "L", "D", "B", "Rw", "Uw", "Fw", "Lw", "Dw", "Bw"];
-			nxn(5, 50, 1.75);
+			nxn(5, 50, 100, 62);
 			break;
 		case "6x":
 			notation = ["R", "U", "F", "L", "D", "B", "Rw", "Uw", "Fw", "Lw", "Dw", "Bw", "3Rw", "3Uw", "3Fw"];
-			nxn(6, 60, 1.5);
+			nxn(6, 60, 120, 62);
 			break;
 		case "7x":
 			notation = ["R", "U", "F", "L", "D", "B", "Rw", "Uw", "Fw", "Lw", "Dw", "Bw", "3Rw", "3Uw", "3Fw", "3Lw", "3Dw", "3Bw"];
-			nxn(7, 70, 1.25);
+			nxn(7, 70, 120, 62);
 			break;
 		case "Py":
+			document.querySelector(".scrambleShow").innerHTML = "No Visual";
+			document.querySelector(".scrambleShow").style.color = "white";
+			document.querySelector(".scrambleShow").style.fontSize = "200%";
 			scrambleTemp = [];
 			mods = ["", "'"]
 			notation = ["L", "R", "B", "U"];
@@ -113,7 +318,11 @@ function generateScramble(type) {
 				var span = document.createElement("span");
 				span.innerHTML = `${sample} `;
 				span.classList.add(sample);
-				span.style.fontSize = "30px";
+				if(innerWidth > 1000) {
+					span.style.fontSize = "30px";
+				} else {
+					span.style.fontSize = "20px";
+				}
 				scramble.appendChild(span);
 			}
 			notation = ["l", "r", "b", "u"].sort(() => 0.5 - Math.random());
@@ -126,12 +335,19 @@ function generateScramble(type) {
 				var span = document.createElement("span");
 				span.innerHTML = `${sample} `;
 				span.classList.add(sample);
-				span.style.fontSize = "30px";
+				if(innerWidth > 1000) {
+					span.style.fontSize = "30px";
+				} else {
+					span.style.fontSize = "20px";
+				}
 				scramble.appendChild(span);
 			}
 			localStorage.setItem("scrambleTemp", JSON.stringify(scrambleTemp.join(" ") + "\n" + document.querySelector(".scrambleDrop").value));
 			break;
 		case "Sk":
+			document.querySelector(".scrambleShow").innerHTML = "No Visual";
+			document.querySelector(".scrambleShow").style.color = "white";
+			document.querySelector(".scrambleShow").style.fontSize = "200%";
 			scrambleTemp = [];
 			mods = ["", "'"]
 			notation = ["L", "R", "B", "U"];
@@ -147,12 +363,19 @@ function generateScramble(type) {
 				var span = document.createElement("span");
 				span.innerHTML = `${sample} `;
 				span.classList.add(sample);
-				span.style.fontSize = "30px";
+				if(innerWidth > 1000) {
+					span.style.fontSize = "30px";
+				} else {
+					span.style.fontSize = "20px";
+				}
 				scramble.appendChild(span);
 			}
 			localStorage.setItem("scrambleTemp", JSON.stringify(scrambleTemp.join(" ") + "\n" + document.querySelector(".scrambleDrop").value));
 			break;
 		case "Cl":
+			document.querySelector(".scrambleShow").innerHTML = "No Visual";
+			document.querySelector(".scrambleShow").style.color = "white";
+			document.querySelector(".scrambleShow").style.fontSize = "200%";
 			scrambleTemp = [];
 			notation = ["U", "R", "D", "L", "UR", "UL", "DL", "DR", "ALL"];
 			sample = "";
@@ -166,13 +389,21 @@ function generateScramble(type) {
 				var span = document.createElement("span");
 				span.innerHTML = `${sample} `;
 				span.classList.add(sample);
-				span.style.fontSize = "25px";
+				if(innerWidth > 1000) {
+					span.style.fontSize = "25px";
+				} else {
+					span.style.fontSize = "15px";
+				}
 				scramble.appendChild(span);
 			}
 			var span = document.createElement("span");
 			span.innerHTML = `y2 `;
 			span.classList.add("y2");
-			span.style.fontSize = "25px";
+			if(innerWidth > 1000) {
+				span.style.fontSize = "25px";
+			} else {
+				span.style.fontSize = "15px";
+			}
 			scramble.appendChild(span);
 			for (i = 0; i < 5; i++) {
 				sample = notation[Math.floor(Math.random() * notation.length)];
@@ -184,7 +415,11 @@ function generateScramble(type) {
 				var span = document.createElement("span");
 				span.innerHTML = `${sample} `;
 				span.classList.add(sample);
-				span.style.fontSize = "25px";
+				if(innerWidth > 1000) {
+					span.style.fontSize = "25px";
+				} else {
+					span.style.fontSize = "15px";
+				}
 				scramble.appendChild(span);
 			}
 			notation = ["UL", "UR", "DL", "DR"].sort(() => 0.5 - Math.random());
@@ -196,12 +431,19 @@ function generateScramble(type) {
 				var span = document.createElement("span");
 				span.innerHTML = `${sample} `;
 				span.classList.add(sample);
-				span.style.fontSize = "25px";
+				if(innerWidth > 1000) {
+					span.style.fontSize = "25px";
+				} else {
+					span.style.fontSize = "15px";
+				}
 				scramble.appendChild(span);
 			}
 			localStorage.setItem("scrambleTemp", JSON.stringify(scrambleTemp.join(" ") + "\n" + document.querySelector(".scrambleDrop").value));
 			break;
 		case "Me":
+			document.querySelector(".scrambleShow").innerHTML = "No Visual";
+			document.querySelector(".scrambleShow").style.color = "white";
+			document.querySelector(".scrambleShow").style.fontSize = "200%";
 			scrambleTemp = [];
 			notation = ["R", "D"];
 			sample = "";
@@ -230,6 +472,9 @@ function generateScramble(type) {
 			localStorage.setItem("scrambleTemp", JSON.stringify(scrambleTemp.join(" ") + "\n" + document.querySelector(".scrambleDrop").value));
 			break;
 		case "Ot":
+			document.querySelector(".scrambleShow").innerHTML = "No Visual";
+			document.querySelector(".scrambleShow").style.color = "white";
+			document.querySelector(".scrambleShow").style.fontSize = "200%";
 			localStorage.setItem("scrambleTemp", JSON.stringify("Other" + "\n" + document.querySelector(".scrambleDrop").value));
 			break;
 		default:
@@ -237,7 +482,7 @@ function generateScramble(type) {
 	}
 }
 
-function nxn(type, len, size) {
+function nxn(type, len, size, mobileSize) {
 	scrambleTemp = [];
 	var prevSample;
 	scramble.innerHTML = "";
@@ -269,9 +514,23 @@ function nxn(type, len, size) {
 		span.style.color = sample.includes("R") ? "rgb(255,77,77)" : sample.includes("F") ? "lightgreen" : sample.includes("U") ? "white" : sample.includes("L") ? "rgb(255,166,77)" : sample.includes("D") ? "rgb(255,255,128)" : "lightblue";
 
 		//A good font size depending on the length of scram
-		span.style.fontSize = size.toString() + "vw";
+		if (innerWidth > 1000) {
+			if (type != 7 && type != 6) {
+				span.style.fontSize = (mobileSize - 59.5).toString() + "vh";
+			} else {
+				span.style.fontSize = (mobileSize - 60).toString() + "vh";
+			}
+		} else {
+			span.style.fontSize = (mobileSize - 60).toString() + "vw";
+			// span.style.fontSize = (size + 0.5).toString() + "%";
+		}
 
 		scramble.appendChild(span);
+	}
+
+	if (innerWidth > 1000) {
+		createCube(parseInt(type));
+		perform(scrambleTemp.join(" "));
 	}
 
 	localStorage.setItem("scrambleTemp", JSON.stringify(scrambleTemp.join(" ") + "\n" + document.querySelector(".scrambleDrop").value));
@@ -360,11 +619,61 @@ document.body.onkeydown = function (e) {
 		generateStats();
 	}
 	if (localStorage.getItem("inputType") == "timer") {
-		if (e.keyCode == 32 && timer.nodeName == "BUTTON") {
-			timer.style.color = "lightgreen";
-		}
 		if (e.key == "Escape") {
-			document.querySelector(".digits").innerHTML = "00:00.00";
+			timer.innerHTML = "00:00.00";
+		}
+	}
+}
+
+timer.onmousedown = e => {
+	e.preventDefault();
+	timer.style.color = "lightgreen";
+}
+
+// timer.on
+
+if (innerWidth < 1000) {
+	document.querySelector(".digits").disabled = false;
+} else {
+	document.querySelector(".digits").disabled = true;
+}
+
+document.querySelector(".digits").addEventListener("mouseup", function () {
+	if (innerWidth < 1000) {
+		timer.style.color = "lightgreen";
+		if (localStorage.getItem("inputType") == "timer") {
+			if (timer.nodeName == "BUTTON") {
+				if (running == 0) {
+					start();
+				} else if (running == 1) {
+					running = 0;
+					getTime();
+					localStorage.setItem("speedtimer", JSON.stringify(sessions));
+					generateScramble(sType);
+					timer.style.color = "white";
+				}
+			}
+		}
+	}
+});
+
+var timerDoTime = 0;
+var timerCheck;
+var timerPressed = false;
+
+var et = new Event('keydown');
+et.which = et.keyCode = 32;
+document.dispatchEvent(et);
+
+document.body.onkeydown = function (e) {
+	if(e.keyCode == 32) {
+		if(running == 0) {
+			timerPressed = true;
+			if(timerDoTime == 0) {
+				timerDoTime = Math.floor(Date.now());
+				timerCheck = window.setInterval(checkSecF, 200);
+				timerCheck = window.setInterval(checkSec, 500);
+			}
 		}
 	}
 }
@@ -373,8 +682,20 @@ document.body.onkeyup = function (e) {
 	if (localStorage.getItem("inputType") == "timer") {
 		if (timer.nodeName == "BUTTON") {
 			timer.style.color = "white";
-			if (e.keyCode == 32 && running == 0) {
-				start();
+			if(e.keyCode == 32 && running == 0) {
+				timerPressed = false;
+				var newTime = Math.floor(Date.now()) - timerDoTime;
+				timerDoTime = 0;
+				if(newTime > 700) {
+					start();
+					clearInterval(timerCheck);
+				} else {
+					timer.style.color = "white";
+					timerDoTime = 0;
+					timerPressed = false;
+					newTime = 0;
+					clearInterval(timerCheck);
+				}
 			} else if (running == 1) {
 				running = 0;
 				getTime();
@@ -382,6 +703,22 @@ document.body.onkeyup = function (e) {
 				generateScramble(sType);
 				timer.style.color = "white";
 			}
+		}
+	}
+}
+
+function checkSecF() {
+	if(timerPressed) {
+		if(timer.style.color == "white") {
+			timer.style.color = "orange";
+		}
+	}
+}
+
+function checkSec() {
+	if(timerPressed) {
+		if(timer.style.color == "orange") {
+			timer.style.color = "lightgreen";
 		}
 	}
 }
@@ -448,7 +785,7 @@ document.querySelector(".inputTime").addEventListener("change", function () {
 function format(time) {
 	var temp = time.toString();
 	var temp2;
-	
+
 	if (temp.length == 6) {
 		temp2 = temp.slice(0, 2) + ":" + temp.slice(2, 4) + "." + temp.slice(4, 6);
 		return temp2;
@@ -467,10 +804,9 @@ function format(time) {
 	} else if (temp.length == 1) {
 		temp2 = "0.0" + temp.slice(0, 1);
 		return temp2;
-	}
-	else if (temp.includes == "DNF") {
+	} else if (temp.includes == "DNF") {
 		return "DNF";
-	} 
+	}
 
 	// return time;
 }
@@ -530,11 +866,11 @@ if (localStorage.getItem("inputType") !== null) {
 	if (localStorage.getItem("inputType") == 'manual') {
 		document.querySelector(".inputTime").style.display = "flex";
 		document.querySelector(".digits").style.display = "none";
-		type.innerHTML = "⏱"
+		type.innerHTML = '<i class="fas fa-stopwatch"></i>'
 	} else {
 		document.querySelector(".inputTime").style.display = "none";
 		document.querySelector(".digits").style.display = "flex";
-		type.innerHTML = "⌨️"
+		type.innerHTML = '<i class="fas fa-keyboard"></i>'
 	}
 } else {
 	localStorage.setItem("inputType", 'timer');
@@ -543,7 +879,7 @@ if (localStorage.getItem("inputType") !== null) {
 document.querySelector(".type").onclick = e => {
 	let type = document.querySelector(".type");
 	type.blur();
-	if (type.innerHTML == "⌨️") {
+	if (type.innerHTML == '<i class="fas fa-keyboard"></i>') {
 		document.querySelector(".inputTime").style.display = "flex";
 		document.querySelector(".digits").style.display = "none";
 		localStorage.setItem("inputType", 'manual');
@@ -552,7 +888,7 @@ document.querySelector(".type").onclick = e => {
 		document.querySelector(".digits").style.display = "flex";
 		localStorage.setItem("inputType", 'timer');
 	}
-	type.innerHTML = type.textContent == "⌨️" ? "⏱" : "⌨️";
+	type.innerHTML = type.innerHTML == '<i class="fas fa-keyboard"></i>' ? "<i class='fas fa-stopwatch'></i>" : "<i class='fas fa-keyboard'></i>";
 }
 
 function getTime() {
@@ -571,6 +907,21 @@ function getTime() {
 	generateTimes();
 	generateStats();
 }
+
+document.querySelector(".refreshScram").addEventListener("click", function () {
+	generateScramble(sType);
+});
+
+document.querySelector(".copyScram").addEventListener("click", async function () {
+	sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
+	document.getElementById("copyStore").value = JSON.stringify(localStorage.getItem("scrambleTemp")).replace(/[\\"]/g, '').replace(/n[0-9]x[0-9]/g, '');
+	document.getElementById("copyStore").select();
+	document.execCommand("copy");
+
+	document.querySelector(".copied").classList.add("show");
+	await sleep(2000);
+	document.querySelector(".copied").classList.remove("show");
+});
 
 function generateTimes() {
 	var container = document.querySelector(".solves");
@@ -616,6 +967,9 @@ function generateTimes() {
 		exInfo.classList.add("exInfo");
 		exInfo.innerHTML = "...";
 		exInfo.addEventListener("click", showScram);
+		if (innerWidth < 1000) {
+			solveBar.addEventListener("click", showScram);
+		}
 
 		icons.appendChild(del);
 		icons.appendChild(exInfo);
@@ -684,8 +1038,9 @@ function generateStats() {
 		worst.innerHTML = format(Math.max(...times.filter(e => !isNaN(parseInt(e)))) == -Infinity ? "DNF" : Math.max(...times.filter(e => !isNaN(parseInt(e)))));
 
 		// Range
-		if (sessions[currentSessionIdx].times.length > 1) 
-		{ range.innerHTML = format(Math.round(parseFloat(worst.innerHTML) - parseFloat(best.innerHTML))) };
+		if (sessions[currentSessionIdx].times.length > 1) {
+			range.innerHTML = format(Math.round(parseFloat(worst.innerHTML) - parseFloat(best.innerHTML)))
+		};
 
 		// ao5
 		average = ao(5);
@@ -715,7 +1070,9 @@ function ao(number) {
 		if (times.includes("DNF")) return "DNF";
 
 		var total = 0;
-		for (let time of times) { total += parseInt(time) }
+		for (let time of times) {
+			total += parseInt(time)
+		}
 		return Math.round(total / (number - 2 * ignore));
 	}
 	return false;
@@ -729,8 +1086,6 @@ function deleteSolve() {
 
 		localStorage.setItem("speedtimer", JSON.stringify(sessions));
 
-		// uppParent2.style.display = "none";
-
 		generateStats();
 		generateTimes();
 	}
@@ -740,7 +1095,7 @@ function showScram() {
 	var uppParent1 = this.parentElement;
 	var uppParent2 = uppParent1.parentElement;
 
-	var idx = parseInt(uppParent2.id);
+	var idx = parseInt(uppParent2.id) || this.id;
 
 	alert(format(sessions[currentSessionIdx].times[sessions[currentSessionIdx].times.length - idx - 1]) + "\n" + sessions[currentSessionIdx].scrambles[sessions[currentSessionIdx].scrambles.length - idx - 1]);
 }

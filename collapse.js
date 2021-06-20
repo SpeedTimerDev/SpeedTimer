@@ -22,24 +22,34 @@ function collapse(manual = 0) {
 	} else if (collapsed == "false") {
 		if (innerWidth < 1000) {
 			close();
+			document.querySelector(".collapse").style.display = "none";
 		} else {
 			open();
+			document.querySelector(".collapse").style.display = "flex";
 		}
 	}
 };
 
-if (JSON.parse(localStorage.getItem("col")) == true) { close(); }
+if (innerWidth < 1000) {
+	document.querySelector(".collapse").style.display = "none";
+} else {
+	document.querySelector(".collapse").style.display = "flex";
+}
+
+if (JSON.parse(localStorage.getItem("col")) == true) {
+	close();
+}
 collapse("First");
 
 function open() {
-	document.querySelector(".left").classList.remove("collapsed");
-	[].slice.call(document.querySelector(".left").getElementsByTagName("*"), 0).forEach(e => e.classList.remove("collapsed"));
+	document.querySelector(".leftT").classList.remove("collapsed");
+	[].slice.call(document.querySelector(".leftT").getElementsByTagName("*"), 0).forEach(e => e.classList.remove("collapsed"));
 	document.querySelector(".collapse").innerHTML = `<i id="col" class="fas fa-angle-left"></i>`;
 }
 
 function close() {
-	document.querySelector(".left").classList.add("collapsed");
-	[].slice.call(document.querySelector(".left").getElementsByTagName("*"), 0).forEach(e => e.classList.add("collapsed"));
+	document.querySelector(".leftT").classList.add("collapsed");
+	[].slice.call(document.querySelector(".leftT").getElementsByTagName("*"), 0).forEach(e => e.classList.add("collapsed"));
 	document.querySelector(".collapse").innerHTML = `<i id="col" class="fas fa-angle-right"></i>`;
 }
 
@@ -48,7 +58,12 @@ function credits() {
 	document.querySelector(".creditpopup").style.display = "block";
 }
 
-if(localStorage.getItem("speedtimer") == null && document.location.href != "index.html")
-{
+if (localStorage.getItem("speedtimer") == null && document.location.href != "index.html") {
 	document.location.href = "index.html";
+}
+
+if (innerWidth < 1000) {
+	document.querySelector(".collapse").style.display = "none";
+} else {
+	document.querySelector(".collapse").style.display = "flex";
 }

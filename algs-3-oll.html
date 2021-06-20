@@ -7,9 +7,10 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href="sessions.css">
 	<link rel="stylesheet" href="media.css">
 	<link rel="stylesheet" href="navbar.css">
+	<link rel="stylesheet" href="cubeimage.css">
+	<link rel="stylesheet" href="algorithms.css">
 	<link rel="icon" href="logo1.jpg">
 	<!-- This link -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
@@ -29,13 +30,13 @@
 			</a>
 		</div>
 		<div>
-			<a class="link active" href="sessions.html" id="sessions">
+			<a class="link" href="sessions.html" id="sessions">
 				<i class="fas fa-list"></i>
 				<span>Sessions</span>
 			</a>
 		</div>
 		<div>
-			<a class="link" href="algs-3-oll.html" id="algorithms">
+			<a class="link active" href="algs-3-oll.html" id="algorithms">
 				<i class="fas fa-th"></i>
 				<span>Algorithms</span>
 			</a>
@@ -92,77 +93,55 @@
 			<br>
 			Use The Buttons at The Top Right to Change Scramble or Change to Manual Entry Mode.
 		</div>
-
-		<div class="sesTitle">
-			<div>Sessions</div>
-			<button class="newSes">New Session</button>
-		</div>
-
-		<div class="ses">
-			<div class="leftses">
-			</div>
-			<div class="rightses">
-				<div class="sesName">
-					<input type="text" value="Session 01" id="sesName">
-					<div id="delSes">X</div>
-				</div>
-				<div class="sesName" style="font-size: 15px">
-					Type:&nbsp;
-					<select class="scrambleDrop">
-						<option value="2x2">2x2</option>
-						<option value="3x3">3x3</option>
-						<option value="4x4">4x4</option>
-						<option value="5x5">5x5</option>
-						<option value="6x6">6x6</option>
-						<option value="7x7">7x7</option>
-						<option value="Megaminx">Megaminx</option>
-						<option value="Pyraminx">Pyraminx</option>
-						<option value="Skewb">Skewb</option>
-						<option value="Square-1">Square-1</option>
-						<option value="Clock">Clock</option>
-						<option value="Other">Other</option>
-					</select>
-				</div>
-				<div class="sesInfo" style="display: flex">
-					<div class="timerStats session">
-						<div class="best">
-							<div class="bestCaption">Best:</div>
-							<div class="bestTime">-</div>
-						</div>
-						<div class="item">
-							<div class="caption">Avg:</div>
-							<div class="valTime" id="avg">-</div>
-						</div>
-						<div class="item">
-							<div class="caption">Worst:</div>
-							<div class="valTime" id="worst">-</div>
-						</div>
-						<div class="item">
-							<div class="caption">Ao5:</div>
-							<div class="valTime" id="ao5">-</div>
-						</div>
-						<div class="item">
-							<div class="caption">Ao12:</div>
-							<div class="valTime" id="ao12">-</div>
-						</div>
-						<div class="item">
-							<div class="caption">Ao100:</div>
-							<div class="valTime" id="ao100">-</div>
-						</div>
-						<div class="item">
-							<div class="caption">Range:</div>
-							<div class="valTime" id="range">-</div>
-						</div>
-					</div>
-					<div class="solves session">
-					</div>
-				</div>
+		<div class="top">Algorithms</div>
+		<div class="bar">
+			<div class="library">
 			</div>
 		</div>
-	</div>
+		<div class="algs">
+		</div>
 
-	<script src="collapse.js" async></script>
-	<script src="sessions.js" async defer></script>
+		<script src="collapse.js" async></script>
+		<script src="algDatabase.js" async></script>
+		<script src="algorithms.js" async defer></script>
 </body>
 
 </html>
+
+<!-- <div class = "cubeImage">
+	<div class = "topRow">
+		<div class = "smallPiece"></div>
+		<div class = "topPiece" id = "blue"></div>
+		<div class = "topPiece" id = "blue"></div>
+		<div class = "topPiece" id = "none"></div>
+		<div class = "smallPiece"></div>
+	</div>
+	<div class = "midRow">
+		<div class = "leftPiece" id = "blue"></div>
+		<div class = "midPiece" id = "blue"></div>
+		<div class = "midPiece" id = "none"></div>
+		<div class = "midPiece" id = "blue"></div>
+		<div class = "rightPiece" id = "none"></div>
+	</div>
+	<div class = "midRow">
+		<div class = "leftPiece" id = "none"></div>
+		<div class = "midPiece" id = "none"></div>
+		<div class = "midPiece" id = "blue"></div>
+		<div class = "midPiece" id = "none"></div>
+		<div class = "rightPiece" id = "blue"></div>
+	</div>
+	<div class = "midRow">
+		<div class = "leftPiece" id = "blue"></div>
+		<div class = "midPiece" id = "none"></div>
+		<div class = "midPiece" id = "none"></div>
+		<div class = "midPiece" id = "blue"></div>
+		<div class = "rightPiece" id = "blue"></div>
+	</div>
+	<div class = "bottomRow">
+		<div class = "smallPiece"></div>
+		<div class = "bottomPiece" id = "none"></div>
+		<div class = "bottomPiece" id = "blue"></div>
+		<div class = "bottomPiece" id = "blue"></div>
+		<div class = "smallPiece"></div>
+	</div>
+</div> -->

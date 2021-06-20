@@ -1,5 +1,4 @@
-#getval
-{
+#getval {
 	padding: 7.5px;
 
 	background-color: var(--buttonbg);
@@ -12,13 +11,43 @@
 	border-radius: var(--bradius);
 }
 
-#colorPicker
-{
+#colorPicker {
 	background-color: #151515;
 }
 
-.inputSet
-{
+#algImgCol {
+	background-color: #151515;
+}
+
+#borderView {
+	width: 25px;
+	height: 25px;
+
+	color: #151515;
+	background-color: #151515;
+}
+
+#iconsTop {
+	width: 25px;
+	height: 25px;
+
+	color: #151515;
+	background-color: #151515;
+}
+
+#import input {
+	padding: 10px;
+
+	background-color: var(--buttonbg);
+	border: 3px solid #151515;
+	color: var(--font-colour);
+
+	outline: none;
+	border-radius: var(--bradius);
+	cursor: pointer;
+}
+
+.inputSet {
 	padding: 7.5px;
 
 	background-color: var(--buttonbg);
@@ -29,8 +58,7 @@
 	border-radius: var(--bradius);
 }
 
-.btnset
-{
+.btnset {
 	padding: 10px;
 
 	background-color: var(--buttonbg);
@@ -39,6 +67,82 @@
 
 	outline: none;
 	border-radius: var(--bradius);
+	cursor: pointer;
+}
+
+.name {
+	font-size: 8vh;
+
+	width: 98%;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	color: var(--font-colour);
+
+	margin: 15px;
+	padding: 15px;
+}
+
+.cap {
+    font-size: 3vh;
+    color: var(--font-colour);
+
+    padding: 20px;
+}
+
+.name a {
+	font-size: 20px;
+
+	text-decoration: none;
+
+	color: var(--font-colour);
+
+	background-color: var(--blue);
+
+	width: 130px;
+	height: 40px;
+
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+
+	border-radius: var(--bradius);
+}
+
+.settings {
+	width: 100%;
+	height: min-content;
+
+	display: inline-block;
+
+	overflow-y: scroll;
+}
+
+.setting {
+	width: 97%;
+	height: 13vh;
+
+	margin-left: auto;
+	margin-right: auto;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	border-bottom: 2px solid #2a2828;
+}
+
+.bgimg {
+	display: flex;
+}
+
+.bgimg button {
+	/* height: 30px; */
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 50px;
 }
 
 #timerSize {
@@ -48,14 +152,30 @@
 
 .bgimg div p {
 	color: var(--font-colour);
-	font-size: 2vh;
+	font-size: 1.5vh;
 	margin-top: -2vh;
 }
 
 #colorPicker {
-	  border: var(--border);
-    background: var(--buttonbg);
-		padding: 0;
-    cursor: pointer;
-		border-radius: var(--bradiusSmall);
+	border: var(--border);
+	background: var(--buttonbg);
+	padding: 0;
+	cursor: pointer;
+	border-radius: var(--bradiusSmall);
+}
+
+#algImgCol {
+	border: var(--border);
+	background: var(--buttonbg);
+	padding: 0;
+	cursor: pointer;
+	border-radius: var(--bradiusSmall);
+}
+
+.settings {
+	overflow-x: hidden;
+}
+
+.ohdwed {
+	font-size: 1vh;
 }
