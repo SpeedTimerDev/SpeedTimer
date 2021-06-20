@@ -13,7 +13,7 @@ if (localStorage.algImgCol != null) document.body.style.setProperty("--algImgCol
 if (localStorage.getItem("borderView") != null) {
 	var ticked = JSON.parse(localStorage.getItem("borderView"));
 
-	if (ticked) {
+	if (!ticked) {
 		document.body.style.setProperty("--border", "0px");
 	} else {
 		document.body.style.setProperty("--border", "1px");
