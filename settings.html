@@ -1,13 +1,16 @@
 <html>
 
-<head lang = "en">
+<head lang="en">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>SpeedTimer</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="cubeImage.css">
+	<link rel="stylesheet" href="media.css">
 	<link rel="stylesheet" href="settings.css">
+	<link rel="stylesheet" href="navbar.css">
 	<link rel="icon" href="logo1.jpg">
 	<!-- This link -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
@@ -15,8 +18,8 @@
 </head>
 
 <body>
-	<div class="left">
-		<div class="logo">
+	<div class="leftT">
+		<div class="logo" style="margin-top: 50px">
 			<img src="logo1.jpg">
 		</div>
 		<div class="text">SpeedTimer</div>
@@ -33,7 +36,7 @@
 			</a>
 		</div>
 		<div>
-			<a class="link" href="algs-3-pll.html" id="algorithms">
+			<a class="link" href="algs-3-oll.html" id="algorithms">
 				<i class="fas fa-th"></i>
 				<span>Algorithms</span>
 			</a>
@@ -50,34 +53,37 @@
 					<i class="fab fa-discord" style="color: rgb(88 101 242);"></i>
 				</a> -->
 				<button class="credits" onclick="credits()" id="info"><i class="fas fa-question"></i></button>
-				<a class="infoBtn" href = "info.html" target = "_blank"><i class="fas fa-info"></i></a>
-				<a class="infoBtn" href = "updates.html" target = "_blank"><i class="fas fa-bell"></i></a>
+				<a class="infoBtn" href="info.html" target="_blank"><i class="fas fa-info"></i></a>
+				<a class="infoBtn" href="updates.html" target="_blank"><i class="fas fa-bell"></i></a>
 			</div>
 			<button class="collapse" onclick="collapse()"><i id="col" class="fas fa-angle-left"></i></button>
 		</div>
 	</div>
 
-	<div class="right">
+	<div class="rightT">
 		<div class="overlay"></div>
 		<div class="creditpopup">
 			<!-- <a href='https://writingmasterthesis.com/'>https://writingmasterthesis.com/</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=0f5f8532571239cf04afa8e976210d4c75f18e3d'></script>
 			<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/835531/t/7"></script> -->
 			<!-- <script type="text/javascript" src="//counter.websiteout.net/js/5/0/0/1"></script></div> -->
-			<div style = "font-size: 200%; text-align: center;">SpeedTimer</div>
+			<div style="font-size: 200%; text-align: center;">SpeedTimer</div>
 			<br>
 			Bored of using other timers with their appaling design and lack of simplicity? Me too. Instead of
 			waiting for a new timer to come out, I decided to create my own free timer to combat this. And as a Cuber
-			Myself, I won't let you down. Use The SpaceBar to start and stop the timer, and play around with settings and cube types. Happy Cubing!
+			Myself, I won't let you down. Use The SpaceBar to start and stop the timer, and play around with settings
+			and cube types. Happy Cubing!
 			<br>
 			<br>
 			- CoderGuru
 			<br>
 			<br>
 			<br>
-			For suggestions, use <a href = "https://app.suggestionox.com/r/speedtimer" target = "_blank" style = "color: whitesmoke;">This Link</a>.
+			For suggestions, use <a href="https://app.suggestionox.com/r/speedtimer" target="_blank"
+				style="color: whitesmoke;">This Link</a>.
 			<br>
 			<br>
-			For Other Queries, Contact <a href = "mailto:contactspeedtimer@gmail.com" target = "_blank" style = "color: whitesmoke;">contactspeedtimer@gmail.com</a>
+			For Other Queries, Contact <a href="mailto:contactspeedtimer@gmail.com" target="_blank"
+				style="color: whitesmoke;">contactspeedtimer@gmail.com</a>
 			<br>
 			<br>
 			<br>
@@ -100,7 +106,8 @@
 						<div>
 							<input type='text' class="inputSet" id='getval'
 								placeholder="Type URL of image here..."><br><br>
-							<p style = "font-size: 1.5vh;">Go to an Image on Your Browser, <br> Right Click, and get Image Address, <br> Then paste
+							<p class="ohdwed" style="font-size: 50%;">Go to an Image on Your Browser, <br> Right Click,
+								and get Image Address, <br> Then paste
 								it here.</p>
 						</div>
 						<button class="btnset" id="imgbtnset">Default</button>
@@ -119,14 +126,57 @@
 				</div>
 				<div class="set">
 					<!-- <button class = "btnset" id = "clrAllSolves">Delete All Solves</button> -->
-					<input class="inputSet" id="colorPicker" type="color" value="#ff0000">
+					<input class="inputSet" id="colorPicker" type="color" value="#323232">
 				</div>
 			</div>
+			<div class="setting">
+				<div class="cap">Alg Image Colour(OLL & 2LOLL Only):
+				</div>
+				<div class="set">
+					<!-- <button class = "btnset" id = "clrAllSolves">Delete All Solves</button> -->
+					<input class="inputSet" id="algImgCol" type="color" value="#dba204">
+				</div>
+			</div>
+			<div class="setting">
+				<div class="cap">Visualiser Border:
+				</div>
+				<div class="set">
+					<input class="inputSet" id="borderView" type="checkbox">
+				</div>
+			</div>
+			<div class="setting">
+				<div class="cap">Icons on Top:
+				</div>
+				<div class="set">
+					<input class="inputSet" id="iconsTop" type="checkbox">
+				</div>
+			</div>
+			<div class="setting">
+				<div class="cap">Export Data:
+				</div>
+				<div class="set">
+					<a style="text-decoration: none; font-size: 80%;" target="_blank" class="btnset" id="exportData">Export</a>
+				</div>
+			</div>
+			<!-- <div class="setting">
+				<div class="cap">Import Data:
+				</div>
+				<div class="set">
+					<input type="file" class="btnset" id="import" onchange="importTimes(this);"></input>
+				</div>
+			</div> -->
 			<div class="setting">
 				<div class="cap">Delete All Solves:
 				</div>
 				<div class="set">
 					<button class="btnset" id="clrAllSolves">Delete All Solves</button>
+				</div>
+			</div>
+			<div class="setting">
+				<div class="cap">Reset All Algorithms:
+				</div>
+				<div class="set">
+					<button class="btnset" id="clrAllAlgs">Reset Algorithms</button>
 				</div>
 			</div>
 			<div class="setting">
@@ -147,9 +197,11 @@
 	</div>
 	</div>
 
+	<script src="collapse.js" async></script>
+	<script src="algDatabase.js" async defer></script>
 	<script src="settings.js" async defer></script>
 	<script src="import.js" async defer></script>
-	<script src="collapse.js" async defer></script>
+	<script src="export.js" async defer></script>
 </body>
 
 </html>

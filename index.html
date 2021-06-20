@@ -1,12 +1,15 @@
 <html>
 
-<head lang = "en">
+<head lang="en">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>SpeedTimer</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="navbar.css">
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="visualiser.css">
+	<link rel="stylesheet" href="media.css">
 	<link rel="icon" href="logo1.jpg">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
 		integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
@@ -16,35 +19,39 @@
 	<div class="dataStore" style="display:none">
 		stuff
 	</div>
+	<input id="copyStore" style="position: absolute; left: -55555px;" type="text">
 
-	<div class="left">
-		<div class="logo">
+	<div class="leftT">
+		<div class="logo" style="margin-top: 50px">
 			<img src="logo1.jpg">
 		</div>
-		<div class="text">SpeedTimer</div>
-		<div>
-			<a class="link active" href="index.html" id="timer">
-				<i class="fas fa-stopwatch"></i>
-				<span>Timer</span>
-			</a>
-		</div>
-		<div>
-			<a class="link" href="sessions.html" id="sessions">
-				<i class="fas fa-list"></i>
-				<span>Sessions</span>
-			</a>
-		</div>
-		<div>
-			<a class="link" href="algs-3-pll.html" id="algorithms">
-				<i class="fas fa-th"></i>
-				<span>Algorithms</span>
-			</a>
-		</div>
-		<div>
-			<a class="link" href="settings.html" id="settings">
-				<i class="fas fa-cog"></i>
-				<span>Settings</span>
-			</a>
+		<div class="text" style="margin-top: 50px">SpeedTimer</div>
+		<div
+			style="flex: 2; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly;">
+			<div>
+				<a class="link active" href="index.html" id="timer">
+					<i class="fas fa-stopwatch"></i>
+					<span>Timer</span>
+				</a>
+			</div>
+			<div>
+				<a class="link" href="sessions.html" id="sessions">
+					<i class="fas fa-list"></i>
+					<span>Sessions</span>
+				</a>
+			</div>
+			<div>
+				<a class="link" href="algs-3-oll.html" id="algorithms">
+					<i class="fas fa-th"></i>
+					<span>Algorithms</span>
+				</a>
+			</div>
+			<div>
+				<a class="link" href="settings.html" id="settings">
+					<i class="fas fa-cog"></i>
+					<span>Settings</span>
+				</a>
+			</div>
 		</div>
 		<div class="lastPart">
 			<div>
@@ -52,36 +59,42 @@
 					<i class="fab fa-discord" style="color: rgb(88 101 242);"></i>
 				</a> -->
 				<button class="credits" onclick="credits()" id="info"><i class="fas fa-question"></i></button>
-				<a class="infoBtn" href = "info.html" target = "_blank"><i class="fas fa-info"></i></a>
-				<a class="infoBtn" href = "updates.html" target = "_blank"><i class="fas fa-bell"></i></a>
+				<a class="infoBtn" href="info.html" target="_blank"><i class="fas fa-info"></i></a>
+				<a class="infoBtn" href="updates.html" target="_blank"><i class="fas fa-bell"></i></a>
 			</div>
 			<button class="collapse" onclick="collapse()"><i id="col" class="fas fa-angle-left"></i></button>
 		</div>
 	</div>
 
 
-	<div class="right">
+	<div class="rightT">
+		<div class="copied">
+			<p>Copied!</p>
+		</div>
 		<div class="overlay">
 		</div>
 		<div class="creditpopup">
 			<!-- <a href='https://writingmasterthesis.com/'>https://writingmasterthesis.com/</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=0f5f8532571239cf04afa8e976210d4c75f18e3d'></script>
 			<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/835531/t/7"></script> -->
 			<!-- <script type="text/javascript" src="//counter.websiteout.net/js/5/0/0/1"></script></div> -->
-			<div style = "font-size: 200%; text-align: center;">SpeedTimer</div>
+			<div style="font-size: 200%; text-align: center;">SpeedTimer</div>
 			<br>
 			Bored of using other timers with their appaling design and lack of simplicity? Me too. Instead of
 			waiting for a new timer to come out, I decided to create my own free timer to combat this. And as a Cuber
-			Myself, I won't let you down. Use The SpaceBar to start and stop the timer, and play around with settings and cube types. Happy Cubing!
+			Myself, I won't let you down. Use The SpaceBar to start and stop the timer, and play around with settings
+			and cube types. Happy Cubing!
 			<br>
 			<br>
 			- CoderGuru
 			<br>
 			<br>
 			<br>
-			For suggestions, use <a href = "https://app.suggestionox.com/r/speedtimer" target = "_blank" style = "color: whitesmoke;">This Link</a>.
+			For suggestions, use <a href="https://app.suggestionox.com/r/speedtimer" target="_blank"
+				style="color: whitesmoke;">This Link</a>.
 			<br>
 			<br>
-			For Other Queries, Contact <a href = "mailto:contactspeedtimer@gmail.com" target = "_blank" style = "color: whitesmoke;">contactspeedtimer@gmail.com</a>
+			For Other Queries, Contact <a href="mailto:contactspeedtimer@gmail.com" target="_blank"
+				style="color: whitesmoke;">contactspeedtimer@gmail.com</a>
 			<br>
 			<br>
 			<br>
@@ -94,8 +107,11 @@
 		<div class="stopwatch">
 			<div class="sHold">
 				<div class="scramble"></div>
-				<div class="type">⌨️</div>
-				<div class="scrambleType">
+				<div class="iconWrapper" id="iconRow">
+					<div class="copyScram"><i class="fas fa-copy"></i></i></div>
+					<div class="refreshScram"><i class="fas fa-sync-alt"></i></div>
+					<div class="type"><i class="fas fa-keyboard"></i></div>
+					<!-- <div class="scrambleType"> -->
 					<select class="scrambleDrop">
 						<option value="2x2">2x2</option>
 						<option value="3x3">3x3</option>
@@ -110,10 +126,11 @@
 						<option value="Clock">Clock</option>
 						<option value="Other">Other</option>
 					</select>
+					<!-- </div> -->
 				</div>
 			</div>
 			<button disabled="disabled" class="digits">00:00.00</button>
-			<input class = "inputTime" style = "display: none; outline: none;">
+			<input class="inputTime" style="display: none; outline: none;">
 		</div>
 		<div class="info">
 			<div class="solves">
@@ -148,26 +165,30 @@
 					<div class="valTime" id="range">-</div>
 				</div>
 			</div>
+			<div class="scrambleShow">
+			</div>
 		</div>
+	</div>
 
-		<script src="script.js" async defer></script>
-		<script src="defaults.js" async defer></script>
-		<script src="collapse.js" async defer></script>
-		<script src="scrambles.js" async defer></script>
+	<script src="collapse.js" async></script>
+	<script src="script.js" async defer></script>
+	<script src="defaults.js" async defer></script>
+	<script src="scrambles.js" async defer></script>
+	<!-- <script src="visualiser.js" async defer></script> -->
 
-		<!-- Hitsteps TRACKING CODE - Manual 2021-06-04 - DO NOT CHANGE -->
-		<script type="text/javascript">
-			(function () {
-				var hstc = document.createElement('script');
-				hstc.src = 'https://log.hitsteps.net/track.php?code=8e3bf983e56a8a7a1766acd623f5ba08';
-				hstc.async = true;
-				var htssc = document.getElementsByTagName('script')[0];
-				htssc.parentNode.insertBefore(hstc, htssc);
-			})();
-		</script><noscript><a href="http://www.hitsteps.com/"><img
-					src="//log.hitsteps.net/track.php?mode=img&amp;code=8e3bf983e56a8a7a1766acd623f5ba08"
-					alt="free website tracking" width="1" height="1" />website tracking software</a></noscript>
-		<!-- Hitsteps TRACKING CODE - DO NOT CHANGE -->
+	<!-- Hitsteps TRACKING CODE - Manual 2021-06-04 - DO NOT CHANGE -->
+	<script type="text/javascript">
+		(function () {
+			var hstc = document.createElement('script');
+			hstc.src = 'https://log.hitsteps.net/track.php?code=8e3bf983e56a8a7a1766acd623f5ba08';
+			hstc.async = true;
+			var htssc = document.getElementsByTagName('script')[0];
+			htssc.parentNode.insertBefore(hstc, htssc);
+		})();
+	</script><noscript><a href="http://www.hitsteps.com/"><img
+				src="//log.hitsteps.net/track.php?mode=img&amp;code=8e3bf983e56a8a7a1766acd623f5ba08"
+				alt="free website tracking" width="1" height="1" />website tracking software</a></noscript>
+	<!-- Hitsteps TRACKING CODE - DO NOT CHANGE -->
 </body>
 
 </html>
