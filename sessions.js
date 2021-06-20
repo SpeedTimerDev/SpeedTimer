@@ -5,8 +5,7 @@ let dnfcol = 'red';
 
 currentSessionIdx = parseInt(JSON.parse(localStorage.getItem("cur")));
 
-if(currentSessionIdx > sessions.length)
-{
+if (currentSessionIdx > sessions.length) {
 	currentSessionIdx = 0;
 	localStorage.setItem("cur", JSON.stringify(currentSessionIdx));
 
@@ -59,6 +58,9 @@ function generateTimes() {
 		exInfo.classList.add("exInfo");
 		exInfo.innerHTML = "...";
 		exInfo.addEventListener("click", showScram);
+		if (innerWidth < 1000) {
+			solveBar.addEventListener("click", showScram);
+		}
 
 		icons.appendChild(del);
 		icons.appendChild(exInfo);
@@ -156,7 +158,7 @@ function deleteSolve() {
 		var idx = parseInt(uppParent2.id);
 		idx = sessions[currentSessionIdx].times.length - idx - 1;
 		sessions[currentSessionIdx].times.splice(idx, 1);
-		
+
 		localStorage.setItem("speedtimer", JSON.stringify(sessions));
 
 		// uppParent2.style.display = "none";
@@ -172,9 +174,7 @@ function showScram() {
 	var uppParent1 = this.parentElement;
 	var uppParent2 = uppParent1.parentElement;
 
-	var idx = parseInt(uppParent2.id);
-
-	console.log(idx);
+	var idx = parseInt(uppParent2.id) || this.id;
 
 	alert(format(sessions[currentSessionIdx].times[sessions[currentSessionIdx].times.length - idx - 1]) + "\n" + sessions[currentSessionIdx].scrambles[sessions[currentSessionIdx].scrambles.length - idx - 1]);
 }
@@ -201,11 +201,11 @@ function format(time) {
 	} else if (temp.length == 1) {
 		temp2 = "0.0" + temp.slice(0, 1);
 		return temp2;
+	} else if (temp.includes == "DNF") {
+		return "DNF";
 	}
 
-	//return time;
-
-	loadInfo();
+	// return time;
 }
 
 function generateSessions() {
@@ -213,8 +213,7 @@ function generateSessions() {
 
 	holder.innerHTML = "";
 
-	for(i = 0; i < sessions.length; i++)
-	{
+	for (i = 0; i < sessions.length; i++) {
 		var sesBar = document.createElement("div");
 		sesBar.classList.add("sesBar");
 		sesBar.id = i;
@@ -229,8 +228,7 @@ function generateSessions() {
 		var sesBarBtn = document.createElement("button");
 		sesBarBtn.classList.add("sesBarBtn");
 		sesBarBtn.id = i;
-		if(i == currentSessionIdx)
-		{
+		if (i == currentSessionIdx) {
 			sesBarBtn.classList.add("highlight");
 		}
 		sesBarBtn.innerHTML = "Cur";
@@ -256,21 +254,15 @@ function loadInfo() {
 	var sessionName = document.getElementById("sesName");
 	sessionName.value = sessions[currentSessionIdx].name;
 
-	if(document.getElementById("sesName").value === sessions[parseInt(JSON.parse(localStorage.getItem("cur")))].name)
-	{
+	if (document.getElementById("sesName").value === sessions[parseInt(JSON.parse(localStorage.getItem("cur")))].name) {
 		document.getElementById("delSes").style.display = "none";
-	}
-	else
-	{
+	} else {
 		document.getElementById("delSes").style.display = "flex";
 	}
 
-	if(sessions.length <= 1)
-	{
+	if (sessions.length <= 1) {
 		document.getElementById("delSes").style.display = "none";
-	}
-	else
-	{
+	} else {
 		document.getElementById("delSes").style.display = "flex";
 	}
 
@@ -294,15 +286,13 @@ document.getElementById("sesName").addEventListener("change", function () {
 });
 
 document.getElementById("delSes").addEventListener("click", function () {
-	if(confirm("Are You Sure You Want to Delete This Session?"))
-	{
+	if (confirm("Are You Sure You Want to Delete This Session?")) {
 		sessions.splice(currentSessionIdx, 1);
 
 		localStorage.setItem("speedtimer", JSON.stringify(sessions));
 		sessions = JSON.parse(localStorage.getItem("speedtimer"));
 
-		if(currentSessionIdx > sessions.length - 1)
-		{
+		if (currentSessionIdx > sessions.length - 1) {
 			currentSessionIdx = 0;
 		}
 
@@ -331,10 +321,9 @@ generateTimes();
 generateStats();
 loadInfo();
 
-document.querySelector(".newSes").addEventListener("click", function() {
+document.querySelector(".newSes").addEventListener("click", function () {
 	var tempName = prompt("Enter Session Name:");
-	if(tempName !== null)
-	{
+	if (tempName !== null) {
 		createSession(tempName);
 		localStorage.setItem("speedtimer", JSON.stringify(sessions));
 		sessions = JSON.parse(localStorage.getItem("speedtimer"));
@@ -344,8 +333,7 @@ document.querySelector(".newSes").addEventListener("click", function() {
 	}
 });
 
-function setCur()
-{
+function setCur() {
 	currentSessionIdx = parseInt(this.id);
 	localStorage.setItem("cur", JSON.stringify(currentSessionIdx));
 
@@ -367,7 +355,9 @@ function ao(number) {
 		if (times.includes("DNF")) return "DNF";
 
 		var total = 0;
-		for (let time of times) { total += parseInt(time) }
+		for (let time of times) {
+			total += parseInt(time)
+		}
 		return Math.round(total / (number - 2 * ignore));
 	}
 	return false;
