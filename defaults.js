@@ -19,7 +19,7 @@ if (localStorage.getItem("borderView") != null) {
 		document.body.style.setProperty("--border", "1px");
 	}
 } else {
-	localStorage.setItem("borderView", true);
+	localStorage.setItem("borderView", false);
 	document.body.style.setProperty("--border", "1px");
 }
 
