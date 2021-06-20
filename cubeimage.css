@@ -1,0 +1,154 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    --algImgCol: rgb(219, 162, 4);
+}
+
+.topRow {
+    display: flex;
+    height: 7.5%;
+
+    width: 100%;
+
+    margin-bottom: 6%;
+}
+
+.bottomRow {
+    display: flex;
+    height: 7.5%;
+
+    width: 100%;
+}
+
+.midRow {
+    display: flex;
+    height: 22.5%;
+
+    width: 100%;
+
+    margin-bottom: 4%;
+}
+
+.cubeImage {
+    padding: 5px;
+
+    display: inline-block;
+
+    margin: auto;
+    width: 11.5vh;
+    height: 11.5vh;
+
+    margin-bottom: 0px;
+
+    margin-left: 25px;
+    margin-right: 25px;
+
+    border-radius: var(--bradius);
+
+    background-color: #2a2828;
+}
+
+.topPiece {
+    width: 30%;
+    height: 100%;
+
+    border-radius: 5vh;
+
+    margin: 2%;
+}
+
+.bottomPiece {
+    width: 30%;
+    height: 100%;
+
+    border-radius: 5vh;
+
+    margin: 2%;
+
+    margin-top: 0%;
+}
+
+.smallPiece {
+    height: 100%;
+    width: 10%;
+
+    background-color: #2a2828;
+    margin: 1%;
+}
+
+.leftPiece {
+    height: 100%;
+    width: 7.5%;
+
+    border-radius: 5vh;
+
+    margin-right: 4%;
+}
+
+.rightPiece {
+    height: 100%;
+    width: 7.5%;
+
+    border-radius: 5vh;
+
+    margin-left: -0.5%;
+}
+
+.midPiece {
+    height: 100%;
+    width: 22.5%;
+
+    border-radius: 0.5vh;
+
+    margin-right: 4.5%;
+}
+
+#blue {
+    background-color: var(--algImgCol);
+}
+
+#none {
+    background-color: #424242;
+}
+
+/* Alg Image Rotation */
+
+#zerod {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+#ninetyd {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+#oneeightyd {
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+
+#twoseventyd {
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    transform: rotate(270deg);
+}
+
+#showInp {
+    display: block;
+}

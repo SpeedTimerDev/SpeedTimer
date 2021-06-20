@@ -1,0 +1,312 @@
+.libraryA {
+    width: 70px;
+    height: 30px;
+
+    border: 1px solid var(--blue);
+
+    background-color: #024ba5;
+
+    border-radius: var(--bradius);
+
+    font-size: 15px;
+    font-weight: 500;
+
+    color: var(--font-colour);
+
+    outline: none;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    margin: 10px;
+}
+
+.defaults {
+    width: 150px;
+    height: 10px;
+    border-radius: var(--bradius);
+
+    margin: 5px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: var(--blue);
+}
+
+.defaults button {
+    width: 100%;
+    height: 30px;
+
+    border: 1px solid var(--blue);
+
+    background-color: var(--blue);
+
+    border-radius: var(--bradius);
+
+    font-size: 15px;
+    font-weight: 500;
+
+    color: var(--font-colour);
+
+    outline: none;
+}
+
+.algs {
+    width: 100%;
+    height: 70%;
+
+    overflow-y: scroll;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    background-color: var(--midBlack);
+}
+
+.algDuo {
+    width: 98%;
+
+    display: flex;
+    flex-direction: row;
+
+    flex-wrap: wrap;
+}
+
+.alg {
+    width: min-content;
+    height: 170px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 1.25%;
+
+    background-color: rgb(61, 61, 61);
+
+    border-radius: var(--bradius);
+}
+
+.img {
+    width: 11vh;
+
+    margin-bottom: 0px;
+
+    margin-left: 25px;
+    margin-right: 25px;
+
+    border-radius: var(--bradius);
+
+    background-color: #2a2828;
+}
+
+.btnDiv {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.algText {
+    color: var(--font-colour);
+
+    font-size: 105%;
+    height: 80px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    margin-top: 10px;
+    margin-right: 25px;
+    margin-bottom: 15px;
+}
+
+.leftAlg {
+    display: inline-block;
+
+    width: 20vh;
+}
+
+.rightAlg {
+    display: inline-block;
+    margin-right: 20px;
+
+    width: 20vh;
+
+    justify-content: space-between;
+}
+
+.rot {
+    height: 35px;
+    width: 35px;
+
+    margin-top: 15px;
+    margin-left: 25px;
+
+    background-color: #222;
+    color: var(--font-colour);
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    font-size: 90%;
+    font-weight: 500;
+
+    border-radius: var(--bradius);
+    border: 1px solid #222;
+
+    outline: none;
+
+    cursor: pointer;
+
+    -webkit-text-stroke: 0.25px #222;
+}
+
+.edit {
+    height: 35px;
+    width: 35px;
+
+    margin-top: 15px;
+    margin-left: 15px;
+
+    background-color: #222;
+    color: var(--font-colour);
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    font-size: 90%;
+    font-weight: 500;
+
+    border-radius: var(--bradius);
+    border: 1px solid #222;
+
+    outline: none;
+
+    cursor: pointer;
+
+    -webkit-text-stroke: 0.25px #222;
+}
+
+.titleAlg {
+    height: 15%;
+    width: 90%;
+
+    background-color: #222;
+    color: var(--font-colour);
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    font-size: 80%;
+    font-weight: 500;
+
+    margin-bottom: 10px;
+
+    border-radius: var(--bradius);
+}
+
+.top {
+    height: 15%;
+
+    text-align: center;
+    color: var(--font-colour);
+
+    font-size: 8vh;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bar {
+    height: min-content;
+
+    margin: 10px;
+    margin-bottom: none;
+
+    display: flex;
+    flex-direction: row;
+    overflow: wrap;
+}
+
+.library {
+    width: 100%;
+    height: min-content;
+    border-radius: var(--bradius);
+
+    margin: 10px;
+    margin-top: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* background-color: var(--blue); */
+}
+
+.changeAlg {
+    width: 93%;
+    height: 35%;
+
+    border: 3px solid #222;
+    border-radius: var(--bradius);
+
+    background-color: #5d5d5d;
+
+    display: flex;
+    align-self: center;
+
+    margin-top: 7%;
+    margin-bottom: 7%;
+
+    font-size: 100%;
+
+    color: var(--font-colour);
+
+    outline: none;
+
+    padding: 5px;
+}
+
+.name {
+    font-size: 8vh;
+
+    width: 98%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: var(--font-colour);
+
+    margin: 15px;
+    padding: 15px;
+}
+
+.name a {
+    font-size: 20px;
+
+    text-decoration: none;
+
+    color: var(--font-colour);
+
+    background-color: var(--blue);
+
+    width: 130px;
+    height: 40px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    border-radius: var(--bradius);
+}

@@ -1,0 +1,363 @@
+/* Making the Site Mobile & Tablet Responsive */
+
+/* Main Timer Page */
+
+.solves,
+.timerStats,
+.scrambleShow {
+	max-height: 250px;
+}
+
+.leftSes {
+	overflow-x: hidden;
+}
+
+.timerStats.session {
+	min-height: 0px;
+	height: 35vh;
+}
+
+.solves.session {
+	height: 35vh;
+}
+
+@media screen and (max-width: 1000px) {
+	body {
+		overflow: hidden;
+	}
+
+	*::-webkit-scrollbar {
+		width: 4px;
+	}
+
+	.rightSes {
+		height: 70vh;
+		margin: 0;
+	}
+
+	.leftSes {
+		height: 60%;
+		/* margin-top: -50px; */
+	}
+
+	.sesBarName {
+		font-size: 3vw;
+	}
+
+	.sesTitle {
+		flex-direction: column;
+		margin: 0;
+	}
+
+	.newSes {
+		width: 75%;
+	}
+
+	.timerStats {
+		flex-wrap: nowrap;
+		flex-direction: column;
+	}
+
+	.dataStore {
+		font-size: 10px;
+	}
+
+	.item {
+		width: 95%;
+	}
+
+	.info {
+		padding: 15px 0;
+	}
+
+	.solves {
+		font-size: 2.5vw;
+	}
+
+	.index {
+		margin: -2;
+	}
+
+	.icons,
+	.index {
+		width: 20px;
+		height: 20px;
+		font-size: 15px;
+	}
+
+	.time {
+		cursor: pointer;
+	}
+
+	.exInfo {
+		display: none;
+	}
+
+	.del,
+	.exInfo {
+		width: 45px;
+		height: 25px;
+		font-size: 15px;
+		padding: 0px 5px;
+	}
+
+	.index {
+		padding: 2px;
+		padding-right: 35px;
+	}
+
+	.solveBar {
+		padding: 10px;
+		padding-top: 5px;
+		font-size: 14px;
+	}
+
+	.scrambleShow {
+		display: none;
+	}
+
+	.collapse {
+		display: none;
+	}
+
+	.solves {
+		width: 47%;
+	}
+
+	.timerStats {
+		width: 47%;
+	}
+
+	.type {
+		font-size: 18px;
+		/* position: absolute;
+		top: 10px;
+		right: 94px; */
+		background: var(--buttonbg);
+		border: var(--border);
+		color: var(--font-colour);
+		padding: 4px 7.5px;
+		border-radius: 10px;
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		/* width: 43.25px; */
+
+		-webkit-text-stroke: 0.5px var(--buttonbg);
+	}
+
+	.digits {
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-khtml-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+	.collapse {
+		display: none;
+	}
+
+	.refreshScram {
+		font-size: 16px;
+		/* position: absolute;
+	    top: 10px;
+	    right: 143px; */
+		background: var(--buttonbg);
+		border: var(--border);
+		color: var(--font-colour);
+		padding: 5px 10px;
+		border-radius: 10px;
+		cursor: pointer;
+
+		-webkit-text-stroke: 0.5px var(--buttonbg);
+	}
+
+	.copyScram {
+		font-size: 16px;
+		/* position: absolute; */
+		/* top: 10px; */
+		/* right: 190px; */
+		background: var(--buttonbg);
+		border: var(--border);
+		color: var(--font-colour);
+		padding: 5px 10px;
+		border-radius: 10px;
+		cursor: pointer;
+
+		-webkit-text-stroke: 0.5px var(--buttonbg);
+	}
+
+	.scrambleDrop {
+		width: 20%;
+
+		/* position: absolute;
+	    top: 10px;
+	    right: 20px; */
+
+		font-size: 15px;
+	}
+
+	.inputTime {
+		margin: auto;
+		color: var(--font-colour);
+		border: var(--border);
+		width: 60%;
+		height: 30%;
+		font-size: 500%;
+		text-align: center;
+		display: flex;
+		border-radius: var(--bradius);
+		background: var(--buttonbg);
+
+		margin-top: 4%;
+	}
+
+	.img {
+		width: 11vw;
+
+		margin-bottom: 25px;
+
+		margin-left: 25px;
+		margin-right: 25px;
+
+		border-radius: var(--bradius);
+
+		background-color: #2a2828;
+	}
+}
+
+/* Algorithms */
+
+@media screen and (max-width: 1000px) {
+	.img {
+		width: 15vw;
+
+		margin-bottom: 0px;
+
+		margin-left: 25px;
+		margin-right: 25px;
+
+		border-radius: var(--bradius);
+
+		background-color: #2a2828;
+	}
+
+	.algSec {
+		color: var(--font-colour);
+
+		font-size: 30px;
+
+		margin: 20px;
+		margin-top: 50px;
+		margin-bottom: 5px;
+
+		margin-right: 30vw;
+	}
+}
+
+/* Sessions */
+
+@media screen and (max-width: 1000px) {
+	.ses {
+		display: inline-block;
+
+		width: 100%;
+		height: 100%;
+	}
+
+	.leftses {
+		width: 95%;
+		height: 25%;
+
+		margin: 15px;
+		padding: 5px;
+
+		background-color: var(--ok);
+
+		border-radius: 10px;
+
+		overflow-y: scroll;
+
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.rightses {
+		width: 95%;
+		height: 68%;
+
+		margin: 15px;
+		padding: 5px;
+
+		background-color: var(--ok);
+
+		border-radius: 10px;
+
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.sesBar {
+		width: 97%;
+	}
+
+	.sesName {
+		margin-top: 10px;
+	}
+}
+
+/* Settings */
+
+@media screen and (max-width: 1000px) {
+	.cap {
+		font-size: 3.5vw;
+		color: var(--font-colour);
+
+		padding: 10px;
+	}
+
+	.inputSet {
+		padding: 5px;
+
+		background-color: var(--buttonbg);
+		border: 3px solid #151515;
+		color: var(--font-colour);
+
+		font-size: 10px;
+
+		outline: none;
+		border-radius: var(--bradius);
+	}
+
+	#getval {
+		width: 80%;
+	}
+
+	.btnset {
+		padding: 7.5px;
+
+		background-color: var(--buttonbg);
+		border: 3px solid #151515;
+		color: var(--font-colour);
+
+		font-size: 10px;
+
+		outline: none;
+		border-radius: var(--bradius);
+		cursor: pointer;
+	}
+
+	.bgimg div p,
+	.ohdwed {
+		color: var(--font-colour);
+		font-size: 1vw;
+		margin-top: -2vw;
+	}
+
+	.setting {
+		padding: 1vw;
+	}
+}
