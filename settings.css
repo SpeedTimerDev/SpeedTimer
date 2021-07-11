@@ -86,10 +86,10 @@
 }
 
 .cap {
-    font-size: 3vh;
-    color: var(--font-colour);
+	font-size: 3vh;
+	color: var(--font-colour);
 
-    padding: 20px;
+	padding: 20px;
 }
 
 .name a {

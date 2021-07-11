@@ -83,23 +83,67 @@ const arotate = arr => rotate(rotate(rotate(arr)));
 
 const perform = moves => {
 	resetCube();
-	if (moves.length == 0) { resetCube(); draw(); return; }
+	if (moves.length == 0) {
+		resetCube();
+		draw();
+		return;
+	}
+
 	if (!moves.match(/[a-zA-Z]/) || moves.match(/([^ 0-9'RUFLDBrufldbMESxyzw])/g) || moves.match(/([0-9][0-9RUFLDBrufldbMESxyz](?![w'2]{0,3} ))/g)?.length > 1) {
 		return;
 	}
 
 	moves = moves.replaceAll(",", "").split(" ");
 
-	axies = { "U": "y", "D": "y", "E": "y", "Y": "y", "R": "x", "L": "x", "M": "x", "X": "x", "F": "z", "B": "z", "S": "z", "Z": "z" };
+	axies = {
+		"U": "y",
+		"D": "y",
+		"E": "y",
+		"Y": "y",
+		"R": "x",
+		"L": "x",
+		"M": "x",
+		"X": "x",
+		"F": "z",
+		"B": "z",
+		"S": "z",
+		"Z": "z"
+	};
 
-	idx = { "U": [0], "D": [n - 1], "R": [0], "L": [n - 1], "F": [0], "B": [n - 1], "M": [...Array(n - 1).keys()].slice(1), "E": [...Array(n - 1).keys()].slice(1), "S": [...Array(n - 1).keys()].slice(1), "x": [...Array(n).keys()], "y": [...Array(n).keys()], "z": [...Array(n).keys()], "u": n == 3 ? [0, 1] : [0], "d": n == 3 ? [2, 1] : [n - 1], "r": n == 3 ? [0, 1] : [0], "l": n == 3 ? [2, 1] : [n - 1], "f": n == 3 ? [0, 1] : [0], "b": n == 3 ? [2, 1] : [n - 1], "Uw": n == 3 ? [0, 1] : [0], "Dw": n == 3 ? [2, 1] : [n - 1], "Rw": n == 3 ? [0, 1] : [0], "Lw": n == 3 ? [2, 1] : [n - 1], "Fw": n == 3 ? [0, 1] : [0], "Bw": n == 3 ? [2, 1] : [n - 1] };
+	idx = {
+		"U": [0],
+		"D": [n - 1],
+		"R": [0],
+		"L": [n - 1],
+		"F": [0],
+		"B": [n - 1],
+		"M": [...Array(n - 1).keys()].slice(1),
+		"E": [...Array(n - 1).keys()].slice(1),
+		"S": [...Array(n - 1).keys()].slice(1),
+		"x": [...Array(n).keys()],
+		"y": [...Array(n).keys()],
+		"z": [...Array(n).keys()],
+		"u": n == 3 ? [0, 1] : [0],
+		"d": n == 3 ? [2, 1] : [n - 1],
+		"r": n == 3 ? [0, 1] : [0],
+		"l": n == 3 ? [2, 1] : [n - 1],
+		"f": n == 3 ? [0, 1] : [0],
+		"b": n == 3 ? [2, 1] : [n - 1],
+		"Uw": n == 3 ? [0, 1] : [0],
+		"Dw": n == 3 ? [2, 1] : [n - 1],
+		"Rw": n == 3 ? [0, 1] : [0],
+		"Lw": n == 3 ? [2, 1] : [n - 1],
+		"Fw": n == 3 ? [0, 1] : [0],
+		"Bw": n == 3 ? [2, 1] : [n - 1]
+	};
 	for (move of moves) {
 		if (move == "") break;
 		let layers = idx[move.replace(/[0-9']/g, "")];
 		let slice = (n != 3 && move.replace(/[0-9']/g, "") == move.replace(/[0-9']/g, "").match(/^[udrlfb]$|^[UDRLFB]w$/g)) ? (((temp = move.match(/[0-9][A-Za-z]/g)) ? parseInt(move.replace(/[a-zA-Z]+[0-9]/g, "")) - 1 : 1) * (move.includes("d") || move.includes("l") || move.includes("b") ? -1 : 1)) : 0;
 		if (move.match(/[RUF]w/g)) layers = [...Array(slice + 1).keys()];
 		if (move.match(/[LDB]w/g)) layers = [...Array(n).keys()].slice(-slice - 1);
-		let newCube = cube, i, j = 0;
+		let newCube = cube,
+			i, j = 0;
 
 		for (layer of layers) {
 
@@ -119,20 +163,28 @@ const perform = moves => {
 					if (direction == "CW") {
 						up.reverse();
 						back.reverse();
-						i = 0; newCube[0].forEach(e => e[newCube[0].length - layer - 1] = front[i++]);
-						i = 0; newCube[4].forEach(e => e[layer] = up[i++]);
-						i = 0; newCube[5].forEach(e => e[newCube[4].length - layer - 1] = back[i++]);
-						i = 0; newCube[2].forEach(e => e[newCube[2].length - layer - 1] = down[i++]);
+						i = 0;
+						newCube[0].forEach(e => e[newCube[0].length - layer - 1] = front[i++]);
+						i = 0;
+						newCube[4].forEach(e => e[layer] = up[i++]);
+						i = 0;
+						newCube[5].forEach(e => e[newCube[4].length - layer - 1] = back[i++]);
+						i = 0;
+						newCube[2].forEach(e => e[newCube[2].length - layer - 1] = down[i++]);
 
 						if (layer == 0) cube[3] = rotate(cube[3]);
 						if (layer == cube[0].length - 1) cube[1] = arotate(cube[1]);
 					} else {
 						down.reverse();
 						back.reverse();
-						i = 0; newCube[0].forEach(e => e[newCube[0].length - layer - 1] = back[i++]);
-						i = 0; newCube[4].forEach(e => e[layer] = down[i++]);
-						i = 0; newCube[5].forEach(e => e[newCube[4].length - layer - 1] = front[i++]);
-						i = 0; newCube[2].forEach(e => e[newCube[2].length - layer - 1] = up[i++]);
+						i = 0;
+						newCube[0].forEach(e => e[newCube[0].length - layer - 1] = back[i++]);
+						i = 0;
+						newCube[4].forEach(e => e[layer] = down[i++]);
+						i = 0;
+						newCube[5].forEach(e => e[newCube[4].length - layer - 1] = front[i++]);
+						i = 0;
+						newCube[2].forEach(e => e[newCube[2].length - layer - 1] = up[i++]);
 
 						if (layer == 0) cube[3] = arotate(cube[3]);
 						if (layer == cube[0].length - 1) cube[1] = rotate(cube[1]);
@@ -174,9 +226,11 @@ const perform = moves => {
 						right.reverse();
 						left.reverse();
 						newCube[0][cube[0].length - layer - 1] = left;
-						i = 0; newCube[3].forEach(e => e[layer] = up[i++]);
+						i = 0;
+						newCube[3].forEach(e => e[layer] = up[i++]);
 						newCube[5][layer] = right;
-						i = 0; newCube[1].forEach(e => e[cube[1].length - layer - 1] = down[i++]);
+						i = 0;
+						newCube[1].forEach(e => e[cube[1].length - layer - 1] = down[i++]);
 
 						if (layer == 0) cube[2] = rotate(cube[2]);
 						if (layer == cube[0].length - 1) cube[4] = arotate(cube[4]);
@@ -184,9 +238,11 @@ const perform = moves => {
 						up.reverse();
 						down.reverse();
 						newCube[0][cube[0].length - layer - 1] = right;
-						i = 0; newCube[3].forEach(e => e[layer] = down[i++]);
+						i = 0;
+						newCube[3].forEach(e => e[layer] = down[i++]);
 						newCube[5][layer] = left;
-						i = 0; newCube[1].forEach(e => e[cube[1].length - layer - 1] = up[i++]);
+						i = 0;
+						newCube[1].forEach(e => e[cube[1].length - layer - 1] = up[i++]);
 
 						if (layer == 0) cube[2] = arotate(cube[2]);
 						if (layer == cube[0].length - 1) cube[4] = rotate(cube[4]);
@@ -318,7 +374,7 @@ function generateScramble(type) {
 				var span = document.createElement("span");
 				span.innerHTML = `${sample} `;
 				span.classList.add(sample);
-				if(innerWidth > 1000) {
+				if (innerWidth > 1000) {
 					span.style.fontSize = "30px";
 				} else {
 					span.style.fontSize = "20px";
@@ -335,7 +391,7 @@ function generateScramble(type) {
 				var span = document.createElement("span");
 				span.innerHTML = `${sample} `;
 				span.classList.add(sample);
-				if(innerWidth > 1000) {
+				if (innerWidth > 1000) {
 					span.style.fontSize = "30px";
 				} else {
 					span.style.fontSize = "20px";
@@ -363,7 +419,7 @@ function generateScramble(type) {
 				var span = document.createElement("span");
 				span.innerHTML = `${sample} `;
 				span.classList.add(sample);
-				if(innerWidth > 1000) {
+				if (innerWidth > 1000) {
 					span.style.fontSize = "30px";
 				} else {
 					span.style.fontSize = "20px";
@@ -389,7 +445,7 @@ function generateScramble(type) {
 				var span = document.createElement("span");
 				span.innerHTML = `${sample} `;
 				span.classList.add(sample);
-				if(innerWidth > 1000) {
+				if (innerWidth > 1000) {
 					span.style.fontSize = "25px";
 				} else {
 					span.style.fontSize = "15px";
@@ -399,7 +455,7 @@ function generateScramble(type) {
 			var span = document.createElement("span");
 			span.innerHTML = `y2 `;
 			span.classList.add("y2");
-			if(innerWidth > 1000) {
+			if (innerWidth > 1000) {
 				span.style.fontSize = "25px";
 			} else {
 				span.style.fontSize = "15px";
@@ -415,7 +471,7 @@ function generateScramble(type) {
 				var span = document.createElement("span");
 				span.innerHTML = `${sample} `;
 				span.classList.add(sample);
-				if(innerWidth > 1000) {
+				if (innerWidth > 1000) {
 					span.style.fontSize = "25px";
 				} else {
 					span.style.fontSize = "15px";
@@ -431,7 +487,7 @@ function generateScramble(type) {
 				var span = document.createElement("span");
 				span.innerHTML = `${sample} `;
 				span.classList.add(sample);
-				if(innerWidth > 1000) {
+				if (innerWidth > 1000) {
 					span.style.fontSize = "25px";
 				} else {
 					span.style.fontSize = "15px";
@@ -666,10 +722,10 @@ et.which = et.keyCode = 32;
 document.dispatchEvent(et);
 
 document.body.onkeydown = function (e) {
-	if(e.keyCode == 32) {
-		if(running == 0) {
+	if (e.keyCode == 32) {
+		if (running == 0) {
 			timerPressed = true;
-			if(timerDoTime == 0) {
+			if (timerDoTime == 0) {
 				timerDoTime = Math.floor(Date.now());
 				timerCheck = window.setInterval(checkSecF, 200);
 				timerCheck = window.setInterval(checkSec, 500);
@@ -682,11 +738,11 @@ document.body.onkeyup = function (e) {
 	if (localStorage.getItem("inputType") == "timer") {
 		if (timer.nodeName == "BUTTON") {
 			timer.style.color = "white";
-			if(e.keyCode == 32 && running == 0) {
+			if (e.keyCode == 32 && running == 0) {
 				timerPressed = false;
 				var newTime = Math.floor(Date.now()) - timerDoTime;
 				timerDoTime = 0;
-				if(newTime > 700) {
+				if (newTime > 700) {
 					start();
 					clearInterval(timerCheck);
 				} else {
@@ -708,16 +764,16 @@ document.body.onkeyup = function (e) {
 }
 
 function checkSecF() {
-	if(timerPressed) {
-		if(timer.style.color == "white") {
+	if (timerPressed) {
+		if (timer.style.color == "white") {
 			timer.style.color = "orange";
 		}
 	}
 }
 
 function checkSec() {
-	if(timerPressed) {
-		if(timer.style.color == "orange") {
+	if (timerPressed) {
+		if (timer.style.color == "orange") {
 			timer.style.color = "lightgreen";
 		}
 	}
@@ -775,6 +831,7 @@ document.querySelector(".inputTime").addEventListener("change", function () {
 
 				generateTimes();
 				generateStats();
+				generateScramble(sType);
 
 				input.value = "";
 			}

@@ -327,7 +327,7 @@ button.digits {
 }
 
 .bestTime {
-    color: #0069e9;
+    color: #8192dd;
     font-weight: bold;
 }
 
@@ -367,8 +367,8 @@ button.digits {
 }
 
 .valTime {
-    color: #0069e9;
-    font-weight: bold;
+    color: #3f8ff1;
+    font-weight: bolder;
 }
 
 /* Scrollbar */

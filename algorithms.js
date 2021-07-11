@@ -18,7 +18,7 @@ function createLinks() {
     var links = ["algs-3-oll", "algs-3-pll", "algs-3-2loll", "algs-3-2lpll"];
     var names = ["OLL", "PLL", "2LOLL", "2LPLL"]
 
-    for(i = 0; i < links.length; i++) {
+    for (i = 0; i < links.length; i++) {
         var libA = document.createElement("a");
         libA.classList.add("libraryA");
         libA.style.textDecoration = "none";
