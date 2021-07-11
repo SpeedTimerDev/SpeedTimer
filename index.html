@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="visualiser.css">
 	<link rel="stylesheet" href="cubeimage.css">
 	<link rel="stylesheet" href="media.css">
+	<link rel="stylesheet" href="cubeslist.css">
 	<link rel="icon" href="logo1.jpg">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
 		integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
@@ -22,59 +23,16 @@
 	</div>
 	<input id="copyStore" style="position: absolute; left: -55555px;" type="text">
 
-	<div class="leftT">
-		<div class="logo" style="margin-top: 50px">
-			<img src="logo1.jpg">
-		</div>
-		<div class="text" style="margin-top: 50px">SpeedTimer</div>
-		<div
-			style="flex: 2; display: flex; flex-direction: column; align-items: center; justify-content: space-evenly;">
-			<div>
-				<a class="link active" href="index.html" id="timer">
-					<i class="fas fa-stopwatch"></i>
-					<span>Timer</span>
-				</a>
-			</div>
-			<div>
-				<a class="link" href="sessions.html" id="sessions">
-					<i class="fas fa-list"></i>
-					<span>Sessions</span>
-				</a>
-			</div>
-			<div>
-				<a class="link" href="algs-3-oll.html" id="algorithms">
-					<i class="fas fa-th"></i>
-					<span>Algorithms</span>
-				</a>
-			</div>
-			<div>
-				<a class="link" href="settings.html" id="settings">
-					<i class="fas fa-cog"></i>
-					<span>Settings</span>
-				</a>
-			</div>
-		</div>
-		<div class="lastPart">
-			<div>
-				<!-- <a class="discord" href="https://discord.gg/pnuBXU8Sgg" target="_blank">
-					<i class="fab fa-discord" style="color: rgb(88 101 242);"></i>
-				</a> -->
-				<button class="credits" onclick="credits()" id="info"><i class="fas fa-question"></i></button>
-				<a class="infoBtn" href="info.html" target="_blank"><i class="fas fa-info"></i></a>
-				<a class="infoBtn" href="updates.html" target="_blank"><i class="fas fa-bell"></i></a>
-			</div>
-			<button class="collapse" onclick="collapse()"><i id="col" class="fas fa-angle-left"></i></button>
-		</div>
-	</div>
+	<div class="leftT"></div>
 
 
 	<div class="rightT">
 		<div class="copied">
 			<p>Copied!</p>
 		</div>
-		<div class="overlay">
+		<div class="overlay" style="display: none;">
 		</div>
-		<div class="creditpopup">
+		<div class="creditpopup" style="display: none;">
 			<!-- <a href='https://writingmasterthesis.com/'>https://writingmasterthesis.com/</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=0f5f8532571239cf04afa8e976210d4c75f18e3d'></script>
 			<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/835531/t/7"></script> -->
 			<!-- <script type="text/javascript" src="//counter.websiteout.net/js/5/0/0/1"></script></div> -->
@@ -171,6 +129,7 @@
 		</div>
 	</div>
 
+	<script src="navbar.js" async></script>
 	<script src="collapse.js" async></script>
 	<script src="script.js" async defer></script>
 	<script src="defaults.js" async defer></script>
@@ -190,6 +149,9 @@
 				src="//log.hitsteps.net/track.php?mode=img&amp;code=8e3bf983e56a8a7a1766acd623f5ba08"
 				alt="free website tracking" width="1" height="1" />website tracking software</a></noscript>
 	<!-- Hitsteps TRACKING CODE - DO NOT CHANGE -->
+	<!-- <a class="discord" href="https://discord.gg/pnuBXU8Sgg" target="_blank">
+		<i class="fab fa-discord" style="color: rgb(88 101 242);"></i>
+	</a> -->
 </body>
 
 </html>

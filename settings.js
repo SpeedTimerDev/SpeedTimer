@@ -1,6 +1,6 @@
 let input = document.getElementById("getval");
 
-if(localStorage.getItem("buttonbg") == null) {
+if (localStorage.getItem("buttonbg") == null) {
 	localStorage.setItem("buttonbg", "#323232");
 	localStorage.setItem("algImgCol", "#dba204");
 }
@@ -41,7 +41,7 @@ document.getElementById("colorPicker").addEventListener("input", () => {
 	localStorage.setItem("buttonbg", document.getElementById("colorPicker").value);
 });
 
-document.getElementById("algImgCol").addEventListener("input", function() {
+document.getElementById("algImgCol").addEventListener("input", function () {
 	localStorage.setItem("algImgCol", document.getElementById("algImgCol").value);
 	document.body.style.setProperty("--algImgCol", localStorage.algImgCol);
 });
@@ -67,7 +67,7 @@ clrAllSettings.addEventListener("click", function () {
 		localStorage.setItem("buttonbg", "#323232");
 		localStorage.setItem("algImgCol", "#dba204");
 		localStorage.removeItem("iconTop");
-		document.location.href = "index.html"; 
+		document.location.href = "index.html";
 	}
 });
 
