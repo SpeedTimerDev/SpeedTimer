@@ -834,6 +834,8 @@ document.querySelector(".inputTime").addEventListener("change", function () {
 				generateScramble(sType);
 
 				input.value = "";
+
+				generateScramble(sType);
 			}
 		}
 	}
