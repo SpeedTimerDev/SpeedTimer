@@ -794,6 +794,7 @@ function twobytwo() {
 
     popupClose.addEventListener("click", hidePopup);
     document.getElementById("sesName").value = "";
+
     function loadBars() {
         for (i = 0; i < listInfo.length; i++) {
             var iteralName = listInfo[i].toString();
@@ -1083,6 +1084,7 @@ function fourbyfour() {
 
     popupClose.addEventListener("click", hidePopup);
     document.getElementById("sesName").value = "";
+
     function loadBars() {
         for (i = 0; i < listInfo.length; i++) {
             var iteralName = listInfo[i].toString();
