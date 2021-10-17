@@ -1,13 +1,13 @@
 // Visualiser
 
 let n;
-const createCube = size => {
+const createCube = (size, className) => {
 	cube = [];
 	n = size;
 	const scale = 50;
 	const xOff = 50;
 	const yOff = 100;
-	document.querySelector(".scrambleShow").innerHTML = '<div class="up"></div><div class="middle"><div class="left"></div><div class="front"></div><div class="right"></div><div class="back"></div></div><div class="down"></div>';
+	document.querySelector("." + className + "").innerHTML = '<div class="up"></div><div class="middle"><div class="left"></div><div class="front"></div><div class="right"></div><div class="back"></div></div><div class="down"></div>';
 
 	document.body.style.setProperty("--n", n);
 
@@ -585,7 +585,7 @@ function nxn(type, len, size, mobileSize) {
 	}
 
 	if (innerWidth > 1000) {
-		createCube(parseInt(type));
+		createCube(parseInt(type), "scrambleShow");
 		perform(scrambleTemp.join(" "));
 	}
 
@@ -1150,11 +1150,27 @@ function deleteSolve() {
 	}
 }
 
+document.querySelector(".solveInfoClose").addEventListener("click", function () { 
+	document.querySelector("#overlay2").style.display = "none";
+	document.querySelector(".solveInfo").style.display = "none";
+});
+
 function showScram() {
 	var uppParent1 = this.parentElement;
 	var uppParent2 = uppParent1.parentElement;
 
 	var idx = parseInt(uppParent2.id) || this.id;
 
-	alert(format(sessions[currentSessionIdx].times[sessions[currentSessionIdx].times.length - idx - 1]) + "\n" + sessions[currentSessionIdx].scrambles[sessions[currentSessionIdx].scrambles.length - idx - 1]);
+	//alert(format(sessions[currentSessionIdx].times[sessions[currentSessionIdx].times.length - idx - 1]) + "\n" + sessions[currentSessionIdx].scrambles[sessions[currentSessionIdx].scrambles.length - idx - 1]);
+
+	var scrambleText = sessions[currentSessionIdx].scrambles[sessions[currentSessionIdx].scrambles.length - idx - 1];
+
+	document.getElementById("overlay2").style.display = "block";
+	document.querySelector(".solveInfo").style.display = "block";
+
+	document.querySelector(".solveInfoTime").innerHTML = format(sessions[currentSessionIdx].times[sessions[currentSessionIdx].times.length - idx - 1]);
+	document.querySelector(".solveInfoType").innerHTML = scrambleText.slice(scrambleText.length - 3, scrambleText.length);
+	document.querySelector(".solveInfoScramble").innerHTML = (scrambleText).slice(0, scrambleText.length - 3);
+	createCube(parseInt(scrambleText.slice(scrambleText.length - 1, scrambleText.length)), "solveInfoPreview");
+	perform(scrambleText.slice(0, scrambleText.length - 4));
 }

@@ -25,6 +25,105 @@ body {
     --bradius: 10px;
 }
 
+.solveInfo {
+    position: absolute;
+
+    width: 35vw;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    top: 37.5%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    z-index: 901;
+
+    background-color: rgb(40, 40, 40);
+
+    justify-content: center;
+}
+
+.solveInfoTime {
+    font-size: 45px;
+
+    text-align: center;
+
+    color: whitesmoke;
+}
+
+.solveInfoType {
+    font-size: 24px;
+
+    text-align: center;
+
+    color: rgb(180, 180, 180);
+}
+
+.solveInfoPreview {
+    height: 30vh;
+
+    width: 70%;
+
+    background-color: rgb(36, 36, 36);
+
+    margin-left: auto;
+    margin-right: auto;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.solveInfoScramble {
+    color: whitesmoke;
+
+    font-size: 18px;
+
+    text-align: center;
+
+    color: rgb(230, 230, 230);
+
+    padding: 15px;
+}
+
+.solveInfoClose {
+    position: absolute;
+
+    top: -15px;
+    right: -15px;
+
+    width: 35px;
+    height: 35px;
+
+    padding: 10px;
+
+    background-color: rgb(40, 40, 40);
+
+    color: white;
+
+    border-radius: 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+
+    font-size: 18px;
+}
+
+.solveInfoClose:hover {
+    background-color: rgb(60, 60, 60);
+
+    cursor: pointer;
+}
+
 .algSec {
     color: var(--font-colour);
 
