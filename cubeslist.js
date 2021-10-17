@@ -71,8 +71,8 @@ function threebythree() {
     document.getElementById("sesName").value = "";
     changeLable(3);
 
-    var cubes = {
-        name00: {
+    var cubes = [
+        {
             Name: "Dayan Guhong V3 Magnetic ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -82,7 +82,7 @@ function threebythree() {
             Price: "$11.95",
             Rating: "6/10",
         },
-        name01: {
+        {
             Name: "Dayan Guhong V4 Magnetic ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -92,7 +92,7 @@ function threebythree() {
             Price: "$14.95",
             Rating: "9/10",
         },
-        name02: {
+        {
             Name: "Dayan Tengyun M ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -102,7 +102,7 @@ function threebythree() {
             Price: "$25.95",
             Rating: "8/10",
         },
-        name03: {
+        {
             Name: "Dayan Tengyun Magnetic V2 ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -112,7 +112,7 @@ function threebythree() {
             Price: "$31.95",
             Rating: "8/10",
         },
-        name04: {
+        {
             Name: "Gan 11 M Pro ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -122,7 +122,7 @@ function threebythree() {
             Price: "$64.95",
             Rating: "9/10",
         },
-        name05: {
+        {
             Name: "Gan 354 Magnetic V2 ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -132,7 +132,7 @@ function threebythree() {
             Price: "$34.95",
             Rating: "7/10",
         },
-        name06: {
+        {
             Name: "Gan 356 Air M ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -142,7 +142,7 @@ function threebythree() {
             Price: "$33.95",
             Rating: "8/10",
         },
-        name07: {
+        {
             Name: "Gan 356 Magnetic ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -152,7 +152,7 @@ function threebythree() {
             Price: "$32.95",
             Rating: "8/10",
         },
-        name08: {
+        {
             Name: "Gan 356 Magnetic LITE ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -162,7 +162,7 @@ function threebythree() {
             Price: "$27.95",
             Rating: "8/10",
         },
-        name09: {
+        {
             Name: "Gan 356 RS ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -172,7 +172,7 @@ function threebythree() {
             Price: "$16.95",
             Rating: "5/10",
         },
-        name10: {
+        {
             Name: "Gan 356 X Magnetic V2 ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -182,7 +182,7 @@ function threebythree() {
             Price: "$39.95",
             Rating: "8/10",
         },
-        name11: {
+        {
             Name: "Gan 356 XS ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -192,7 +192,7 @@ function threebythree() {
             Price: "$49.95",
             Rating: "9/10",
         },
-        name12: {
+        {
             Name: "Gan Speed Cube (GSC) ",
             Magnets: "No",
             Stickerless: "Yes",
@@ -202,7 +202,7 @@ function threebythree() {
             Price: "$20.95",
             Rating: "7/10",
         },
-        name13: {
+        {
             Name: "Guoguan Yuexiao EDM ",
             Magnets: "Yes",
             Stickerless: "No",
@@ -212,7 +212,7 @@ function threebythree() {
             Price: "$24.95",
             Rating: "6/10",
         },
-        name14: {
+        {
             Name: "Mofang Jiaoshi Meilong Magnetic ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -222,7 +222,7 @@ function threebythree() {
             Price: "$6.95",
             Rating: "7/10",
         },
-        name15: {
+        {
             Name: "Monster Go Magnetic ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -232,7 +232,7 @@ function threebythree() {
             Price: "$19.95",
             Rating: "7/10",
         },
-        name16: {
+        {
             Name: "Monster Go Traditional ",
             Magnets: "No",
             Stickerless: "Yes",
@@ -242,7 +242,7 @@ function threebythree() {
             Price: "$11.95",
             Rating: "6/10",
         },
-        name17: {
+        {
             Name: "Moyu RS3M 2020 ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -250,9 +250,9 @@ function threebythree() {
             Weight: "86g",
             Img: "cubeslist/moyurs3m.jpeg",
             Price: "$8.95",
-            Rating: "9/10",
+            Rating: "6/10",
         },
-        name18: {
+        {
             Name: "Moyu Weilong GTS2 ",
             Magnets: "No",
             Stickerless: "Yes",
@@ -262,7 +262,7 @@ function threebythree() {
             Price: "$19.95",
             Rating: "7/10",
         },
-        name19: {
+        {
             Name: "Moyu Weilong GTS2 M ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -272,7 +272,7 @@ function threebythree() {
             Price: "$25.95",
             Rating: "8/10",
         },
-        name20: {
+        {
             Name: "Moyu Weilong GTS3 ",
             Magnets: "No",
             Stickerless: "Yes",
@@ -282,7 +282,7 @@ function threebythree() {
             Price: "$29.95",
             Rating: "5/10",
         },
-        name21: {
+        {
             Name: "Moyu Weilong GTS3M ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -292,7 +292,7 @@ function threebythree() {
             Price: "$34.95",
             Rating: "8/10",
         },
-        name22: {
+        {
             Name: "Moyu Weilong WR ",
             Magnets: "No",
             Stickerless: "Yes",
@@ -302,7 +302,7 @@ function threebythree() {
             Price: "$29.95",
             Rating: "5/10",
         },
-        name23: {
+        {
             Name: "Moyu Weilong WR M 2020 ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -312,7 +312,7 @@ function threebythree() {
             Price: "$34.95",
             Rating: "8/10",
         },
-        name24: {
+        {
             Name: "Moyu Weilong WR M Magnetic ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -322,7 +322,7 @@ function threebythree() {
             Price: "$38.95",
             Rating: "7/10",
         },
-        name25: {
+        {
             Name: "MsCube MS3-V1 M ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -332,7 +332,7 @@ function threebythree() {
             Price: "$29.95",
             Rating: "7/10",
         },
-        name26: {
+        {
             Name: "MsCube MS3-V1 M Enhanced ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -342,7 +342,7 @@ function threebythree() {
             Price: "$34.95",
             Rating: "8/10",
         },
-        name27: {
+        {
             Name: "Qiyi MS Magnetic ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -352,7 +352,7 @@ function threebythree() {
             Price: "$7.95",
             Rating: "7/10",
         },
-        name28: {
+        {
             Name: "Qiyi Thunderclap V3 M ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -362,7 +362,7 @@ function threebythree() {
             Price: "$9.95",
             Rating: "7/10",
         },
-        name29: {
+        {
             Name: "Qiyi Valk 3 ",
             Magnets: "No",
             Stickerless: "Yes",
@@ -372,7 +372,7 @@ function threebythree() {
             Price: "$19.95",
             Rating: "7/10",
         },
-        name30: {
+        {
             Name: "Qiyi Valk 3 Elite M ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -382,7 +382,7 @@ function threebythree() {
             Price: "$44.95",
             Rating: "9/10",
         },
-        name31: {
+        {
             Name: "Qiyi Valk 3 M ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -392,7 +392,7 @@ function threebythree() {
             Price: "$24.95",
             Rating: "8/10",
         },
-        name32: {
+        {
             Name: "Qiyi Valk 3 Power ",
             Magnets: "No",
             Stickerless: "Yes",
@@ -402,7 +402,7 @@ function threebythree() {
             Price: "$24.95",
             Rating: "5/10",
         },
-        name33: {
+        {
             Name: "Qiyi Valk 3 Power M ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -412,7 +412,7 @@ function threebythree() {
             Price: "$38.95",
             Rating: "6/10",
         },
-        name34: {
+        {
             Name: "Qiyi Wuwei M ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -422,7 +422,7 @@ function threebythree() {
             Price: "$14.95",
             Rating: "8/10",
         },
-        name35: {
+        {
             Name: "YJ MGC Elite Magnetic ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -432,7 +432,7 @@ function threebythree() {
             Price: "$22.95",
             Rating: "8/10",
         },
-        name36: {
+        {
             Name: "YJ MGC Magnetic ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -442,7 +442,7 @@ function threebythree() {
             Price: "$14.95",
             Rating: "7/10",
         },
-        name37: {
+        {
             Name: "YJ Yulong V2 Magnetic ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -452,7 +452,7 @@ function threebythree() {
             Price: "$7.95",
             Rating: "7/10",
         },
-        name38: {
+        {
             Name: "YJ Zhilong Mini Magnetic ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -462,7 +462,7 @@ function threebythree() {
             Price: "$7.95",
             Rating: "8/10",
         },
-        name39: {
+        {
             Name: "Yuxin Kylin V2 M ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -472,7 +472,7 @@ function threebythree() {
             Price: "$9.95",
             Rating: "7/10",
         },
-        name40: {
+        {
             Name: "Yuxin Little Magic ",
             Magnets: "No",
             Stickerless: "Yes",
@@ -482,7 +482,7 @@ function threebythree() {
             Price: "$4.95",
             Rating: "6/10",
         },
-        name41: {
+        {
             Name: "Yuxin Little Magic M ",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -491,32 +491,153 @@ function threebythree() {
             Img: "cubeslist/littlemagic.jpeg",
             Price: "$7.95",
             Rating: "8/10",
-        }
-    }
+        },
+        {
+            Name: "Moyu RS3M 2021 Maglev ",
+            Magnets: "Yes",
+            Stickerless: "Yes",
+            Size: "56mm",
+            Weight: "92g",
+            Img: "cubeslist/rs3mlaglev.jpeg",
+            Price: "$13.99",
+            Rating: "7/10",
+        },
+        {
+            Name: "Moyu Weilong WR M 2021 Maglev ",
+            Magnets: "Yes",
+            Stickerless: "Yes",
+            Size: "55mm",
+            Weight: "84g",
+            Img: "cubeslist/wrmmaglev.jpeg",
+            Price: "$29.99",
+            Rating: "8/10",
+        },
+        {
+            Name: "Gan i3",
+            Magnets: "Yes",
+            Stickerless: "Yes",
+            Size: "56mm",
+            Weight: "88g",
+            Img: "cubeslist/gani3.jpeg",
+            Price: "$62.99",
+            Rating: "9/10",
+        },
+        {
+            Name: "Gan 12 Maglev",
+            Magnets: "Yes",
+            Stickerless: "Yes",
+            Size: "56mm",
+            Weight: "66g",
+            Img: "cubeslist/ganmaglev.jpeg",
+            Price: "$77.99",
+            Rating: "9/10",
+        },
+        {
+            Name: "Gan 12 M Leap",
+            Magnets: "Yes",
+            Stickerless: "Yes",
+            Size: "56mm",
+            Weight: "61g",
+            Img: "cubeslist/ganmleap.jpeg",
+            Price: "$66.99",
+            Rating: "8/10",
+        },
+        {
+            Name: "Gan Mini M Pro",
+            Magnets: "Yes",
+            Stickerless: "Yes",
+            Size: "53mm",
+            Weight: "54g",
+            Img: "cubeslist/ganminim.jpeg",
+            Price: "$54.99",
+            Rating: "7/10",
+        },
+        {
+            Name: "Monster Go AI",
+            Magnets: "Yes",
+            Stickerless: "Yes",
+            Size: "56mm",
+            Weight: "81g",
+            Img: "cubeslist/monsterai.jpeg",
+            Price: "$27.99",
+            Rating: "8/10",
+        },
+        {
+            Name: "Gan 11 M Duo",
+            Magnets: "Yes",
+            Stickerless: "Yes",
+            Size: "56mm",
+            Weight: "60g",
+            Img: "cubeslist/gan11duo.jpeg",
+            Price: "$46.99",
+            Rating: "7/10",
+        },
+        {
+            Name: "Gan 11 M",
+            Magnets: "Yes",
+            Stickerless: "Yes",
+            Size: "56mm",
+            Weight: "56g",
+            Img: "cubeslist/gan11blank.jpeg",
+            Price: "$34.99",
+            Rating: "6/10",
+        },
+        {
+            Name: "Gan 11 Air",
+            Magnets: "No",
+            Stickerless: "Yes",
+            Size: "56mm",
+            Weight: "50g",
+            Img: "cubeslist/gan11air.jpeg",
+            Price: "$23.99",
+            Rating: "5/10",
+        },
+        {
+            Name: "Dayan Zhanchi Pro M",
+            Magnets: "Yes",
+            Stickerless: "Yes",
+            Size: "56mm",
+            Weight: "77g",
+            Img: "cubeslist/zhanchipro.jpeg",
+            Price: "$34.99",
+            Rating: "8/10",
+        },
+        {
+            Name: "Gan 356 i Carry",
+            Magnets: "Yes",
+            Stickerless: "Yes",
+            Size: "56mm",
+            Weight: "77.5g",
+            Img: "cubeslist/ganicarry.jpeg",
+            Price: "$36.99",
+            Rating: "8/10",
+        },
+    ];
 
     var listInfo = [];
 
-    for (i = 0; i < 42; i++) {
-        if (i < 10) {
-            listInfo.push("name0" + i);
-        } else {
-            listInfo.push("name" + i);
-        }
+    for (i = 0; i < cubes.length; i++) {
+        listInfo.push(i);
     }
 
+    cubes.sort(function (a, b) {
+        val1 = a.Name.toUpperCase();
+        val2 = b.Name.toUpperCase();
+        return (val1 < val2) ? -1 : (val1 > val2) ? 1: 0;
+    });
 
     function loadBars() {
         for (i = 0; i < listInfo.length; i++) {
-            var iteralName = listInfo[i].toString();
-            listArrayName.push([cubes[iteralName]['Name']]);
-            listArrayMagnets.push([cubes[iteralName]['Magnets']]);
-            listArrayType.push([cubes[iteralName]['Type']]);
-            listArrayStickerless.push([cubes[iteralName]['Stickerless']]);
+            var iteralName = parseInt(listInfo[i]);
+            listArrayName.push(cubes[iteralName]['Name']);
+            listArrayMagnets.push(cubes[iteralName]['Magnets']);
+            listArrayType.push(cubes[iteralName]['Type']);
+            listArrayStickerless.push(cubes[iteralName]['Stickerless']);
             listArraySize.push(cubes[iteralName]['Size']);
-            listArrayImage.push([cubes[iteralName]['Img']]);
-            listArrayWeight.push([cubes[iteralName]['Weight']]);
-            listArrayPrice.push([cubes[iteralName]['Price']]);
-            listArrayRating.push([cubes[iteralName]['Rating']]);
+            listArrayImage.push(cubes[iteralName]['Img']);
+            listArrayWeight.push(cubes[iteralName]['Weight']);
+            listArrayPrice.push(cubes[iteralName]['Price']);
+            listArrayRating.push(cubes[iteralName]['Rating']);
         }
 
         for (i = 0; i < listArrayName.length; i++) {
@@ -636,8 +757,8 @@ function twobytwo() {
     document.getElementById("sesName").value = "";
     changeLable(2);
 
-    var cubes = {
-        name00: {
+    var cubes = [
+        {
             Name: "DaYan Tengyun M",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -647,7 +768,7 @@ function twobytwo() {
             Rating: "9/10",
             Img: "cubeslist/dayanm.jpeg"
         },
-        name01: {
+        {
             Name: "GAN 249 V2",
             Magnets: "No",
             Stickerless: "Yes",
@@ -657,7 +778,7 @@ function twobytwo() {
             Rating: "6/10",
             Img: "cubeslist/gan249v2.jpeg"
         },
-        name02: {
+        {
             Name: "GAN 249 V2 M",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -667,7 +788,7 @@ function twobytwo() {
             Rating: "7/10",
             Img: "cubeslist/gan249v2m.jpeg"
         },
-        name03: {
+        {
             Name: "GAN 251 M",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -677,7 +798,7 @@ function twobytwo() {
             Rating: "8/10",
             Img: "cubeslist/gan251m.jpeg"
         },
-        name04: {
+        {
             Name: "GAN 251 M Explorer",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -687,7 +808,7 @@ function twobytwo() {
             Rating: "9/10",
             Img: "cubeslist/gan251ex.jpeg"
         },
-        name05: {
+        {
             Name: "Qiyi MS",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -697,7 +818,7 @@ function twobytwo() {
             Rating: "7/10",
             Img: "cubeslist/qiyims2.jpeg"
         },
-        name06: {
+        {
             Name: "Qiyi Valk 2 LM",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -707,7 +828,7 @@ function twobytwo() {
             Rating: "8/10",
             Img: "cubeslist/valklm.jpeg"
         },
-        name07: {
+        {
             Name: "Qiyi Valk 2 M",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -717,7 +838,7 @@ function twobytwo() {
             Rating: "9/10",
             Img: "cubeslist/valk2.jpeg"
         },
-        name08: {
+        {
             Name: "X-Man Flare M",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -727,7 +848,7 @@ function twobytwo() {
             Rating: "8/10",
             Img: "cubeslist/xman2.jpeg"
         },
-        name09: {
+        {
             Name: "YJ MGC",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -737,7 +858,7 @@ function twobytwo() {
             Rating: "7/10",
             Img: "cubeslist/yjmgc.jpeg"
         },
-        name10: {
+        {
             Name: "YJ MGC Elite",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -747,7 +868,7 @@ function twobytwo() {
             Rating: "9/10",
             Img: "cubeslist/yjmgcel.jpeg"
         },
-        name11: {
+        {
             Name: "Yj YuPo V2 M",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -757,7 +878,7 @@ function twobytwo() {
             Rating: "6/10",
             Img: "cubeslist/yupo2.jpeg"
         },
-        name12: {
+        {
             Name: "Yuxin Little Magic",
             Magnets: "No",
             Stickerless: "Yes",
@@ -767,7 +888,7 @@ function twobytwo() {
             Rating: "6/10",
             Img: "cubeslist/yuxinlm2.jpeg"
         },
-        name13: {
+        {
             Name: "Yuxin Little Magic M",
             Magnets: "Yes",
             Stickerless: "Yes",
@@ -776,28 +897,79 @@ function twobytwo() {
             Price: "$6.99",
             Rating: "8/10",
             Img: "cubeslist/yuxinlmm.jpeg"
-        }
-    }
+        },
+        {
+            Name: "Gan 251 M Leap",
+            Magnets: "Yes",
+            Stickerless: "Yes",
+            Size: "51mm",
+            Weight: "51g",
+            Price: "$39.99",
+            Rating: "9/10",
+            Img: "cubeslist/251mleap.jpeg"
+        },
+        {
+            Name: "Moyu Weipo WRS",
+            Magnets: "Yes",
+            Stickerless: "Yes",
+            Size: "50mm",
+            Weight: "62g",
+            Price: "$14.99",
+            Rating: "7/10",
+            Img: "cubeslist/weipowrs.jpeg"
+        },
+        {
+            Name: "Diansheng Solar S",
+            Magnets: "Yes",
+            Stickerless: "Yes",
+            Size: "50mm",
+            Weight: "68g",
+            Price: "$9.99",
+            Rating: "7/10",
+            Img: "cubeslist/solars.jpeg"
+        },
+        {
+            Name: "GAN 251 M Pro",
+            Magnets: "Yes",
+            Stickerless: "Yes",
+            Size: "51mm",
+            Weight: "56g",
+            Price: "$32.99",
+            Rating: "9/10",
+            Img: "cubeslist/251mpro.jpeg"
+        },
+        {
+            Name: "GAN 251 M Air",
+            Magnets: "Yes",
+            Stickerless: "Yes",
+            Size: "51mm",
+            Weight: "49g",
+            Price: "$23.99",
+            Rating: "8/10",
+            Img: "cubeslist/251mair.jpeg"
+        },
+    ];
 
     list.innerHTML = "";
 
     var listInfo = [];
 
-    for (i = 0; i < 14; i++) {
-        if (i < 10) {
-            listInfo.push("name0" + i);
-        } else {
-            listInfo.push("name" + i);
-        }
+    for (i = 0; i < cubes.length; i++) {
+        listInfo.push(i);
     }
 
+    cubes.sort(function (a, b) {
+        val1 = a.Name.toUpperCase();
+        val2 = b.Name.toUpperCase();
+        return (val1 < val2) ? -1 : (val1 > val2) ? 1: 0;
+    });
 
     popupClose.addEventListener("click", hidePopup);
     document.getElementById("sesName").value = "";
 
     function loadBars() {
         for (i = 0; i < listInfo.length; i++) {
-            var iteralName = listInfo[i].toString();
+            var iteralName = parseInt(listInfo[i]);
             listArrayName.push([cubes[iteralName]['Name']]);
             listArrayMagnets.push([cubes[iteralName]['Magnets']]);
             listArrayType.push([cubes[iteralName]['Type']]);
@@ -926,8 +1098,8 @@ function fourbyfour() {
     document.getElementById("sesName").value = "";
     changeLable(4);
 
-    var cubes = {
-        name00: {
+    var cubes = [
+        {
             Name: "YJ MGC",
             Weight: "115g",
             Size: "60mm",
@@ -937,7 +1109,7 @@ function fourbyfour() {
             Rating: "9/10",
             Img: "cubeslist/yjmgc4.jpeg"
         },
-        name01: {
+        {
             Name: "GAN 460",
             Weight: "139.5g",
             Size: "60mm",
@@ -947,7 +1119,7 @@ function fourbyfour() {
             Rating: "6/10",
             Img: "cubeslist/gan460.jpeg"
         },
-        name02: {
+        {
             Name: "MoYu AoSu GTS2 M",
             Weight: "122g",
             Size: "61mm",
@@ -957,7 +1129,7 @@ function fourbyfour() {
             Rating: "8/10",
             Img: "cubeslist/gts24.jpeg"
         },
-        name03: {
+        {
             Name: "MoYu Aosu WR M",
             Weight: "119.8g",
             Size: "59mm",
@@ -967,7 +1139,7 @@ function fourbyfour() {
             Rating: "8/10",
             Img: "cubeslist/aosu.jpeg"
         },
-        name04: {
+        {
             Name: "MoYu RS4M",
             Weight: "180g",
             Size: "62mm",
@@ -977,7 +1149,7 @@ function fourbyfour() {
             Rating: "5/10",
             Img: "cubeslist/rs4m.jpeg"
         },
-        name05: {
+        {
             Name: "Qiyi MS",
             Weight: "135.6g",
             Size: "62mm",
@@ -987,7 +1159,7 @@ function fourbyfour() {
             Rating: "6/10",
             Img: "cubeslist/qiyims4"
         },
-        name06: {
+        {
             Name: "Qiyi Qiyuan",
             Weight: "148g",
             Size: "62mm",
@@ -997,7 +1169,7 @@ function fourbyfour() {
             Rating: "5/10",
             Img: "cubeslist/qiyuan.jpeg"
         },
-        name07: {
+        {
             Name: "Qiyi Qiyuan S",
             Weight: "132.6g",
             Size: "62mm",
@@ -1007,7 +1179,7 @@ function fourbyfour() {
             Rating: "5/10",
             Img: "cubeslist/qiyuans.jpeg"
         },
-        name08: {
+        {
             Name: "Qiyi Qiyuan S V2",
             Weight: "119g",
             Size: "61.5mm",
@@ -1017,7 +1189,7 @@ function fourbyfour() {
             Rating: "6/10",
             Img: "cubeslist/qiyuansv2.jpeg"
         },
-        name09: {
+        {
             Name: "Qiyi Valk",
             Weight: "142g",
             Size: "60mm",
@@ -1027,7 +1199,7 @@ function fourbyfour() {
             Rating: "7/10",
             Img: "cubeslist/valk4.jpeg"
         },
-        name10: {
+        {
             Name: "YJ YuSu",
             Weight: "159g",
             Size: "62.5mm",
@@ -1037,7 +1209,7 @@ function fourbyfour() {
             Rating: "4/10",
             Img: "cubeslist/yusu.jpeg"
         },
-        name11: {
+        {
             Name: "YJ YuSu V2",
             Weight: "136g",
             Size: "61.5mm",
@@ -1047,8 +1219,8 @@ function fourbyfour() {
             Rating: "7/10",
             Img: "cubeslist/yusuv2.jpeg"
         },
-        name12: {
-            Name: "Yj Zhilong Mini",
+        {
+            Name: "YJ Zhilong Mini",
             Weight: "96g",
             Size: "56mm",
             Stickerless: "Yes",
@@ -1057,7 +1229,7 @@ function fourbyfour() {
             Rating: "8/10",
             Img: "cubeslist/zhilong4.jpeg"
         },
-        name13: {
+        {
             Name: "Yuxin Little Magic",
             Weight: "126.3g",
             Size: "60mm",
@@ -1067,27 +1239,38 @@ function fourbyfour() {
             Rating: "7/10",
             Img: "cubeslist/lm4.jpeg"
         },
-    }
+        {
+            Name: "X-Man Ambition M",
+            Weight: "106g",
+            Size: "60mm",
+            Stickerless: "Yes",
+            Magnetic: "Yes",
+            Price: "$29.99",
+            Rating: "9/10",
+            Img: "cubeslist/xmanambition.jpeg"
+        },
+    ];
 
     list.innerHTML = "";
 
     var listInfo = [];
 
-    for (i = 0; i < 14; i++) {
-        if (i < 10) {
-            listInfo.push("name0" + i);
-        } else {
-            listInfo.push("name" + i);
-        }
+    for (i = 0; i < cubes.length; i++) {
+        listInfo.push(i);
     }
 
+    cubes.sort(function (a, b) {
+        val1 = a.Name.toUpperCase();
+        val2 = b.Name.toUpperCase();
+        return (val1 < val2) ? -1 : (val1 > val2) ? 1: 0;
+    });
 
     popupClose.addEventListener("click", hidePopup);
     document.getElementById("sesName").value = "";
 
     function loadBars() {
         for (i = 0; i < listInfo.length; i++) {
-            var iteralName = listInfo[i].toString();
+            var iteralName = parseInt(listInfo[i]);
             listArrayName.push([cubes[iteralName]['Name']]);
             listArrayMagnets.push([cubes[iteralName]['Magnets']]);
             listArrayType.push([cubes[iteralName]['Type']]);

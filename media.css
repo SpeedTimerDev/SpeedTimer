@@ -227,6 +227,12 @@
 
 		background-color: #2a2828;
 	}
+
+	.solveInfo {
+		width: 60vw;
+
+		left: 50%;
+	}
 }
 
 /* Algorithms */
