@@ -329,4 +329,35 @@
     .popupLeft {
         width: 100%;
     }
+
+    .listMain {
+        width: 85%;
+    }
+
+    .listName {
+        font-size: 1.5vh;
+    }
+
+    .popupMain>div {
+        width: 55%;
+    }
+
+    .popupImage {
+        width: 200px;
+        height: 200px;
+    }
+
+    .popuptitle {
+        font-size: 24px;
+    }
+
+    .popupSub {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .popupMain {
+        width: 140%;
+    }
 }

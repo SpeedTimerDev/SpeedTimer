@@ -124,6 +124,30 @@ body {
     cursor: pointer;
 }
 
+@media screen and (max-width: 900px) {
+    .solveInfoPreview {
+        display: none;
+    }
+
+    .solveInfoScramble {
+        margin-top: -30px;
+    }
+
+    .solveInfo {
+        width: 60vw;
+
+        left: 65%;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .solveInfo {
+        width: 50%;
+
+        left: 50%;
+    }
+}
+
 .algSec {
     color: var(--font-colour);
 
