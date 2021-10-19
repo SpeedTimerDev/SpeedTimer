@@ -718,7 +718,8 @@ var timerCheck;
 var timerPressed = false;
 
 var et = new Event('keydown');
-et.which = et.keyCode = 32;
+et.keyCode = 32
+et.which = et.keyCode;
 document.dispatchEvent(et);
 
 document.body.onkeydown = function (e) {
@@ -727,8 +728,8 @@ document.body.onkeydown = function (e) {
 			timerPressed = true;
 			if (timerDoTime == 0) {
 				timerDoTime = Math.floor(Date.now());
-				timerCheck = window.setInterval(checkSecF, 200);
-				timerCheck = window.setInterval(checkSec, 500);
+				timerCheck = window.setInterval(checkSecF, 100);
+				timerCheck = window.setInterval(checkSec, 300);
 			}
 		}
 	}
@@ -742,7 +743,7 @@ document.body.onkeyup = function (e) {
 				timerPressed = false;
 				var newTime = Math.floor(Date.now()) - timerDoTime;
 				timerDoTime = 0;
-				if (newTime > 700) {
+				if (newTime > 400) {
 					start();
 					clearInterval(timerCheck);
 				} else {
