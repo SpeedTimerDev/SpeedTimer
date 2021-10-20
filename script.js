@@ -7,6 +7,8 @@ const createCube = (size, className) => {
 	const scale = 50;
 	const xOff = 50;
 	const yOff = 100;
+	// document.querySelector(".scrambleShow").innerHTML = "";
+	document.querySelector(".solveInfoPreview").innerHTML = "";
 	document.querySelector("." + className + "").innerHTML = '<div class="up"></div><div class="middle"><div class="left"></div><div class="front"></div><div class="right"></div><div class="back"></div></div><div class="down"></div>';
 
 	document.body.style.setProperty("--n", n);
