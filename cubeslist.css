@@ -31,6 +31,8 @@
 
     outline: none;
 
+    cursor: pointer;
+
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -221,10 +223,11 @@
     color: whitesmoke;
 
     -webkit-text-stroke: 0.5px var(--blue);
+
+    cursor: pointer;
 }
 
 .popupMain {
-    cursor: pointer;
     display: none;
     height: 100%;
     position: fixed;
@@ -325,6 +328,16 @@
     border: 3px dashed whitesmoke;
 }
 
+.popupLink {
+    font-size: 21px;
+
+    margin-top: 5px;
+
+    color: #005ac7;
+
+    padding: 1px;
+}
+
 @media screen and (max-width: 900px) {
     .popupLeft {
         width: 100%;
@@ -351,7 +364,7 @@
         font-size: 24px;
     }
 
-    .popupSub {
+    .popupSub, .popupLink {
         font-size: 18px;
     }
 }
