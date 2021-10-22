@@ -1,0 +1,100 @@
+body {
+    /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+    height: 100%;
+
+    font-family: sans-serif;
+    display: flex;
+    background: var(--midBlack);
+
+    /* Variables */
+
+    --font-colour: whitesmoke;
+    --black: #151515;
+    --midBlack: #222;
+    --lightBlack: rgb(24, 24, 24);
+    --blue: #0F3460;
+    --buttonbg: rgb(50, 50, 50);
+    --animDuration: 0s;
+    --bradiusSmall: 5px;
+    --bradius: 10px;
+
+    overflow: hidden;
+}
+
+
+.solveInfo {
+    position: absolute;
+
+    width: 40vw;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 901;
+
+    background-color: rgb(51, 51, 51);
+
+    justify-content: center;
+}
+
+.solveInfoTime {
+    font-size: 50px;
+
+    text-align: center;
+
+    color: whitesmoke;
+}
+
+.solveInfoType {
+    font-size: 28px;
+
+    text-align: center;
+
+    color: rgb(180, 180, 180);
+}
+
+.solveInfoPreview {
+    height: 30vh;
+
+    width: 70%;
+
+    background-color: rgb(36, 36, 36);
+
+    margin-left: auto;
+    margin-right: auto;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.solveInfoScramble {
+    color: whitesmoke;
+
+    font-size: 22px;
+
+    text-align: center;
+
+    color: rgb(230, 230, 230);
+
+    padding: 15px;
+}
+
+@media screen and (max-width: 1000px) {
+    .solveInfo {
+        width: 80vw;
+    }
+
+    .solveInfoPreview {
+        width: 90%;
+    }
+}

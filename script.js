@@ -1176,4 +1176,27 @@ function showScram() {
 	document.querySelector(".solveInfoScramble").innerHTML = (scrambleText).slice(0, scrambleText.length - 3);
 	createCube(parseInt(scrambleText.slice(scrambleText.length - 1, scrambleText.length)), "solveInfoPreview");
 	perform(scrambleText.slice(0, scrambleText.length - 4));
+
+	document.querySelector(".solveInfoShare").addEventListener("click", async function () {
+		var timeData = format(sessions[currentSessionIdx].times[sessions[currentSessionIdx].times.length - idx - 1]);
+		var scrambleData = (scrambleText).slice(0, scrambleText.length - 3);
+		var typeData = scrambleText.slice(scrambleText.length - 3, scrambleText.length);
+
+		timeData = window.btoa(timeData);
+		scrambleData = window.btoa(scrambleData);
+		typeData = window.btoa(typeData);
+
+		var link = window.location.origin
+
+		var sharelink = link + '/time.html?time=' + timeData + '&scramble=' + scrambleData + '&type=' + typeData;
+
+		sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
+		document.getElementById("copyStore").value = sharelink;
+		document.getElementById("copyStore").select();
+		document.execCommand("copy");
+
+		document.querySelector(".copied").classList.add("show");
+		await sleep(2000);
+		document.querySelector(".copied").classList.remove("show");
+	});
 }

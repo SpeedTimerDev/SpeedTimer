@@ -34,7 +34,7 @@ body {
 
     border-radius: 20px;
 
-    top: 37.5%;
+    top: 42.5%;
     left: 55%;
     transform: translate(-50%, -50%);
     z-index: 901;
@@ -124,6 +124,24 @@ body {
     cursor: pointer;
 }
 
+.solveInfoShare {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 15px;
+
+    color: var(--font-colour);
+
+    background-color: var(--blue);
+
+    border-radius: var(--bradius);
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
 @media screen and (max-width: 900px) {
     .solveInfoPreview {
         display: none;
@@ -172,6 +190,8 @@ body {
     opacity: 0;
     transition: opacity var(--animDuration) ease;
     color: var(--font-colour);
+
+    z-index: 1000000;
 }
 
 .copied.show {
