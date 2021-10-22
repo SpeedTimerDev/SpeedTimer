@@ -80,11 +80,11 @@ function loadAllItems(type) {
     var cubes;
 
    if (type == 3) {
-       cubes = cubesThree;
+       cubes = window.cubesListThree;
    } else if (type == 2) {
-       cubes = cubesTwo;
+       cubes = window.cubesListTwo;
    } else if (type == 4) {
-       cubes = cubesFour;
+       cubes = window.cubesListFour;
    }
 
     var listInfo = [];

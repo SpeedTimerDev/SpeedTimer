@@ -605,3 +605,5 @@ var cubesThree = [
         Link: "https://speedcubing.org/collections/3x3x3/products/x-man-tornado-v2m",
     },
 ];
+
+window.cubesListThree = cubesThree;

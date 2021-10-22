@@ -165,3 +165,5 @@ var cubesFour = [
         Img: "cubeslist/xmanambition.jpeg"
     },
 ];
+
+window.cubesListFour = cubesFour;
