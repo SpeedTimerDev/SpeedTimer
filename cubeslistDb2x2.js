@@ -209,3 +209,5 @@ var cubesTwo = [
         Img: "cubeslist/251mair.jpeg"
     },
 ];
+
+window.cubesListTwo = cubesTwo;
