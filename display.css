@@ -88,3 +88,13 @@ body {
 
     padding: 15px;
 }
+
+@media screen and (max-width: 1000px) {
+    .solveInfo {
+        width: 80vw;
+    }
+
+    .solveInfoPreview {
+        width: 90%;
+    }
+}
