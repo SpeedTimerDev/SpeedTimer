@@ -7,7 +7,7 @@ var cubesTwo = [
         Weight: "62g",
         Price: "$18.99",
         Rating: "9/10",
-        Link: "https://speedcubing.org/collections/2x2x2/products/dayan-tengyun-2x2x2-m",
+        Link: "https://speedcubing.org/collections/2x2x2/products/dayan-tengyun-2x2x2-m/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/dayanm.jpeg"
     },
     {
@@ -62,7 +62,7 @@ var cubesTwo = [
         Weight: "58.7g",
         Price: "$6.99",
         Rating: "7/10",
-        Link: "https://speedcubing.org/collections/2x2x2/products/qiyi-ms-2x2x2",
+        Link: "https://speedcubing.org/collections/2x2x2/products/qiyi-ms-2x2x2/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/qiyims2.jpeg"
     },
     {
@@ -73,7 +73,7 @@ var cubesTwo = [
         Weight: "80.9g",
         Price: "$19.99",
         Rating: "8/10",
-        Link: "https://speedcubing.org/collections/2x2x2/products/qiyi-valk-2m",
+        Link: "https://speedcubing.org/collections/2x2x2/products/qiyi-valk-2m/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/valklm.jpeg"
     },
     {
@@ -117,7 +117,7 @@ var cubesTwo = [
         Weight: "Unknown",
         Price: "$19.99",
         Rating: "9/10",
-        Link: "https://speedcubing.org/collections/2x2x2/products/yj-mgc-2x2x2-elite",
+        Link: "https://speedcubing.org/collections/2x2x2/products/yj-mgc-2x2x2-elite/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/yjmgcel.jpeg"
     },
     {
@@ -128,7 +128,7 @@ var cubesTwo = [
         Weight: "65g",
         Price: "$6.99",
         Rating: "6/10",
-        Link: "https://speedcubing.org/collections/2x2x2/products/yj-yupo-v2m",
+        Link: "https://speedcubing.org/collections/2x2x2/products/yj-yupo-v2m/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/yupo2.jpeg"
     },
     {
@@ -150,7 +150,7 @@ var cubesTwo = [
         Weight: "74g",
         Price: "$6.99",
         Rating: "8/10",
-        Link: "https://speedcubing.org/collections/2x2x2/products/yuxin-little-magic-2x2x2-m",
+        Link: "https://speedcubing.org/collections/2x2x2/products/yuxin-little-magic-2x2x2-m/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/yuxinlmm.jpeg"
     },
     {
@@ -161,7 +161,7 @@ var cubesTwo = [
         Weight: "51g",
         Price: "$39.99",
         Rating: "9/10",
-        Link: "https://speedcubing.org/collections/2x2x2/products/gan-251-m-leap",
+        Link: "https://speedcubing.org/collections/2x2x2/products/gan-251-m-leap/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/251mleap.jpeg"
     },
     {
@@ -172,7 +172,7 @@ var cubesTwo = [
         Weight: "62g",
         Price: "$14.99",
         Rating: "7/10",
-        Link: "https://speedcubing.org/collections/2x2x2/products/weipo-wrm",
+        Link: "https://speedcubing.org/collections/2x2x2/products/weipo-wrm/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/weipowrs.jpeg"
     },
     {
@@ -194,7 +194,7 @@ var cubesTwo = [
         Weight: "56g",
         Price: "$32.99",
         Rating: "9/10",
-        Link: "https://speedcubing.org/collections/2x2x2/products/gan-251-m-pro",
+        Link: "https://speedcubing.org/collections/2x2x2/products/gan-251-m-pro/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/251mpro.jpeg"
     },
     {
@@ -205,7 +205,7 @@ var cubesTwo = [
         Weight: "49g",
         Price: "$23.99",
         Rating: "8/10",
-        Link: "https://speedcubing.org/collections/2x2x2/products/gan-251-m-air",
+        Link: "https://speedcubing.org/collections/2x2x2/products/gan-251-m-air/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/251mair.jpeg"
     },
 ];

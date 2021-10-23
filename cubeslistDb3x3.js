@@ -8,7 +8,7 @@ var cubesThree = [
         Img: "cubeslist/dayanguhv3.jpeg",
         Price: "$11.95",
         Rating: "6/10",
-        Link: "https://speedcubing.org/collections/3x3x3/products/dayan-guhong-v3m",
+        Link: "https://speedcubing.org/collections/3x3x3/products/dayan-guhong-v3m/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Dayan Guhong V4 Magnetic ",
@@ -19,7 +19,7 @@ var cubesThree = [
         Img: "cubeslist/dayanguhv4.jpeg",
         Price: "$14.95",
         Rating: "9/10",
-        Link: "https://speedcubing.org/collections/3x3x3/products/dayan-guhong-v4m",
+        Link: "https://speedcubing.org/collections/3x3x3/products/dayan-guhong-v4m/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Dayan Tengyun M ",
@@ -30,7 +30,7 @@ var cubesThree = [
         Img: "cubeslist/dayantengm.jpeg",
         Price: "$25.95",
         Rating: "8/10",
-        Link: "https://speedcubing.org/collections/dayan/products/dayan-tengyun-3x3x3-m",
+        Link: "https://speedcubing.org/collections/dayan/products/dayan-tengyun-3x3x3-m/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Dayan Tengyun Magnetic V2 ",
@@ -41,7 +41,7 @@ var cubesThree = [
         Img: "cubeslist/dayantengmv2.jpeg",
         Price: "$31.95",
         Rating: "8/10",
-        Link: "https://speedcubing.org/collections/dayan/products/dayan-tengyun-v2m",
+        Link: "https://speedcubing.org/collections/dayan/products/dayan-tengyun-v2m/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Gan 11 M Pro ",
@@ -52,7 +52,7 @@ var cubesThree = [
         Img: "cubeslist/gan11.jpeg",
         Price: "$64.95",
         Rating: "9/10",
-        Link: "https://speedcubing.org/collections/gan/products/gan-11m-pro-stickerless-black",
+        Link: "https://speedcubing.org/collections/gan/products/gan-11m-pro-stickerless-black/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Gan 354 Magnetic V2 ",
@@ -63,7 +63,7 @@ var cubesThree = [
         Img: "cubeslist/gan354v2.jpeg",
         Price: "$34.95",
         Rating: "7/10",
-        Link: "https://speedcubing.org/collections/gan/products/gan-354-v2m",
+        Link: "https://speedcubing.org/collections/gan/products/gan-354-v2m/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Gan 356 Air M ",
@@ -74,7 +74,7 @@ var cubesThree = [
         Img: "cubeslist/ganairm.jpeg",
         Price: "$33.95",
         Rating: "8/10",
-        Link: "https://speedcubing.org/collections/gan/products/gan-356-air-m",
+        Link: "https://speedcubing.org/collections/gan/products/gan-356-air-m/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Gan 356 Magnetic ",
@@ -85,7 +85,7 @@ var cubesThree = [
         Img: "cubeslist/ganm.jpeg",
         Price: "$32.95",
         Rating: "8/10",
-        Link: "https://speedcubing.org/collections/gan/products/gan-356m",
+        Link: "https://speedcubing.org/collections/gan/products/gan-356m/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Gan 356 Magnetic LITE ",
@@ -129,7 +129,7 @@ var cubesThree = [
         Img: "cubeslist/ganxs.jpeg",
         Price: "$49.95",
         Rating: "9/10",
-        Link: "https://speedcubing.org/collections/gan/products/gan-356-xs",
+        Link: "https://speedcubing.org/collections/gan/products/gan-356-xs/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Gan Speed Cube (GSC) ",
@@ -162,7 +162,7 @@ var cubesThree = [
         Img: "cubeslist/meilongmag.jpeg",
         Price: "$6.95",
         Rating: "7/10",
-        Link: "https://speedcubing.org/collections/moyu/products/moyu-meilong-3x3x3-m",
+        Link: "https://speedcubing.org/collections/moyu/products/moyu-meilong-3x3x3-m/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Monster Go Magnetic ",
@@ -173,7 +173,7 @@ var cubesThree = [
         Img: "cubeslist/monsterm.jpeg",
         Price: "$19.95",
         Rating: "7/10",
-        Link: "https://speedcubing.org/collections/gan/products/monstergo-3x3x3-m",
+        Link: "https://speedcubing.org/collections/gan/products/monstergo-3x3x3-m/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Monster Go Traditional ",
@@ -195,7 +195,7 @@ var cubesThree = [
         Img: "cubeslist/moyurs3m.jpeg",
         Price: "$8.95",
         Rating: "6/10",
-        Link: "https://speedcubing.org/collections/moyu/products/moyu-rs3m-2020",
+        Link: "https://speedcubing.org/collections/moyu/products/moyu-rs3m-2020/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Moyu Weilong GTS2 ",
@@ -239,7 +239,7 @@ var cubesThree = [
         Img: "cubeslist/gts3m.jpeg",
         Price: "$34.95",
         Rating: "8/10",
-        Link: "https://speedcubing.org/collections/moyu/products/moyu-weilong-gts3m",
+        Link: "https://speedcubing.org/collections/moyu/products/moyu-weilong-gts3m/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Moyu Weilong WR ",
@@ -261,7 +261,7 @@ var cubesThree = [
         Img: "cubeslist/wrm2020.jpeg",
         Price: "$34.95",
         Rating: "8/10",
-        Link: "https://speedcubing.org/collections/moyu/products/moyu-weilong-wrm-2020",
+        Link: "https://speedcubing.org/collections/moyu/products/moyu-weilong-wrm-2020/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Moyu Weilong WR M Magnetic ",
@@ -316,7 +316,7 @@ var cubesThree = [
         Img: "cubeslist/thunderv3.jpeg",
         Price: "$9.95",
         Rating: "7/10",
-        Link: "https://speedcubing.org/collections/qiyi/products/qiyi-ms-3x3x3",
+        Link: "https://speedcubing.org/collections/qiyi/products/qiyi-ms-3x3x3/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Qiyi Valk 3 ",
@@ -338,7 +338,7 @@ var cubesThree = [
         Img: "cubeslist/valkelite.jpeg",
         Price: "$44.95",
         Rating: "9/10",
-        Link: "https://speedcubing.org/collections/qiyi/products/qiyi-valk-3-elite-m",
+        Link: "https://speedcubing.org/collections/qiyi/products/qiyi-valk-3-elite-m/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Qiyi Valk 3 M ",
@@ -349,7 +349,7 @@ var cubesThree = [
         Img: "cubeslist/valk3.jpeg",
         Price: "$24.95",
         Rating: "8/10",
-        Link: "https://speedcubing.org/collections/qiyi/products/qiyi-valk-3m",
+        Link: "https://speedcubing.org/collections/qiyi/products/qiyi-valk-3m/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Qiyi Valk 3 Power ",
@@ -382,7 +382,7 @@ var cubesThree = [
         Img: "cubeslist/wuweim.jpeg",
         Price: "$14.95",
         Rating: "8/10",
-        Link: "https://cdn.shopify.com/s/files/1/0276/0133/8446/products/Screenshot_from_2019-12-05_18-11-59_180x.png?v=1596383584",
+        Link: "https://cdn.shopify.com/s/files/1/0276/0133/8446/products/Screenshot_from_2019-12-05_18-11-59_180x.png?v=1596383584/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "YJ MGC Elite Magnetic ",
@@ -415,7 +415,7 @@ var cubesThree = [
         Img: "cubeslist/yulongv2.jpeg",
         Price: "$7.95",
         Rating: "7/10",
-        Link: "https://speedcubing.org/collections/yj/products/yj-yulong-v2m",
+        Link: "https://speedcubing.org/collections/yj/products/yj-yulong-v2m/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "YJ Zhilong Mini Magnetic ",
@@ -426,7 +426,7 @@ var cubesThree = [
         Img: "cubeslist/zhilongmini.jpeg",
         Price: "$7.95",
         Rating: "8/10",
-        Link: "https://speedcubing.org/collections/yj/products/yj-zhilong-3x3x3",
+        Link: "https://speedcubing.org/collections/yj/products/yj-zhilong-3x3x3/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Yuxin Kylin V2 M ",
@@ -448,7 +448,7 @@ var cubesThree = [
         Img: "cubeslist/lm.jpeg",
         Price: "$4.95",
         Rating: "6/10",
-        Link: "https://speedcubing.org/collections/yuxin/products/yuxin-little-magic-3x3x3",
+        Link: "https://speedcubing.org/collections/yuxin/products/yuxin-little-magic-3x3x3/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Yuxin Little Magic M ",
@@ -459,7 +459,7 @@ var cubesThree = [
         Img: "cubeslist/littlemagic.jpeg",
         Price: "$7.95",
         Rating: "8/10",
-        Link: "https://speedcubing.org/collections/yuxin/products/yuxin-little-magic-3x3x3-m",
+        Link: "https://speedcubing.org/collections/yuxin/products/yuxin-little-magic-3x3x3-m/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Moyu RS3M 2021 Maglev ",
@@ -470,7 +470,7 @@ var cubesThree = [
         Img: "cubeslist/rs3mlaglev.jpeg",
         Price: "$13.99",
         Rating: "7/10",
-        Link: "https://speedcubing.org/collections/3x3x3/products/moyu-rs3m-2021-maglev",
+        Link: "https://speedcubing.org/collections/3x3x3/products/moyu-rs3m-2021-maglev/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Moyu Weilong WR M 2021 Maglev ",
@@ -481,7 +481,7 @@ var cubesThree = [
         Img: "cubeslist/wrmmaglev.jpeg",
         Price: "$29.99",
         Rating: "8/10",
-        Link: "https://speedcubing.org/collections/3x3x3/products/moyu-weilong-wrm-2021-maglev",
+        Link: "https://speedcubing.org/collections/3x3x3/products/moyu-weilong-wrm-2021-maglev/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Gan i3",
@@ -525,7 +525,7 @@ var cubesThree = [
         Img: "cubeslist/ganminim.jpeg",
         Price: "$54.99",
         Rating: "7/10",
-        Link: "https://speedcubing.org/collections/3x3x3/products/gan-mini-m-pro",
+        Link: "https://speedcubing.org/collections/3x3x3/products/gan-mini-m-pro/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Monster Go AI",
@@ -536,7 +536,7 @@ var cubesThree = [
         Img: "cubeslist/monsterai.jpeg",
         Price: "$27.99",
         Rating: "8/10",
-        Link: "https://speedcubing.org/collections/3x3x3/products/monstergo-ai-3x3x3",
+        Link: "https://speedcubing.org/collections/3x3x3/products/monstergo-ai-3x3x3/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Gan 11 M Duo",
@@ -547,7 +547,7 @@ var cubesThree = [
         Img: "cubeslist/gan11duo.jpeg",
         Price: "$46.99",
         Rating: "7/10",
-        Link: "https://speedcubing.org/collections/3x3x3/products/gan-11m-duo",
+        Link: "https://speedcubing.org/collections/3x3x3/products/gan-11m-duo/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Gan 11 M",
@@ -558,7 +558,7 @@ var cubesThree = [
         Img: "cubeslist/gan11blank.jpeg",
         Price: "$34.99",
         Rating: "6/10",
-        Link: "https://speedcubing.org/collections/3x3x3/products/gan-11-m",
+        Link: "https://speedcubing.org/collections/3x3x3/products/gan-11-m/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Gan 11 Air",
@@ -569,7 +569,7 @@ var cubesThree = [
         Img: "cubeslist/gan11air.jpeg",
         Price: "$23.99",
         Rating: "5/10",
-        Link: "https://speedcubing.org/collections/3x3x3/products/gan-11-air",
+        Link: "https://speedcubing.org/collections/3x3x3/products/gan-11-air/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Dayan Zhanchi Pro M",
@@ -580,7 +580,7 @@ var cubesThree = [
         Img: "cubeslist/zhanchipro.jpeg",
         Price: "$34.99",
         Rating: "8/10",
-        Link: "link",
+        Link: "none",
     },
     {
         Name: "Gan 356 i Carry",
@@ -591,7 +591,7 @@ var cubesThree = [
         Img: "cubeslist/ganicarry.jpeg",
         Price: "$36.99",
         Rating: "8/10",
-        Link: "https://speedcubing.org/collections/gan/products/gan-356-i-carry",
+        Link: "https://speedcubing.org/collections/gan/products/gan-356-i-carry/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "X-Man Tornado V2 M",
@@ -602,7 +602,7 @@ var cubesThree = [
         Img: "cubeslist/tornadov2.jpeg",
         Price: "$24.99",
         Rating: "9/10",
-        Link: "https://speedcubing.org/collections/3x3x3/products/x-man-tornado-v2m",
+        Link: "https://speedcubing.org/collections/3x3x3/products/x-man-tornado-v2m/?sca_ref=1249093.DLjOmDm1Z6",
     },
 ];
 

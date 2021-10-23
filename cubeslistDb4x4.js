@@ -7,7 +7,7 @@ var cubesFour = [
         Magnetic: "Yes",
         Price: "$19.99",
         Rating: "9/10",
-        Link: "https://speedcubing.org/collections/4x4x4/products/yj-mgc-4x4x4?variant=32279439900750",
+        Link: "https://speedcubing.org/collections/4x4x4/products/yj-mgc-4x4x4?variant=32279439900750/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/yjmgc4.jpeg"
     },
     {
@@ -29,7 +29,7 @@ var cubesFour = [
         Magnetic: "Yes",
         Price: "$29.99",
         Rating: "8/10",
-        Link: "https://speedcubing.org/collections/4x4x4/products/moyu-aosu-gts2m",
+        Link: "https://speedcubing.org/collections/4x4x4/products/moyu-aosu-gts2m/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/gts24.jpeg"
     },
     {
@@ -40,7 +40,7 @@ var cubesFour = [
         Magnetic: "Yes",
         Price: "$42.99",
         Rating: "8/10",
-        Link: "https://speedcubing.org/collections/4x4x4/products/moyu-aosu-wrm",
+        Link: "https://speedcubing.org/collections/4x4x4/products/moyu-aosu-wrm/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/aosu.jpeg"
     },
     {
@@ -51,7 +51,7 @@ var cubesFour = [
         Magnetic: "Yes",
         Price: "$14.99",
         Rating: "5/10",
-        Link: "https://speedcubing.org/collections/4x4x4/products/moyu-rs4m",
+        Link: "https://speedcubing.org/collections/4x4x4/products/moyu-rs4m/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/rs4m.jpeg"
     },
     {
@@ -62,7 +62,7 @@ var cubesFour = [
         Magnetic: "Yes",
         Price: "$11.99",
         Rating: "6/10",
-        Link: "https://speedcubing.org/collections/4x4x4/products/qiyi-ms-4x4x4-black",
+        Link: "https://speedcubing.org/collections/4x4x4/products/qiyi-ms-4x4x4-black/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/qiyims4"
     },
     {
@@ -73,7 +73,7 @@ var cubesFour = [
         Magnetic: "No",
         Price: "$7.99",
         Rating: "5/10",
-        Link: "https://speedcubing.org/collections/4x4x4/products/qiyi-qiyuan-s2",
+        Link: "https://speedcubing.org/collections/4x4x4/products/qiyi-qiyuan-s2/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/qiyuan.jpeg"
     },
     {
@@ -95,7 +95,7 @@ var cubesFour = [
         Magnetic: "No",
         Price: "$6.99",
         Rating: "6/10",
-        Link: "https://speedcubing.org/collections/4x4x4/products/qiyi-qiyuan-s2",
+        Link: "https://speedcubing.org/collections/4x4x4/products/qiyi-qiyuan-s2/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/qiyuansv2.jpeg"
     },
     {
@@ -128,7 +128,7 @@ var cubesFour = [
         Magnetic: "No",
         Price: "$11.99",
         Rating: "7/10",
-        Link: "https://speedcubing.org/collections/4x4x4/products/yj-yusu-v2m",
+        Link: "https://speedcubing.org/collections/4x4x4/products/yj-yusu-v2m/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/yusuv2.jpeg"
     },
     {
@@ -139,7 +139,7 @@ var cubesFour = [
         Magnetic: "Yes",
         Price: "$11.99",
         Rating: "8/10",
-        Link: "https://speedcubing.org/collections/4x4x4/products/yj-zhilong-m-mini-4x4x4",
+        Link: "https://speedcubing.org/collections/4x4x4/products/yj-zhilong-m-mini-4x4x4/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/zhilong4.jpeg"
     },
     {
@@ -161,7 +161,7 @@ var cubesFour = [
         Magnetic: "Yes",
         Price: "$29.99",
         Rating: "9/10",
-        Link: "https://cdn.shopify.com/s/files/1/0276/0133/8446/products/01_180x.jpg?v=1619466393",
+        Link: "https://speedcubing.org/collections/4x4x4/products/qiyi-x-man-ambition-4x4x4/?sca_ref=1249093.DLjOmDm1Z6",
         Img: "cubeslist/xmanambition.jpeg"
     },
 ];

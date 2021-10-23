@@ -166,7 +166,7 @@ function loadAllItems(type) {
 
         var popupSubPrice = document.createElement("h3");
         number = searchStringInArray(this.id, listArrayName);
-        popupSubPrice.innerHTML = "Price: " + listArrayPrice[number];
+        popupSubPrice.innerHTML = "Usual Price: " + listArrayPrice[number];
         popupSubPrice.classList.add("popupSub");
 
         var popupSubRating = document.createElement("h3");
@@ -200,22 +200,22 @@ function loadAllItems(type) {
         popupLeft.appendChild(popupSubPrice);
         popupLeft.appendChild(popupSubRating);
 
-        // if (listArrayLinks[number] != "none") {
-        //     var linkA = document.createElement("a");
-        //     linkA.classList.add("popupLink");
-        //     linkA.innerHTML = "Use This Link for 5% Off!";
-        //     linkA.href = listArrayLinks[number];
-        //     linkA.target = "_blank";
+        if (listArrayLinks[number] != "none") {
+            var linkA = document.createElement("a");
+            linkA.classList.add("popupLink");
+            linkA.innerHTML = "Buy Product Here";
+            linkA.href = listArrayLinks[number];
+            linkA.target = "_blank";
 
-        //     popupLeft.appendChild(linkA);
-        // } else {
-        //     var linkOOF = document.createElement("div");
-        //     linkOOF.classList.add("popupSub");
-        //     linkOOF.style.color = "#005ac7";
-        //     linkOOF.innerHTML = "No Link Available";
+            popupLeft.appendChild(linkA);
+        } else {
+            var linkOOF = document.createElement("div");
+            linkOOF.classList.add("popupSub");
+            linkOOF.style.color = "#005ac7";
+            linkOOF.innerHTML = "No Link Available";
 
-        //     popupLeft.appendChild(linkOOF);
-        // }
+            popupLeft.appendChild(linkOOF);
+        }
 
         popupHTML.appendChild(popupLeft);
         popupHTML.appendChild(popupImage);
