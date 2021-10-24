@@ -690,14 +690,14 @@ timer.onmousedown = e => {
 
 // timer.on
 
-if (innerWidth < 1000) {
+if (innerWidth < 1600) {
 	document.querySelector(".digits").disabled = false;
 } else {
 	document.querySelector(".digits").disabled = true;
 }
 
 document.querySelector(".digits").addEventListener("mouseup", function () {
-	if (innerWidth < 1000) {
+	if (innerWidth < 1600) {
 		timer.style.color = "lightgreen";
 		if (localStorage.getItem("inputType") == "timer") {
 			if (timer.nodeName == "BUTTON") {
@@ -1101,7 +1101,7 @@ function generateStats() {
 
 		// Range
 		if (sessions[currentSessionIdx].times.length > 1) {
-			range.innerHTML = format(Math.round(parseFloat(worst.innerHTML) - parseFloat(best.innerHTML)))
+			range.innerHTML = format((Math.max(...times.filter(e => !isNaN(parseInt(e)))) == -Infinity ? "DNF" : Math.max(...times.filter(e => !isNaN(parseInt(e))))) - (Math.min(...times.filter(e => !isNaN(parseInt(e)))) == Infinity ? "DNF" : Math.min(...times.filter(e => !isNaN(parseInt(e))))));
 		};
 
 		// ao5
@@ -1186,7 +1186,7 @@ function showScram() {
 		scrambleData = window.btoa(scrambleData);
 		typeData = window.btoa(typeData);
 
-		var link = window.location.origin
+		var link = window.location.origin;
 
 		var sharelink = link + '/time.html?time=' + timeData + '&scramble=' + scrambleData + '&type=' + typeData;
 
