@@ -690,14 +690,14 @@ timer.onmousedown = e => {
 
 // timer.on
 
-if (innerWidth < 1600) {
+if (innerWidth < 1300) {
 	document.querySelector(".digits").disabled = false;
 } else {
 	document.querySelector(".digits").disabled = true;
 }
 
 document.querySelector(".digits").addEventListener("mouseup", function () {
-	if (innerWidth < 1600) {
+	if (innerWidth < 1300) {
 		timer.style.color = "lightgreen";
 		if (localStorage.getItem("inputType") == "timer") {
 			if (timer.nodeName == "BUTTON") {
