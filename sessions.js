@@ -1,3 +1,6 @@
+import "./navbar.js";
+import "./collapse.js";
+
 // Visualiser
 
 let n;

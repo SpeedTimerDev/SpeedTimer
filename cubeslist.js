@@ -1,3 +1,12 @@
+import "./cubeslistDb2x2.js";
+import "./cubeslistDb3x3.js";
+import "./cubeslistDb4x4.js";
+import "./navbar.js";
+import "./collapse.js";
+import { cubesListThree } from "./cubeslistDb3x3.js";
+import { cubesListTwo } from "./cubeslistDb2x2.js";
+import { cubesListFour } from "./cubeslistDb4x4.js";
+
 function filterNames() {
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById("sesName");
@@ -80,11 +89,11 @@ function loadAllItems(type) {
     var cubes;
 
    if (type == 3) {
-       cubes = window.cubesListThree;
+       cubes = cubesListThree;
    } else if (type == 2) {
-       cubes = window.cubesListTwo;
+       cubes = cubesListTwo;
    } else if (type == 4) {
-       cubes = window.cubesListFour;
+       cubes = cubesListFour;
    }
 
     var listInfo = [];
@@ -229,3 +238,5 @@ function loadAllItems(type) {
 
     hidePopup();
 }
+
+document.getElementById("sesName").addEventListener("keyup", filterNames);

@@ -1,4 +1,4 @@
-var cubesThree = [
+export const cubesListThree = [
     {
         Name: "Dayan Guhong V3 Magnetic ",
         Magnets: "Yes",
@@ -605,5 +605,3 @@ var cubesThree = [
         Link: "https://speedcubing.org/collections/3x3x3/products/x-man-tornado-v2m/?sca_ref=1249093.DLjOmDm1Z6",
     },
 ];
-
-window.cubesListThree = cubesThree;

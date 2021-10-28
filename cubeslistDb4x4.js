@@ -1,4 +1,4 @@
-var cubesFour = [
+export const cubesListFour = [
     {
         Name: "YJ MGC",
         Weight: "115g",
@@ -165,5 +165,3 @@ var cubesFour = [
         Img: "cubeslist/xmanambition.jpeg"
     },
 ];
-
-window.cubesListFour = cubesFour;

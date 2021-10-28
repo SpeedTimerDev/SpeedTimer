@@ -1,3 +1,7 @@
+import "./navbar.js";
+import "./collapse.js";
+import { algData } from "./algDatabase.js";
+
 var database = algData();
 
 var testArray = ["none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none", "none"]
