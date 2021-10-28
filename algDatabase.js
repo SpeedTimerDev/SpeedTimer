@@ -260,7 +260,7 @@ function createDatabase() {
     };
 }
 
-function algData() {
+export function algData() {
     if (localStorage.getItem("algVersion") == null) {
         var version = "0.0.3";
         localStorage.setItem("algVersion", version);

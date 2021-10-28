@@ -1,4 +1,4 @@
-var cubesTwo = [
+export const cubesListTwo = [
     {
         Name: "DaYan Tengyun M",
         Magnets: "Yes",
@@ -209,5 +209,3 @@ var cubesTwo = [
         Img: "cubeslist/251mair.jpeg"
     },
 ];
-
-window.cubesListTwo = cubesTwo;

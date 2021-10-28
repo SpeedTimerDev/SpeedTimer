@@ -1,6 +1,9 @@
 // Visualiser
 
+// File-global variables.
+let notation;
 let n;
+
 const createCube = (size, className) => {
 	cube = [];
 	n = size;
@@ -97,7 +100,7 @@ const perform = moves => {
 
 	moves = moves.replaceAll(",", "").split(" ");
 
-	axies = {
+	const axies = {
 		"U": "y",
 		"D": "y",
 		"E": "y",
@@ -112,7 +115,7 @@ const perform = moves => {
 		"Z": "z"
 	};
 
-	idx = {
+	const idx = {
 		"U": [0],
 		"D": [n - 1],
 		"R": [0],
@@ -138,20 +141,22 @@ const perform = moves => {
 		"Fw": n == 3 ? [0, 1] : [0],
 		"Bw": n == 3 ? [2, 1] : [n - 1]
 	};
-	for (move of moves) {
+	for (const move of moves) {
 		if (move == "") break;
 		let layers = idx[move.replace(/[0-9']/g, "")];
+		let temp;
 		let slice = (n != 3 && move.replace(/[0-9']/g, "") == move.replace(/[0-9']/g, "").match(/^[udrlfb]$|^[UDRLFB]w$/g)) ? (((temp = move.match(/[0-9][A-Za-z]/g)) ? parseInt(move.replace(/[a-zA-Z]+[0-9]/g, "")) - 1 : 1) * (move.includes("d") || move.includes("l") || move.includes("b") ? -1 : 1)) : 0;
 		if (move.match(/[RUF]w/g)) layers = [...Array(slice + 1).keys()];
 		if (move.match(/[LDB]w/g)) layers = [...Array(n).keys()].slice(-slice - 1);
 		let newCube = cube,
 			i, j = 0;
 
-		for (layer of layers) {
+		for (let layer of layers) {
 
 			if (!move.match(/[RUFLDB]w/g)) slice = (n != 3 && move.replace(/[0-9']/g, "") == move.replace(/[0-9']/g, "").match(/^[udrlfb]$|^[UDRLFB]w$/g)) ? (((temp = move.match(/[0-9][A-Za-z]/g)) ? parseInt(move.replace(/[a-zA-Z]+[0-9]/g, "")) - 1 : 1) * (move.includes("d") || move.includes("l") || move.includes("b") ? -1 : 1)) : 0;
 			if (!move.match(/[RUFLDB]w/g)) layer = layer + slice >= 0 ? layer + slice : n - layer - slice;
 			let axis = axies[move.replace(/[0-9'w]/g, "").toUpperCase()];
+			let temp;
 			let double = (temp = move.match(/[A-Za-z][0-9]/g)) ? parseInt(temp[0].replace(/[a-zA-Z]/g, "")) : 1;
 			let direction = move.toUpperCase().includes("L") || move.toUpperCase().includes("M") || move.toUpperCase().includes("U") || move.toUpperCase().includes("B") || move.toUpperCase().includes("Y") ? "ACW" : "CW";
 			direction = move.includes("'") ? direction == "ACW" ? "CW" : "ACW" : direction;
@@ -362,7 +367,7 @@ function generateScramble(type) {
 			scrambleTemp = [];
 			mods = ["", "'"]
 			notation = ["L", "R", "B", "U"];
-			for (i = 0; i < 11; i++) {
+			for (let i = 0; i < 11; i++) {
 				sample = notation[Math.floor(Math.random() * notation.length)];
 				if (prevSample) {
 					while (sample == prevSample) {
@@ -385,7 +390,7 @@ function generateScramble(type) {
 			}
 			notation = ["l", "r", "b", "u"].sort(() => 0.5 - Math.random());
 			len = Math.random() * 4;
-			for (i = 0; i < len; i++) {
+			for (let i = 0; i < len; i++) {
 				sample = notation[i];
 				sample += mods[Math.floor(Math.random() * mods.length)];
 				scrambleTemp.push(sample);
@@ -409,7 +414,7 @@ function generateScramble(type) {
 			scrambleTemp = [];
 			mods = ["", "'"]
 			notation = ["L", "R", "B", "U"];
-			for (i = 0; i < 11; i++) {
+			for (let i = 0; i < 11; i++) {
 				sample = notation[Math.floor(Math.random() * notation.length)];
 				while (sample == prevSample) {
 					sample = notation[Math.floor(Math.random() * notation.length)]
@@ -437,7 +442,7 @@ function generateScramble(type) {
 			scrambleTemp = [];
 			notation = ["U", "R", "D", "L", "UR", "UL", "DL", "DR", "ALL"];
 			sample = "";
-			for (i = 0; i < 9; i++) {
+			for (let i = 0; i < 9; i++) {
 				sample = notation[Math.floor(Math.random() * notation.length)];
 				num = Math.floor(Math.random() * 7);
 				sample += num;
@@ -463,7 +468,7 @@ function generateScramble(type) {
 				span.style.fontSize = "15px";
 			}
 			scramble.appendChild(span);
-			for (i = 0; i < 5; i++) {
+			for (let i = 0; i < 5; i++) {
 				sample = notation[Math.floor(Math.random() * notation.length)];
 				num = Math.floor(Math.random() * 7);
 				sample += num;
@@ -482,7 +487,7 @@ function generateScramble(type) {
 			}
 			notation = ["UL", "UR", "DL", "DR"].sort(() => 0.5 - Math.random());
 			len = Math.random() * 4;
-			for (i = 0; i < len; i++) {
+			for (let i = 0; i < len; i++) {
 				sample = notation[i];
 				scrambleTemp.push(sample);
 
@@ -505,7 +510,7 @@ function generateScramble(type) {
 			scrambleTemp = [];
 			notation = ["R", "D"];
 			sample = "";
-			for (i = 0; i < 5; i++) {
+			for (let i = 0; i < 5; i++) {
 				for (j = 0; j < 10; j++) {
 					sample = notation[Math.floor(Math.random() * notation.length)];
 					while (sample == prevSample) {
@@ -542,15 +547,16 @@ function generateScramble(type) {
 
 function nxn(type, len, size, mobileSize) {
 	scrambleTemp = [];
-	var prevSample;
+	let prevSample = null;
 	scramble.innerHTML = "";
 	//in this example 8 is the scramble length
-	for (i = 0; i < len; i++) {
-		sample = notation[Math.floor(Math.random() * notation.length)];
+	for (let i = 0; i < len; i++) {
+		let sample = notation[Math.floor(Math.random() * notation.length)];
 		while (sample == prevSample) {
 			sample = notation[Math.floor(Math.random() * notation.length)]
 		}
 
+		let prev2Sample = null;
 		if (prevSample && prev2Sample) {
 			while (prevSample.includes("R") && prev2Sample.includes("L") && sample.includes("L") ||
 				prevSample.includes("L") && prev2Sample.includes("R") && sample.includes("R") ||
@@ -618,7 +624,7 @@ function reset() {
 }
 
 function increment(start) {
-	advance = setInterval(function () {
+	const advance = setInterval(function () {
 		timer.style.color = "white";
 		if (running == 1) {
 			time = Date.now() - start;
@@ -975,7 +981,7 @@ document.querySelector(".refreshScram").addEventListener("click", function () {
 });
 
 document.querySelector(".copyScram").addEventListener("click", async function () {
-	sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
+	const sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
 	document.getElementById("copyStore").value = JSON.stringify(localStorage.getItem("scrambleTemp")).replace(/[\\"]/g, '').replace(/n[0-9]x[0-9]/g, '');
 	document.getElementById("copyStore").select();
 	document.execCommand("copy");
@@ -990,7 +996,7 @@ function generateTimes() {
 
 	container.innerHTML = "";
 
-	for (i = 0; i < sessions[parseInt(currentSessionIdx)].times.length; i++) {
+	for (let i = 0; i < sessions[parseInt(currentSessionIdx)].times.length; i++) {
 		var solveBar = document.createElement("div");
 		solveBar.id = sessions[currentSessionIdx].times.length - i - 1;
 		solveBar.classList.add("solveBar");
@@ -1060,7 +1066,7 @@ function generateStats() {
 		return Math.max.apply(Math, array);
 	};
 
-	times = [];
+	const times = [];
 	for (time of sessions[currentSessionIdx].times) {
 		if (time.includes("DNF")) times.push("DNF");
 		else times.push(time.replace("+", ""));
@@ -1105,7 +1111,7 @@ function generateStats() {
 		};
 
 		// ao5
-		average = ao(5);
+		let average = ao(5);
 		if (average) ao5.innerHTML = format(average);
 
 		// ao12

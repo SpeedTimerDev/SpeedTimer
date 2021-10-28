@@ -1,3 +1,9 @@
+import "./navbar.js";
+import "./collapse.js";
+import "./algDatabase.js";
+import "./import.js";
+import "./export.js";
+
 let input = document.getElementById("getval");
 
 if (localStorage.getItem("buttonbg") == null) {

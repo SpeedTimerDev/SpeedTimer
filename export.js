@@ -31,7 +31,7 @@ exportBtn.addEventListener("click", function () {
 
 	var sessions = [];
 
-	for (i = 0; i < ses.length; i++) {
+	for (let i = 0; i < ses.length; i++) {
 		sessions.push(ses[i].name)
 	}
 
@@ -57,7 +57,7 @@ exportBtn.addEventListener("click", function () {
 		CreatedDate: Date.now(),
 	};
 
-	for (i = 0; i < sessions.length; i++) {
+	for (let i = 0; i < sessions.length; i++) {
 		var texts = [];
 		var text = [];
 
