@@ -18,7 +18,7 @@ function createLinks() {
     var links = ["algs-3-oll", "algs-3-pll", "algs-3-2loll", "algs-3-2lpll"];
     var names = ["OLL", "PLL", "2LOLL", "2LPLL"]
 
-    for (i = 0; i < links.length; i++) {
+    for (let i = 0; i < links.length; i++) {
         var libA = document.createElement("a");
         libA.classList.add("libraryA");
         libA.style.textDecoration = "none";
@@ -37,7 +37,7 @@ function loadAlgsPLL(names, algors, images, rotations) {
     var algs = document.querySelector(".algs");
     algs.innerHTML = "";
 
-    for (i = 0; i < algors.length; i++) {
+    for (let i = 0; i < algors.length; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -115,7 +115,7 @@ function loadAlgsLPLL(names, algors, images, rotations) {
     algSec.innerHTML = "Right Corners";
     algs.appendChild(algSec);
 
-    for (i = 0; i < pieces[1]; i++) {
+    for (let i = 0; i < pieces[1]; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -186,7 +186,7 @@ function loadAlgsLPLL(names, algors, images, rotations) {
     algSec.innerHTML = "Diagonal Corners";
     algs.appendChild(algSec);
 
-    for (i = pieces[1]; i < pieces[1] + pieces[2]; i++) {
+    for (let i = pieces[1]; i < pieces[1] + pieces[2]; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -257,7 +257,7 @@ function loadAlgsLPLL(names, algors, images, rotations) {
     algSec.innerHTML = "EPLL";
     algs.appendChild(algSec);
 
-    for (i = pieces[1] + pieces[2]; i < pieces[1] + pieces[2] + pieces[3]; i++) {
+    for (let i = pieces[1] + pieces[2]; i < pieces[1] + pieces[2] + pieces[3]; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -335,7 +335,7 @@ function loadAlgsOLL(names, algors, images, rotations) {
     algSec.innerHTML = "Cross";
     algs.appendChild(algSec);
 
-    for (i = 0; i < pieces[1]; i++) {
+    for (let i = 0; i < pieces[1]; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -399,7 +399,7 @@ function loadAlgsOLL(names, algors, images, rotations) {
     algSec.innerHTML = "Dot";
     algs.appendChild(algSec);
 
-    for (i = pieces[1]; i < pieces[1] + pieces[2]; i++) {
+    for (let i = pieces[1]; i < pieces[1] + pieces[2]; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -463,7 +463,7 @@ function loadAlgsOLL(names, algors, images, rotations) {
     algSec.innerHTML = "Square Shape";
     algs.appendChild(algSec);
 
-    for (i = pieces[1] + pieces[2]; i < pieces[1] + pieces[2] + pieces[3]; i++) {
+    for (let i = pieces[1] + pieces[2]; i < pieces[1] + pieces[2] + pieces[3]; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -527,7 +527,7 @@ function loadAlgsOLL(names, algors, images, rotations) {
     algSec.innerHTML = "T Shape";
     algs.appendChild(algSec);
 
-    for (i = pieces[1] + pieces[2] + pieces[3]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4]; i++) {
+    for (let i = pieces[1] + pieces[2] + pieces[3]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4]; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -591,7 +591,7 @@ function loadAlgsOLL(names, algors, images, rotations) {
     algSec.innerHTML = "Fish Shape";
     algs.appendChild(algSec);
 
-    for (i = pieces[1] + pieces[2] + pieces[3] + pieces[4]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5]; i++) {
+    for (let i = pieces[1] + pieces[2] + pieces[3] + pieces[4]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5]; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -655,7 +655,7 @@ function loadAlgsOLL(names, algors, images, rotations) {
     algSec.innerHTML = "W Shape";
     algs.appendChild(algSec);
 
-    for (i = pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6]; i++) {
+    for (let i = pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6]; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -719,7 +719,7 @@ function loadAlgsOLL(names, algors, images, rotations) {
     algSec.innerHTML = "Small Lightning Bolt";
     algs.appendChild(algSec);
 
-    for (i = pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7]; i++) {
+    for (let i = pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7]; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -783,7 +783,7 @@ function loadAlgsOLL(names, algors, images, rotations) {
     algSec.innerHTML = "Small L Shape";
     algs.appendChild(algSec);
 
-    for (i = pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8]; i++) {
+    for (let i = pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8]; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -847,7 +847,7 @@ function loadAlgsOLL(names, algors, images, rotations) {
     algSec.innerHTML = "I Shape";
     algs.appendChild(algSec);
 
-    for (i = pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9]; i++) {
+    for (let i = pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9]; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -911,7 +911,7 @@ function loadAlgsOLL(names, algors, images, rotations) {
     algSec.innerHTML = "Knight Move Shape";
     algs.appendChild(algSec);
 
-    for (i = pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9] + pieces[10]; i++) {
+    for (let i = pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9] + pieces[10]; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -975,7 +975,7 @@ function loadAlgsOLL(names, algors, images, rotations) {
     algSec.innerHTML = "Corners Oriented";
     algs.appendChild(algSec);
 
-    for (i = pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9] + pieces[10]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9] + pieces[10] + pieces[11]; i++) {
+    for (let i = pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9] + pieces[10]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9] + pieces[10] + pieces[11]; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -1039,7 +1039,7 @@ function loadAlgsOLL(names, algors, images, rotations) {
     algSec.innerHTML = "C Shape";
     algs.appendChild(algSec);
 
-    for (i = pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9] + pieces[10] + pieces[11]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9] + pieces[10] + pieces[11] + pieces[12]; i++) {
+    for (let i = pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9] + pieces[10] + pieces[11]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9] + pieces[10] + pieces[11] + pieces[12]; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -1103,7 +1103,7 @@ function loadAlgsOLL(names, algors, images, rotations) {
     algSec.innerHTML = "Big Lightning Bolt";
     algs.appendChild(algSec);
 
-    for (i = pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9] + pieces[10] + pieces[11] + pieces[12]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9] + pieces[10] + pieces[11] + pieces[12] + pieces[13]; i++) {
+    for (let i = pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9] + pieces[10] + pieces[11] + pieces[12]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9] + pieces[10] + pieces[11] + pieces[12] + pieces[13]; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -1167,7 +1167,7 @@ function loadAlgsOLL(names, algors, images, rotations) {
     algSec.innerHTML = "Awkward Shape";
     algs.appendChild(algSec);
 
-    for (i = pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9] + pieces[10] + pieces[11] + pieces[12] + pieces[13]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9] + pieces[10] + pieces[11] + pieces[12] + pieces[13] + pieces[14]; i++) {
+    for (let i = pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9] + pieces[10] + pieces[11] + pieces[12] + pieces[13]; i < pieces[1] + pieces[2] + pieces[3] + pieces[4] + pieces[5] + pieces[6] + pieces[7] + pieces[8] + pieces[9] + pieces[10] + pieces[11] + pieces[12] + pieces[13] + pieces[14]; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -1238,7 +1238,7 @@ function loadAlgsLOLL(names, algors, images, rotations) {
     algSec.innerHTML = "Yellow Cross";
     algs.appendChild(algSec);
 
-    for (i = 0; i < pieces[1]; i++) {
+    for (let i = 0; i < pieces[1]; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -1302,7 +1302,7 @@ function loadAlgsLOLL(names, algors, images, rotations) {
     algSec.innerHTML = "Cross";
     algs.appendChild(algSec);
 
-    for (i = pieces[1]; i < pieces[1] + pieces[2]; i++) {
+    for (let i = pieces[1]; i < pieces[1] + pieces[2]; i++) {
         var algDiv = document.createElement("div");
         algDiv.classList.add("alg");
 
@@ -1364,7 +1364,7 @@ function loadAlgsLOLL(names, algors, images, rotations) {
 
 function rotateImageAlg() {
     var alg = document.getElementById("algNo" + this.id);
-    rots = ["zerod", "ninetyd", "oneeightyd", "twoseventyd"];
+    const rots = ["zerod", "ninetyd", "oneeightyd", "twoseventyd"];
 
     var img;
 

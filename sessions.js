@@ -262,7 +262,7 @@ if (localStorage.borderView) document.body.style.setProperty("--border", localSt
 let plus2col = 'orange';
 let dnfcol = 'red';
 
-currentSessionIdx = parseInt(JSON.parse(localStorage.getItem("cur")));
+let currentSessionIdx = parseInt(JSON.parse(localStorage.getItem("cur")));
 
 if (currentSessionIdx > sessions.length) {
 	currentSessionIdx = 0;
@@ -278,7 +278,7 @@ function generateTimes() {
 
 	container.innerHTML = "";
 
-	for (i = 0; i < sessions[parseInt(currentSessionIdx)].times.length; i++) {
+	for (let i = 0; i < sessions[parseInt(currentSessionIdx)].times.length; i++) {
 		var solveBar = document.createElement("div");
 		solveBar.id = sessions[currentSessionIdx].times.length - i - 1;
 		solveBar.classList.add("solveBar");
@@ -349,8 +349,8 @@ function generateStats() {
 		return Math.max.apply(Math, array);
 	};
 
-	times = [];
-	for (time of sessions[currentSessionIdx].times) {
+	const times = [];
+	for (const time of sessions[currentSessionIdx].times) {
 		if (time.includes("DNF")) times.push("DNF");
 		else times.push(time.replace("+", ""));
 	}
@@ -394,7 +394,7 @@ function generateStats() {
 
 		// ao5
 
-		average = ao(5);
+		let average = ao(5);
 		if (average) ao5.innerHTML = format(average);
 
 		// ao12
@@ -488,7 +488,7 @@ function generateSessions() {
 
 	holder.innerHTML = "";
 
-	for (i = 0; i < sessions.length; i++) {
+	for (let i = 0; i < sessions.length; i++) {
 		var sesBar = document.createElement("div");
 		sesBar.classList.add("sesBar");
 		sesBar.id = i;

@@ -4,7 +4,7 @@ function filterNames() {
     filter = input.value.toUpperCase();
     ul = document.querySelector(".listStuff");
     li = document.querySelectorAll(".listBar");
-    for (i = 0; i < li.length; i++) {
+    for (let i = 0; i < li.length; i++) {
         a = li[i].getElementsByTagName("span")[0];
         txtValue = a.textContent || a.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -33,7 +33,7 @@ var listArrayImage = [];
 var listArrayWeight = [];
 var listArrayPrice = [];
 var listArrayRating = [];
-listArrayLinks = [];
+var listArrayLinks = [];
 
 var number;
 
@@ -89,18 +89,18 @@ function loadAllItems(type) {
 
     var listInfo = [];
 
-    for (i = 0; i < cubes.length; i++) {
+    for (let i = 0; i < cubes.length; i++) {
         listInfo.push(i);
     }
 
     cubes.sort(function (a, b) {
-        val1 = a.Name.toUpperCase();
-        val2 = b.Name.toUpperCase();
+        const val1 = a.Name.toUpperCase();
+        const val2 = b.Name.toUpperCase();
         return (val1 < val2) ? -1 : (val1 > val2) ? 1 : 0;
     });
 
     function loadBars() {
-        for (i = 0; i < listInfo.length; i++) {
+        for (let i = 0; i < listInfo.length; i++) {
             var iteralName = parseInt(listInfo[i]);
             listArrayName.push(cubes[iteralName]['Name']);
             listArrayMagnets.push(cubes[iteralName]['Magnets']);
@@ -114,7 +114,7 @@ function loadAllItems(type) {
             listArrayLinks.push(cubes[iteralName]['Link']);
         }
 
-        for (i = 0; i < listArrayName.length; i++) {
+        for (let i = 0; i < listArrayName.length; i++) {
             var listItem = document.createElement("div");
             listItem.classList.add("listBar");
 
