@@ -149,6 +149,7 @@ function loadAllItems(type) {
     function openPopup() {
         popup.style.display = "inline-block";
         popupClose.style.display = "flex";
+        document.getElementById("overlay3").style.display = "block";
 
         var popupTitle = document.createElement("h1");
         popupTitle.innerHTML = this.id;
@@ -225,6 +226,7 @@ function loadAllItems(type) {
         popup.style.display = "none";
         popupClose.style.display = "none";
         popupHTML.innerHTML = "";
+        document.getElementById("overlay3").style.display = "none";
     }
 
     hidePopup();

@@ -9,6 +9,8 @@ if (localStorage.buttonbg == null) localStorage.setItem("buttonbg", "#323232");
 if (localStorage.algImgCol == null) localStorage.setItem("algImgCol", "#dba204");
 if (localStorage.buttonbg != null) document.body.style.setProperty("--buttonbg", localStorage.buttonbg);
 if (localStorage.algImgCol != null) document.body.style.setProperty("--algImgCol", localStorage.algImgCol);
+if (localStorage.wcaInspec == null) localStorage.setItem("wcaInspec", JSON.stringify(false));
+if (localStorage.d3vis == null) localStorage.setItem("d3vis", JSON.stringify(false));
 
 if (localStorage.getItem("borderView") != null) {
 	var ticked = JSON.parse(localStorage.getItem("borderView"));

@@ -10,6 +10,7 @@
 	<script lang="javascript" src="FileSaver.js-master\dist\FileSaver.js"></script>
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="cubeImage.css">
+	<script src="navbar.js" async></script>
 	<link rel="stylesheet" href="media.css">
 	<link rel="stylesheet" href="settings.css">
 	<link rel="stylesheet" href="navbar.css">
@@ -80,7 +81,7 @@
 				<div class="cap">Timer Font Size:
 				</div>
 				<div class="set">
-					<input id="timerSize" class="inputSet" type="range" value="15" min="1" max="50">
+					<input id="timerSize" class="inputSet" type="range" value="15" min="1" max="40">
 				</div>
 			</div>
 			<div class="setting">
@@ -92,7 +93,7 @@
 				</div>
 			</div>
 			<div class="setting">
-				<div class="cap">Alg Image Colour(OLL & 2LOLL Only):
+				<div class="cap">Alg Image Colour (OLL & 2LOLL Only):
 				</div>
 				<div class="set">
 					<!-- <button class = "btnset" id = "clrAllSolves">Delete All Solves</button> -->
@@ -107,12 +108,26 @@
 				</div>
 			</div>
 			<div class="setting">
+				<div class="cap">3D Visualiser (Draggable):
+				</div>
+				<div class="set">
+					<input class="inputSet" id="d3vis" type="checkbox">
+				</div>
+			</div>
+			<div class="setting">
 				<div class="cap">Icons on Top:
 				</div>
 				<div class="set">
 					<input class="inputSet" id="iconsTop" type="checkbox">
 				</div>
 			</div>
+			<!-- <div class="setting">
+				<div class="cap">WCA Inspection:
+				</div>
+				<div class="set">
+					<input class="inputSet" id="inspection" type="checkbox">
+				</div>
+			</div> -->
 			<div class="setting">
 				<div class="cap">Export Data:
 				</div>
@@ -160,7 +175,7 @@
 	</div>
 	</div>
 
-	<script src="navbar.js" async></script>
+
 	<script src="collapse.js" async></script>
 	<script src="algDatabase.js" async defer></script>
 	<script src="settings.js" async defer></script>

@@ -1,0 +1,238 @@
+//	var span = document.createElement("span");
+// 		span.innerHTML = `${sample} `;
+// 		span.classList.add(sample);
+// 		span.style.color = sample.includes("R") ? "rgb(255,77,77)" : sample.includes("F") ? "lightgreen" : sample.includes("U") ? "white" : sample.includes("L") ? "rgb(255,166,77)" : sample.includes("D") ? "rgb(255,255,128)" : "lightblue";
+
+// 		//A good font size depending on the length of scram
+// 		if (innerWidth > 1000) {
+// 			if (type != 7 && type != 6) {
+// 				span.style.fontSize = (mobileSize - 59.5).toString() + "vh";
+// 			} else {
+// 				span.style.fontSize = (mobileSize - 60).toString() + "vh";
+// 			}
+// 		} else {
+// 			span.style.fontSize = (mobileSize - 60).toString() + "vw";
+// 			// span.style.fontSize = (size + 0.5).toString() + "%";
+// 		}
+
+// 		scramble.appendChild(span);
+// 	}
+
+// 	if (innerWidth > 1000) {
+// 		createCube(parseInt(type), "scrambleShow");
+// 		perform(scrambleTemp.join(" "));
+// 	}
+
+// 	localStorage.setItem("scrambleTemp", JSON.stringify(scrambleTemp.join(" ") + "\n" + document.querySelector(".scrambleDrop").value));
+
+			// scrambleTemp = [];
+			// mods = ["", "'"]
+			// notation = ["L", "R", "B", "U"];
+			// for (let i = 0; i < 11; i++) {
+			// 	sample = notation[Math.floor(Math.random() * notation.length)];
+			// 	if (prevSample) {
+			// 		while (sample == prevSample) {
+			// 			sample = notation[Math.floor(Math.random() * notation.length)]
+			// 		}
+			// 	}
+			// 	prevSample = sample;
+			// 	sample += mods[Math.floor(Math.random() * mods.length)];
+			// 	scrambleTemp.push(sample);
+
+			// 	var span = document.createElement("span");
+			// 	span.innerHTML = `${sample} `;
+			// 	span.classList.add(sample);
+			// 	if (innerWidth > 1000) {
+			// 		span.style.fontSize = "30px";
+			// 	} else {
+			// 		span.style.fontSize = "20px";
+			// 	}
+			// 	scramble.appendChild(span);
+			// }
+			// notation = ["l", "r", "b", "u"].sort(() => 0.5 - Math.random());
+			// len = Math.random() * 4;
+			// for (let i = 0; i < len; i++) {
+			// 	sample = notation[i];
+			// 	sample += mods[Math.floor(Math.random() * mods.length)];
+			// 	scrambleTemp.push(sample);
+
+			// 	var span = document.createElement("span");
+			// 	span.innerHTML = `${sample} `;
+			// 	span.classList.add(sample);
+			// 	if (innerWidth > 1000) {
+			// 		span.style.fontSize = "30px";
+			// 	} else {
+			// 		span.style.fontSize = "20px";
+			// 	}
+			// 	scramble.appendChild(span);
+			// }
+			// localStorage.setItem("scrambleTemp", JSON.stringify(scrambleTemp.join(" ") + "\n" + document.querySelector(".scrambleDrop").value));
+
+            			// scrambleTemp = [];
+			// mods = ["", "'"]
+			// notation = ["L", "R", "B", "U"];
+			// for (let i = 0; i < 11; i++) {
+			// 	sample = notation[Math.floor(Math.random() * notation.length)];
+			// 	while (sample == prevSample) {
+			// 		sample = notation[Math.floor(Math.random() * notation.length)]
+			// 	}
+			// 	prevSample = sample;
+			// 	sample += mods[Math.floor(Math.random() * mods.length)];
+			// 	scrambleTemp.push(sample);
+
+			// 	var span = document.createElement("span");
+			// 	span.innerHTML = `${sample} `;
+			// 	span.classList.add(sample);
+			// 	if (innerWidth > 1000) {
+			// 		span.style.fontSize = "30px";
+			// 	} else {
+			// 		span.style.fontSize = "20px";
+			// 	}
+			// 	scramble.appendChild(span);
+			// }
+
+            			// scrambleTemp = [];
+			// notation = ["U", "R", "D", "L", "UR", "UL", "DL", "DR", "ALL"];
+			// sample = "";
+			// for (let i = 0; i < 9; i++) {
+			// 	sample = notation[Math.floor(Math.random() * notation.length)];
+			// 	num = Math.floor(Math.random() * 7);
+			// 	sample += num;
+			// 	sample += Math.random() < 0.5 || num == 0 || num == 6 ? "+" : "-";
+			// 	scrambleTemp.push(sample);
+
+			// 	var span = document.createElement("span");
+			// 	span.innerHTML = `${sample} `;
+			// 	span.classList.add(sample);
+			// 	if (innerWidth > 1000) {
+			// 		span.style.fontSize = "25px";
+			// 	} else {
+			// 		span.style.fontSize = "15px";
+			// 	}
+			// 	scramble.appendChild(span);
+			// }
+			// var span = document.createElement("span");
+			// span.innerHTML = `y2 `;
+			// span.classList.add("y2");
+			// if (innerWidth > 1000) {
+			// 	span.style.fontSize = "25px";
+			// } else {
+			// 	span.style.fontSize = "15px";
+			// }
+			// scramble.appendChild(span);
+			// for (let i = 0; i < 5; i++) {
+			// 	sample = notation[Math.floor(Math.random() * notation.length)];
+			// 	num = Math.floor(Math.random() * 7);
+			// 	sample += num;
+			// 	sample += Math.random() < 0.5 || num == 0 || num == 6 ? "+" : "-";
+			// 	scrambleTemp.push(sample);
+
+			// 	var span = document.createElement("span");
+			// 	span.innerHTML = `${sample} `;
+			// 	span.classList.add(sample);
+			// 	if (innerWidth > 1000) {
+			// 		span.style.fontSize = "25px";
+			// 	} else {
+			// 		span.style.fontSize = "15px";
+			// 	}
+			// 	scramble.appendChild(span);
+			// }
+			// notation = ["UL", "UR", "DL", "DR"].sort(() => 0.5 - Math.random());
+			// len = Math.random() * 4;
+			// for (let i = 0; i < len; i++) {
+			// 	sample = notation[i];
+			// 	scrambleTemp.push(sample);
+
+			// 	var span = document.createElement("span");
+			// 	span.innerHTML = `${sample} `;
+			// 	span.classList.add(sample);
+			// 	if (innerWidth > 1000) {
+			// 		span.style.fontSize = "25px";
+			// 	} else {
+			// 		span.style.fontSize = "15px";
+			// 	}
+			// 	scramble.appendChild(span);
+			// }
+			// localStorage.setItem("scrambleTemp", JSON.stringify(scrambleTemp.join(" ") + "\n" + document.querySelector(".scrambleDrop").value));
+
+            			// scrambleTemp = [];
+			// notation = ["R", "D"];
+			// sample = "";
+			// for (let i = 0; i < 5; i++) {
+			// 	for (let j = 0; j < 10; j++) {
+			// 		sample = notation[Math.floor(Math.random() * notation.length)];
+			// 		while (sample == prevSample) {
+			// 			sample = notation[Math.floor(Math.random() * notation.length)]
+			// 		}
+			// 		prevSample = sample;
+			// 		sample += Math.random() < 0.5 ? "++" : "--";
+			// 		scrambleTemp.push(sample);
+
+			// 		var span = document.createElement("span");
+			// 		span.innerHTML = `${sample} `;
+			// 		span.classList.add(sample);
+			// 		span.style.fontSize = "1.5vw";
+			// 		scramble.appendChild(span);
+			// 	}
+			// 	var span = document.createElement("span");
+			// 	span.innerHTML = `${Math.random() < 0.5 ? "U" : "U'"}<br>`;
+			// 	span.classList.add(sample);
+			// 	span.style.fontSize = "1.5vw";
+			// 	scramble.appendChild(span);
+			// }
+			// localStorage.setItem("scrambleTemp", JSON.stringify(scrambleTemp.join(" ") + "\n" + document.querySelector(".scrambleDrop").value));
+
+            
+// function nxn(type, len, size, mobileSize) {
+// 	scrambleTemp = [];
+// 	var prevSample;
+// 	scramble.innerHTML = "";
+// 	//in this example 8 is the scramble length
+// 	for (let i = 0; i < len; i++) {
+// 		sample = notation[Math.floor(Math.random() * notation.length)];
+// 		while (sample == prevSample) {
+// 			sample = notation[Math.floor(Math.random() * notation.length)]
+// 		}
+
+// 		if (prevSample && prev2Sample) {
+// 			while (prevSample.includes("R") && prev2Sample.includes("L") && sample.includes("L") ||
+// 				prevSample.includes("L") && prev2Sample.includes("R") && sample.includes("R") ||
+// 				prevSample.includes("U") && prev2Sample.includes("D") && sample.includes("D") ||
+// 				prevSample.includes("D") && prev2Sample.includes("U") && sample.includes("U") ||
+// 				prevSample.includes("F") && prev2Sample.includes("B") && sample.includes("B") ||
+// 				prevSample.includes("B") && prev2Sample.includes("F") && sample.includes("F")) {
+// 				sample = notation[Math.floor(Math.random() * notation.length)];
+// 			}
+// 		}
+// 		prevSample = sample;
+// 		prev2Sample = prevSample;
+// 		sample += mods[Math.floor(Math.random() * mods.length)];
+// 		scrambleTemp.push(sample);
+
+// 		var span = document.createElement("span");
+// 		span.innerHTML = `${sample} `;
+// 		span.classList.add(sample);
+// 		span.style.color = sample.includes("R") ? "rgb(255,77,77)" : sample.includes("F") ? "lightgreen" : sample.includes("U") ? "white" : sample.includes("L") ? "rgb(255,166,77)" : sample.includes("D") ? "rgb(255,255,128)" : "lightblue";
+
+// 		//A good font size depending on the length of scram
+// 		if (innerWidth > 1000) {
+// 			if (type != 7 && type != 6) {
+// 				span.style.fontSize = (mobileSize - 59.5).toString() + "vh";
+// 			} else {
+// 				span.style.fontSize = (mobileSize - 60).toString() + "vh";
+// 			}
+// 		} else {
+// 			span.style.fontSize = (mobileSize - 60).toString() + "vw";
+// 			// span.style.fontSize = (size + 0.5).toString() + "%";
+// 		}
+
+// 		scramble.appendChild(span);
+// 	}
+
+// 	if (innerWidth > 1000) {
+// 		createCube(parseInt(type), "scrambleShow");
+// 		perform(scrambleTemp.join(" "));
+// 	}
+
+// 	localStorage.setItem("scrambleTemp", JSON.stringify(scrambleTemp.join(" ") + "\n" + document.querySelector(".scrambleDrop").value));
+// }

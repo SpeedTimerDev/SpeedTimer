@@ -1,0 +1,143 @@
+<html>
+
+<head lang="en">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>SpeedTimer</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="media.css">
+	<link rel="stylesheet" href="navbar.css">
+	<link rel="stylesheet" href="cubeimage.css">
+	<script src="navbar.js" async></script>
+	<link rel="stylesheet" href="games.css">
+	<link rel="icon" href="logo1.jpg">
+	<!-- This link -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+		integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="leftT"></div>
+
+	<div class="rightT">
+		<div class="overlay"></div>
+		<div class="creditpopup">
+			<!-- <a href='https://writingmasterthesis.com/'>https://writingmasterthesis.com/</a> <script type='text/javascript' src='https://www.freevisitorcounters.com/auth.php?id=0f5f8532571239cf04afa8e976210d4c75f18e3d'></script>
+			<script type="text/javascript" src="https://www.freevisitorcounters.com/en/home/counter/835531/t/7"></script> -->
+			<!-- <script type="text/javascript" src="//counter.websiteout.net/js/5/0/0/1"></script></div> -->
+			<div style="font-size: 200%; text-align: center;">SpeedTimer</div>
+			<br>
+			Bored of using other timers with their appaling design and lack of simplicity? Me too. Instead of
+			waiting for a new timer to come out, I decided to create my own free timer to combat this. And as a Cuber
+			Myself, I won't let you down. Use The SpaceBar to start and stop the timer, and play around with settings
+			and cube types. Happy Cubing!
+			<br>
+			<br>
+			- CoderGuru
+			<br>
+			<br>
+			<br>
+			For suggestions, use <a href="https://app.suggestionox.com/r/speedtimer" target="_blank"
+				style="color: whitesmoke;">This Link</a>.
+			<br>
+			<br>
+			For Other Queries, Contact <a href="mailto:contactspeedtimer@gmail.com" target="_blank"
+				style="color: whitesmoke;">contactspeedtimer@gmail.com</a>
+			<br>
+			<br>
+			<br>
+			Alt + 2: +2 Most Recent Solve<br>
+			Alt + d: DNF Most Recent Solve<br>
+			Alt + z: Delete Most Recent Solve<br>
+			<br>
+			Use The Buttons at The Top Right to Change Scramble or Change to Manual Entry Mode.
+		</div>
+
+		<div class="overlay" id="overlay6" style="display: none;"></div>
+		<div class="gameScores" style="display: none;">
+            <div class="scores" style = "display: flex; width: 40%; height: 100%; margin: 0;">
+				<div class="scoreTitle">Highscore:</div>
+				<br>
+				<div class="scorePiece" id = "score2">10/10 (100%)</div>
+				<br>
+				<div class="scorePiece" id = "time2">69s</div>
+			</div>
+
+			<div class="gameScoresClose"><i class="fas fa-times"></i></div>
+		</div>
+
+        <div class="overlay" id="overlay5" style="display: none;"></div>
+		<div class="gameInfo" style="display: none;">
+            <div class="gameInfoTitle"></div>            
+
+            <div class="gameInfoText">You play</div>
+
+            <div class="gameInfoClose"><i class="fas fa-times"></i></div>
+		</div>
+
+        <div class="overlay" id="overlay4" style="display: none;"></div>
+		<div class="gameScreen" style="display: none;">
+			<div class="gameScreenTitle">PLL Recognition</div>
+            <br>
+            <div class="game">
+                <div class="gamePLL">
+                    <div class="left">
+                        <div class="pllTitle">What is the Name of This PLL?</div>
+                        <div class="pllImage">
+                            <img id = "pllImg" src = "pll/aaperm.jpg">
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="rightTop">
+                            <div class="pllOptions">
+                                <div class="pllOption pllO1" id = "">A Perm</div>
+                                <div class="pllOption pllO2" id = "">A Perm</div>
+                                <div class="pllOption pllO3" id = "">A Perm</div>
+                                <div class="pllOption pllO4" id = "">A Perm</div>
+                            </div>
+                        </div>
+                        <div class="rightBottom">
+                            <div class="progress">Progress: 2 / 10</div>
+                            <div class="score">Score: 75%</div>
+                            <div class="time">Time Elasped: 3s</div>
+                        </div>
+                    </div>
+					<div class="scores" style = "display: none;" id = "finalScore">
+						<div class="scoreTitle">Well Done!</div>
+						<br>
+						<div class="scorePiece" id = "score">You got 10/10 (86%)</div>
+						<br>
+						<div class="scorePiece" id = "time">Time Taken: 69s</div>
+					</div>
+                </div>
+            </div>
+            <div class="gameScreenClose"><i class="fas fa-times"></i></div>
+		</div>
+
+		<div class="top">Games</div>  
+
+        <div class="gamesList">
+            <div class="gameItem">
+                <span>PLL Recognition</span>
+                    <div>
+                    <button class = "gameItemInfo" id = "pllRecogInfo">
+                        <i class="fas fa-info"></i>
+                    </button>
+					<button class = "gameItemScores" id = "pllRecogScores">
+                        <i class="fas fa-star"></i>
+                    </button>
+                    <button class = "gameItemPlay" id = "pllRecog">
+                        <i class="fas fa-play"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+		<script src="collapse.js" async></script>
+		<script src="games.js" async defer></script>
+</body>
+
+</html>

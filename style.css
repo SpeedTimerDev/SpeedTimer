@@ -38,7 +38,7 @@ body {
 
     border-radius: 20px;
 
-    top: 42.5%;
+    top: 45%;
     left: 55%;
     transform: translate(-50%, -50%);
     z-index: 901;
@@ -318,10 +318,12 @@ button.digits {
 
 .scramble {
     max-height: 130px;
-    top: 5vh;
+    top: 6vh;
     width: 75%;
 
     margin: 2vw;
+
+    margin-top: 6vw;
 
     color: var(--font-colour);
 
@@ -412,6 +414,8 @@ button.digits {
     width: 30px;
     height: 30px;
 
+    font-size: 18px;
+
     border-radius: var(--bradiusSmall);
 
     font-weight: bold;
@@ -436,6 +440,8 @@ button.digits {
     align-items: center;
     width: 30px;
     height: 30px;
+
+    font-size: 16px;
 
     border-radius: var(--bradiusSmall);
     margin-left: 5px;
@@ -555,6 +561,7 @@ button.digits {
     height: 45px;
     max-width: 500px;
     max-height: 45px;
+    margin-right: 7.5px;
 }
 
 #iconMobile {
@@ -568,6 +575,8 @@ button.digits {
     height: 50px;
     max-width: 500px;
     max-height: 40px;
+
+    bottom: 10px;
 
     margin-right: 7.5px;
 }
@@ -657,8 +666,12 @@ button.digits {
     margin: 3px;
 }
 
+twisty-scrubber {
+    display: none;
+}
+
 .scrambleDrop {
-    width: 100%;
+    width: 215px;
     font-size: 100%;
 
     border: var(--border);
@@ -672,6 +685,8 @@ button.digits {
     outline: none;
 
     margin: 3px;
+
+    margin-right: 10px;
 
     max-height: 90%;
 }

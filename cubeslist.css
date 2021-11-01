@@ -167,6 +167,10 @@
     padding: 5px;
 }
 
+.listBar:last-child {
+    margin-bottom: -10px;
+}
+
 .listBar2 {
     background-color: var(--midBlack);
 

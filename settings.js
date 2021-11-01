@@ -10,6 +10,8 @@ if (localStorage.buttonbg != null) document.body.style.setProperty("--buttonbg",
 if (localStorage.buttonbg != null) document.getElementById("colorPicker").value = localStorage.buttonbg;
 if (localStorage.algImgCol != null) document.body.style.setProperty("--algImgCol", localStorage.algImgCol);
 if (localStorage.algImgCol != null) document.getElementById("algImgCol").value = localStorage.algImgCol;
+//if (localStorage.wcaInspec != null) document.getElementById("inspection").value = JSON.parse(localStorage.wcaInspec);
+if (localStorage.d3vis != null) document.getElementById("d3vis").checked = JSON.parse(localStorage.getItem("d3vis"));
 
 window.onload = () => {
 	input.value = ""
@@ -46,6 +48,14 @@ document.getElementById("algImgCol").addEventListener("input", function () {
 	document.body.style.setProperty("--algImgCol", localStorage.algImgCol);
 });
 
+// document.getElementById("inspection").addEventListener("change", function () {
+// 	localStorage.setItem("wcaInspec", document.getElementById("inspection").value);
+// });
+
+document.getElementById("d3vis").addEventListener("change", function () {
+	localStorage.setItem("d3vis", document.getElementById("d3vis").checked);
+});
+
 let clrAllSolves = document.getElementById("clrAllSolves");
 clrAllSolves.addEventListener("click", function () {
 	var danger = prompt("Are You Sure You Want to Delete all of Your Solves? Type 'confirm' to proceed.").toLowerCase();
@@ -67,6 +77,7 @@ clrAllSettings.addEventListener("click", function () {
 		localStorage.setItem("buttonbg", "#323232");
 		localStorage.setItem("algImgCol", "#dba204");
 		localStorage.removeItem("iconTop");
+		localStorage.removeItem("d3vis");
 		document.location.href = "index.html";
 	}
 });

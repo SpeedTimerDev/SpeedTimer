@@ -129,14 +129,14 @@
 .leftAlg {
     display: inline-block;
 
-    width: 20vh;
+    width: 19.5vh;
 }
 
 .rightAlg {
     display: inline-block;
-    margin-right: 20px;
+    margin-right: 10px;
 
-    width: 20vh;
+    width: 19vh;
 
     justify-content: space-between;
 }

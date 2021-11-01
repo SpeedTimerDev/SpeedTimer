@@ -1,3 +1,7 @@
+// Cubing.js Scrambles
+
+import { randomScrambleForEvent } from "https://cdn.cubing.net/js/cubing/scramble";
+
 // Visualiser
 
 let n;
@@ -83,21 +87,21 @@ const draw = () => {
 const rotate = arr => arr.map((e, i) => arr.map(e => e[i]).reverse());
 const arotate = arr => rotate(rotate(rotate(arr)));
 
-const perform = moves => {
+const perform = (movesVar) => {
 	resetCube();
-	if (moves.length == 0) {
+	if (movesVar.length == 0) {
 		resetCube();
 		draw();
 		return;
 	}
 
-	if (!moves.match(/[a-zA-Z]/) || moves.match(/([^ 0-9'RUFLDBrufldbMESxyzw])/g) || moves.match(/([0-9][0-9RUFLDBrufldbMESxyz](?![w'2]{0,3} ))/g)?.length > 1) {
+	if (!movesVar.match(/[a-zA-Z]/) || movesVar.match(/([^ 0-9'RUFLDBrufldbMESxyzw])/g) || movesVar.match(/([0-9][0-9RUFLDBrufldbMESxyz](?![w'2]{0,3} ))/g)?.length > 1) {
 		return;
 	}
 
-	moves = moves.replaceAll(",", "").split(" ");
+	movesVar = movesVar.replaceAll(",", "").split(" ");
 
-	axies = {
+	let axies = {
 		"U": "y",
 		"D": "y",
 		"E": "y",
@@ -112,7 +116,7 @@ const perform = moves => {
 		"Z": "z"
 	};
 
-	idx = {
+	let idx = {
 		"U": [0],
 		"D": [n - 1],
 		"R": [0],
@@ -138,7 +142,7 @@ const perform = moves => {
 		"Fw": n == 3 ? [0, 1] : [0],
 		"Bw": n == 3 ? [2, 1] : [n - 1]
 	};
-	for (move of moves) {
+	for (let move of movesVar) {
 		if (move == "") break;
 		let layers = idx[move.replace(/[0-9']/g, "")];
 		let slice = (n != 3 && move.replace(/[0-9']/g, "") == move.replace(/[0-9']/g, "").match(/^[udrlfb]$|^[UDRLFB]w$/g)) ? (((temp = move.match(/[0-9][A-Za-z]/g)) ? parseInt(move.replace(/[a-zA-Z]+[0-9]/g, "")) - 1 : 1) * (move.includes("d") || move.includes("l") || move.includes("b") ? -1 : 1)) : 0;
@@ -147,7 +151,7 @@ const perform = moves => {
 		let newCube = cube,
 			i, j = 0;
 
-		for (layer of layers) {
+		for (let layer of layers) {
 
 			if (!move.match(/[RUFLDB]w/g)) slice = (n != 3 && move.replace(/[0-9']/g, "") == move.replace(/[0-9']/g, "").match(/^[udrlfb]$|^[UDRLFB]w$/g)) ? (((temp = move.match(/[0-9][A-Za-z]/g)) ? parseInt(move.replace(/[a-zA-Z]+[0-9]/g, "")) - 1 : 1) * (move.includes("d") || move.includes("l") || move.includes("b") ? -1 : 1)) : 0;
 			if (!move.match(/[RUFLDB]w/g)) layer = layer + slice >= 0 ? layer + slice : n - layer - slice;
@@ -258,10 +262,7 @@ const perform = moves => {
 }
 
 // Main Vars
-var plus2 = ['altKey', "2"];
-var dnf = ['altKey', "d"];
-var remove = ['altKey', "z"];
-var clear = ['esc'];
+var advance;
 
 let plus2col = 'orange';
 let dnfcol = 'red';
@@ -315,8 +316,6 @@ var curType;
 // Scramble
 
 var scramble = document.querySelector(".scramble");
-var mods = ["2", "'", ""];
-var scrambleTemp = [];
 
 sType = sessions[currentSessionIdx].type.slice(0, 2);
 
@@ -325,273 +324,164 @@ document.querySelector(".scrambleDrop").addEventListener("change", function () {
 	generateScramble(sType);
 });
 
-function generateScramble(type) {
+async function generateScramble(type) {
 	scramble.innerHTML = "";
-	var sample = "";
-	var prevSample;
+
+	let scramStuff;
 
 	switch (type) {
 		case "2x":
-			notation = ["R", "U", "F"];
-			nxn(2, 8, 75, 64);
+			scramStuff = await randomScrambleForEvent("222");
 			break;
 		case "3x":
-			notation = ["R", "U", "F", "L", "D", "B"];
-			nxn(3, 17, 75, 63);
+			scramStuff = await randomScrambleForEvent("333");
 			break;
 		case "4x":
-			notation = ["R", "U", "F", "L", "D", "B", "Rw", "Uw", "Fw"];
-			nxn(4, 30, 100, 62.5);
+			scramStuff = await randomScrambleForEvent("444");
 			break;
 		case "5x":
-			notation = ["R", "U", "F", "L", "D", "B", "Rw", "Uw", "Fw", "Lw", "Dw", "Bw"];
-			nxn(5, 50, 100, 62);
+			scramStuff = await randomScrambleForEvent("555");
 			break;
 		case "6x":
-			notation = ["R", "U", "F", "L", "D", "B", "Rw", "Uw", "Fw", "Lw", "Dw", "Bw", "3Rw", "3Uw", "3Fw"];
-			nxn(6, 60, 120, 62);
+			scramStuff = await randomScrambleForEvent("666");
 			break;
 		case "7x":
-			notation = ["R", "U", "F", "L", "D", "B", "Rw", "Uw", "Fw", "Lw", "Dw", "Bw", "3Rw", "3Uw", "3Fw", "3Lw", "3Dw", "3Bw"];
-			nxn(7, 70, 120, 62);
+			scramStuff = await randomScrambleForEvent("777");
 			break;
 		case "Py":
-			document.querySelector(".scrambleShow").innerHTML = "No Visual";
-			document.querySelector(".scrambleShow").style.color = "white";
-			document.querySelector(".scrambleShow").style.fontSize = "200%";
-			scrambleTemp = [];
-			mods = ["", "'"]
-			notation = ["L", "R", "B", "U"];
-			for (i = 0; i < 11; i++) {
-				sample = notation[Math.floor(Math.random() * notation.length)];
-				if (prevSample) {
-					while (sample == prevSample) {
-						sample = notation[Math.floor(Math.random() * notation.length)]
-					}
-				}
-				prevSample = sample;
-				sample += mods[Math.floor(Math.random() * mods.length)];
-				scrambleTemp.push(sample);
-
-				var span = document.createElement("span");
-				span.innerHTML = `${sample} `;
-				span.classList.add(sample);
-				if (innerWidth > 1000) {
-					span.style.fontSize = "30px";
-				} else {
-					span.style.fontSize = "20px";
-				}
-				scramble.appendChild(span);
+			if(JSON.parse(localStorage.getItem("d3vis")) == false) {
+				document.querySelector(".scrambleShow").innerHTML = "No Visual";
+				document.querySelector(".scrambleShow").style.color = "white";
+				document.querySelector(".scrambleShow").style.fontSize = "200%";
 			}
-			notation = ["l", "r", "b", "u"].sort(() => 0.5 - Math.random());
-			len = Math.random() * 4;
-			for (i = 0; i < len; i++) {
-				sample = notation[i];
-				sample += mods[Math.floor(Math.random() * mods.length)];
-				scrambleTemp.push(sample);
 
-				var span = document.createElement("span");
-				span.innerHTML = `${sample} `;
-				span.classList.add(sample);
-				if (innerWidth > 1000) {
-					span.style.fontSize = "30px";
-				} else {
-					span.style.fontSize = "20px";
-				}
-				scramble.appendChild(span);
-			}
-			localStorage.setItem("scrambleTemp", JSON.stringify(scrambleTemp.join(" ") + "\n" + document.querySelector(".scrambleDrop").value));
+			scramStuff = await randomScrambleForEvent("pyram");
 			break;
 		case "Sk":
-			document.querySelector(".scrambleShow").innerHTML = "No Visual";
-			document.querySelector(".scrambleShow").style.color = "white";
-			document.querySelector(".scrambleShow").style.fontSize = "200%";
-			scrambleTemp = [];
-			mods = ["", "'"]
-			notation = ["L", "R", "B", "U"];
-			for (i = 0; i < 11; i++) {
-				sample = notation[Math.floor(Math.random() * notation.length)];
-				while (sample == prevSample) {
-					sample = notation[Math.floor(Math.random() * notation.length)]
-				}
-				prevSample = sample;
-				sample += mods[Math.floor(Math.random() * mods.length)];
-				scrambleTemp.push(sample);
-
-				var span = document.createElement("span");
-				span.innerHTML = `${sample} `;
-				span.classList.add(sample);
-				if (innerWidth > 1000) {
-					span.style.fontSize = "30px";
-				} else {
-					span.style.fontSize = "20px";
-				}
-				scramble.appendChild(span);
+			if(JSON.parse(localStorage.getItem("d3vis")) == false) {
+				document.querySelector(".scrambleShow").innerHTML = "No Visual";
+				document.querySelector(".scrambleShow").style.color = "white";
+				document.querySelector(".scrambleShow").style.fontSize = "200%";
 			}
-			localStorage.setItem("scrambleTemp", JSON.stringify(scrambleTemp.join(" ") + "\n" + document.querySelector(".scrambleDrop").value));
+
+			scramStuff = await randomScrambleForEvent("skewb");
 			break;
 		case "Cl":
-			document.querySelector(".scrambleShow").innerHTML = "No Visual";
-			document.querySelector(".scrambleShow").style.color = "white";
-			document.querySelector(".scrambleShow").style.fontSize = "200%";
-			scrambleTemp = [];
-			notation = ["U", "R", "D", "L", "UR", "UL", "DL", "DR", "ALL"];
-			sample = "";
-			for (i = 0; i < 9; i++) {
-				sample = notation[Math.floor(Math.random() * notation.length)];
-				num = Math.floor(Math.random() * 7);
-				sample += num;
-				sample += Math.random() < 0.5 || num == 0 || num == 6 ? "+" : "-";
-				scrambleTemp.push(sample);
+			if(JSON.parse(localStorage.getItem("d3vis")) == false) {
+				document.querySelector(".scrambleShow").innerHTML = "No Visual";
+				document.querySelector(".scrambleShow").style.color = "white";
+				document.querySelector(".scrambleShow").style.fontSize = "200%";
+			}
 
-				var span = document.createElement("span");
-				span.innerHTML = `${sample} `;
-				span.classList.add(sample);
-				if (innerWidth > 1000) {
-					span.style.fontSize = "25px";
-				} else {
-					span.style.fontSize = "15px";
-				}
-				scramble.appendChild(span);
-			}
-			var span = document.createElement("span");
-			span.innerHTML = `y2 `;
-			span.classList.add("y2");
-			if (innerWidth > 1000) {
-				span.style.fontSize = "25px";
-			} else {
-				span.style.fontSize = "15px";
-			}
-			scramble.appendChild(span);
-			for (i = 0; i < 5; i++) {
-				sample = notation[Math.floor(Math.random() * notation.length)];
-				num = Math.floor(Math.random() * 7);
-				sample += num;
-				sample += Math.random() < 0.5 || num == 0 || num == 6 ? "+" : "-";
-				scrambleTemp.push(sample);
-
-				var span = document.createElement("span");
-				span.innerHTML = `${sample} `;
-				span.classList.add(sample);
-				if (innerWidth > 1000) {
-					span.style.fontSize = "25px";
-				} else {
-					span.style.fontSize = "15px";
-				}
-				scramble.appendChild(span);
-			}
-			notation = ["UL", "UR", "DL", "DR"].sort(() => 0.5 - Math.random());
-			len = Math.random() * 4;
-			for (i = 0; i < len; i++) {
-				sample = notation[i];
-				scrambleTemp.push(sample);
-
-				var span = document.createElement("span");
-				span.innerHTML = `${sample} `;
-				span.classList.add(sample);
-				if (innerWidth > 1000) {
-					span.style.fontSize = "25px";
-				} else {
-					span.style.fontSize = "15px";
-				}
-				scramble.appendChild(span);
-			}
-			localStorage.setItem("scrambleTemp", JSON.stringify(scrambleTemp.join(" ") + "\n" + document.querySelector(".scrambleDrop").value));
+			scramStuff = await randomScrambleForEvent("clock");
 			break;
 		case "Me":
-			document.querySelector(".scrambleShow").innerHTML = "No Visual";
-			document.querySelector(".scrambleShow").style.color = "white";
-			document.querySelector(".scrambleShow").style.fontSize = "200%";
-			scrambleTemp = [];
-			notation = ["R", "D"];
-			sample = "";
-			for (i = 0; i < 5; i++) {
-				for (j = 0; j < 10; j++) {
-					sample = notation[Math.floor(Math.random() * notation.length)];
-					while (sample == prevSample) {
-						sample = notation[Math.floor(Math.random() * notation.length)]
-					}
-					prevSample = sample;
-					sample += Math.random() < 0.5 ? "++" : "--";
-					scrambleTemp.push(sample);
-
-					var span = document.createElement("span");
-					span.innerHTML = `${sample} `;
-					span.classList.add(sample);
-					span.style.fontSize = "1.5vw";
-					scramble.appendChild(span);
-				}
-				var span = document.createElement("span");
-				span.innerHTML = `${Math.random() < 0.5 ? "U" : "U'"}<br>`;
-				span.classList.add(sample);
-				span.style.fontSize = "1.5vw";
-				scramble.appendChild(span);
+			if(JSON.parse(localStorage.getItem("d3vis")) == false) {
+				document.querySelector(".scrambleShow").innerHTML = "No Visual";
+				document.querySelector(".scrambleShow").style.color = "white";
+				document.querySelector(".scrambleShow").style.fontSize = "200%";
 			}
-			localStorage.setItem("scrambleTemp", JSON.stringify(scrambleTemp.join(" ") + "\n" + document.querySelector(".scrambleDrop").value));
+
+			scramStuff = await randomScrambleForEvent("minx");
+			break;
+		case "Sq":
+			if(JSON.parse(localStorage.getItem("d3vis")) == false) {
+				document.querySelector(".scrambleShow").innerHTML = "No Visual";
+				document.querySelector(".scrambleShow").style.color = "white";
+				document.querySelector(".scrambleShow").style.fontSize = "200%";
+			}
+			
+			scramStuff = await randomScrambleForEvent("sq1");
 			break;
 		case "Ot":
-			document.querySelector(".scrambleShow").innerHTML = "No Visual";
-			document.querySelector(".scrambleShow").style.color = "white";
-			document.querySelector(".scrambleShow").style.fontSize = "200%";
+			if(JSON.parse(localStorage.getItem("d3vis")) == false) {
+				document.querySelector(".scrambleShow").innerHTML = "No Visual";
+				document.querySelector(".scrambleShow").style.color = "white";
+				document.querySelector(".scrambleShow").style.fontSize = "200%";
+			}
 			localStorage.setItem("scrambleTemp", JSON.stringify("Other" + "\n" + document.querySelector(".scrambleDrop").value));
 			break;
 		default:
 			break;
 	}
-}
 
-function nxn(type, len, size, mobileSize) {
-	scrambleTemp = [];
-	var prevSample;
-	scramble.innerHTML = "";
-	//in this example 8 is the scramble length
-	for (i = 0; i < len; i++) {
-		sample = notation[Math.floor(Math.random() * notation.length)];
-		while (sample == prevSample) {
-			sample = notation[Math.floor(Math.random() * notation.length)]
-		}
+	if(type != "Ot") {
+		var scramText = scramStuff.toString();
+		var scramArray = scramText.split(" ");
 
-		if (prevSample && prev2Sample) {
-			while (prevSample.includes("R") && prev2Sample.includes("L") && sample.includes("L") ||
-				prevSample.includes("L") && prev2Sample.includes("R") && sample.includes("R") ||
-				prevSample.includes("U") && prev2Sample.includes("D") && sample.includes("D") ||
-				prevSample.includes("D") && prev2Sample.includes("U") && sample.includes("U") ||
-				prevSample.includes("F") && prev2Sample.includes("B") && sample.includes("B") ||
-				prevSample.includes("B") && prev2Sample.includes("F") && sample.includes("F")) {
-				sample = notation[Math.floor(Math.random() * notation.length)];
+		if(!isNaN(type.slice(0, 1))) {
+			var mobileSize = 66.5 - parseInt(type);
+
+			for(let i = 0; i < scramArray.length; i++) {
+				let sample = scramArray[i];
+
+				var span = document.createElement("span");
+				span.innerHTML = `${sample} `;
+				span.classList.add(sample);
+				span.style.color = sample.includes("R") ? "rgb(255,77,77)" : sample.includes("F") ? "lightgreen" : sample.includes("U") ? "white" : sample.includes("L") ? "rgb(255,166,77)" : sample.includes("D") ? "rgb(255,255,128)" : "lightblue";			
+				if (innerWidth > 1000) {
+					if (parseInt(type) == 7 || parseInt(type) == 6) {
+						span.style.fontSize = (mobileSize - 57.5 + ((parseInt(type) - 6) * 0.75)).toString() + "vh";
+					} else {
+						if(parseInt(type) != 5) {
+							span.style.fontSize = (mobileSize - 59.5).toString() + "vh";
+						} else {
+							span.style.fontSize = (mobileSize - 58).toString() + "vh";
+						}
+					}
+				} else {
+					span.style.fontSize = (mobileSize - 60).toString() + "vw";
+				}
+		
+				scramble.appendChild(span);
 			}
-		}
-		prevSample = sample;
-		prev2Sample = prevSample;
-		sample += mods[Math.floor(Math.random() * mods.length)];
-		scrambleTemp.push(sample);
-
-		var span = document.createElement("span");
-		span.innerHTML = `${sample} `;
-		span.classList.add(sample);
-		span.style.color = sample.includes("R") ? "rgb(255,77,77)" : sample.includes("F") ? "lightgreen" : sample.includes("U") ? "white" : sample.includes("L") ? "rgb(255,166,77)" : sample.includes("D") ? "rgb(255,255,128)" : "lightblue";
-
-		//A good font size depending on the length of scram
-		if (innerWidth > 1000) {
-			if (type != 7 && type != 6) {
-				span.style.fontSize = (mobileSize - 59.5).toString() + "vh";
-			} else {
-				span.style.fontSize = (mobileSize - 60).toString() + "vh";
+		
+			if (innerWidth > 1000) {
+				if(JSON.parse(localStorage.d3vis) == false) {
+					createCube(parseInt(type), "scrambleShow");
+					perform(scramText);
+				} else {
+					document.querySelector(".scrambleShow").innerHTML = '<twisty-player camera-distance = "7" background = "none" control-panel = "none" style = "height: 100%; width: 100%;" experimental-setup-alg="' + scramText + '"' + 'puzzle="' + type.slice(0, 1) + 'x' + type.slice(0, 1) + 'x' + type.slice(0, 1) + '"></twisty-player>';
+				}
 			}
+
+			localStorage.setItem("scrambleTemp", JSON.stringify(scramText + "\n" + document.querySelector(".scrambleDrop").value));
 		} else {
-			span.style.fontSize = (mobileSize - 60).toString() + "vw";
-			// span.style.fontSize = (size + 0.5).toString() + "%";
+			for(let i = 0; i < scramArray.length; i++) {
+				let sample = scramArray[i];
+
+				var mobileSize = 63.5;
+
+				if(type == "Me") {
+					mobileSize = 62.5;
+				}
+
+				var span = document.createElement("span");
+				span.innerHTML = `${sample} `;
+				if (innerWidth > 1000) {
+					span.style.fontSize = (mobileSize - 59.5).toString() + "vh";
+				} else {
+					span.style.fontSize = (mobileSize - 60).toString() + "vw";
+				}
+		
+				scramble.appendChild(span);
+			}
+
+			if(JSON.parse(localStorage.d3vis) == true) {
+				var codes = {
+					py: 'pyraminx',
+					sk: 'skewb',
+					cl: 'clock',
+					me: 'megaminx',
+					sq: 'square1',
+				}
+
+				console.log(codes[type.toLowerCase()]);
+
+				document.querySelector(".scrambleShow").innerHTML = '<twisty-player camera-distance = "7" background = "none" control-panel = "none" style = "height: 100%; width: 100%;" experimental-setup-alg="' + scramText + '"' + 'puzzle="' + codes[type.toLowerCase()] + '"></twisty-player>';
+			}
 		}
-
-		scramble.appendChild(span);
 	}
-
-	if (innerWidth > 1000) {
-		createCube(parseInt(type), "scrambleShow");
-		perform(scrambleTemp.join(" "));
-	}
-
-	localStorage.setItem("scrambleTemp", JSON.stringify(scrambleTemp.join(" ") + "\n" + document.querySelector(".scrambleDrop").value));
 }
 
 generateScramble(sType);
@@ -621,7 +511,7 @@ function increment(start) {
 	advance = setInterval(function () {
 		timer.style.color = "white";
 		if (running == 1) {
-			time = Date.now() - start;
+			time = performance.now() - start;
 			var mins = Math.floor(time / 1000 / 60);
 			if (mins <= 9) {
 				mins = "0" + mins;
@@ -641,8 +531,13 @@ function increment(start) {
 	});
 }
 
-document.body.onkeydown = function (e) {
-	if (e[plus2[0]] && e.key == plus2[1]) {
+var plus2 = ['altKey', "2"];
+var dnf = ['altKey', "d"];
+var remove = ['altKey', "z"];
+var clear = ['Escape'];
+
+document.onkeydown = function (e) {
+	if (e.altKey && e.key == plus2[1]) {
 		e.preventDefault();
 		if (sessions[currentSessionIdx].times[0].slice(-1) == "+") {
 			sessions[currentSessionIdx].times[0] = sessions[currentSessionIdx].times[0].replace("+", "");
@@ -655,7 +550,7 @@ document.body.onkeydown = function (e) {
 		generateTimes();
 		generateStats();
 	}
-	if (e[dnf[0]] && e.key == dnf[1]) {
+	if (e.altKey && e.key == dnf[1]) {
 		e.preventDefault();
 		if (sessions[currentSessionIdx].times[0].slice(0, 3) == "DNF") {
 			sessions[currentSessionIdx].times[0] = sessions[currentSessionIdx].times[0].replace("DNF(", "").replace(")", "");
@@ -670,14 +565,14 @@ document.body.onkeydown = function (e) {
 		generateTimes();
 		generateStats();
 	}
-	if (e[remove[0]] && e.key == remove[1]) {
+	if (e.altKey && e.key == remove[1]) {
 		e.preventDefault();
 		deleteSolve();
 		generateTimes();
 		generateStats();
 	}
 	if (localStorage.getItem("inputType") == "timer") {
-		if (e.key == "Escape") {
+		if (e.key == clear[0]) {
 			timer.innerHTML = "00:00.00";
 		}
 	}
@@ -729,7 +624,7 @@ document.body.onkeydown = function (e) {
 		if (running == 0) {
 			timerPressed = true;
 			if (timerDoTime == 0) {
-				timerDoTime = Math.floor(Date.now());
+				timerDoTime = Math.floor(performance.now());
 				timerCheck = window.setInterval(checkSecF, 100);
 				timerCheck = window.setInterval(checkSec, 300);
 			}
@@ -743,11 +638,13 @@ document.body.onkeyup = function (e) {
 			timer.style.color = "white";
 			if (e.keyCode == 32 && running == 0) {
 				timerPressed = false;
-				var newTime = Math.floor(Date.now()) - timerDoTime;
+				var newTime = Math.floor(performance.now()) - timerDoTime;
 				timerDoTime = 0;
 				if (newTime > 400) {
-					start();
-					clearInterval(timerCheck);
+					if(JSON.parse(localStorage.wcaInspec) == false) {
+						start();
+						clearInterval(timerCheck);
+					}
 				} else {
 					timer.style.color = "white";
 					timerDoTime = 0;
@@ -785,7 +682,7 @@ function checkSec() {
 function start() {
 	reset();
 	running = 1;
-	increment(Date.now());
+	increment(performance.now());
 }
 
 function enter() {
@@ -834,8 +731,6 @@ document.querySelector(".inputTime").addEventListener("change", function () {
 
 				generateTimes();
 				generateStats();
-				generateScramble(sType);
-
 				input.value = "";
 
 				generateScramble(sType);
@@ -990,7 +885,7 @@ function generateTimes() {
 
 	container.innerHTML = "";
 
-	for (i = 0; i < sessions[parseInt(currentSessionIdx)].times.length; i++) {
+	for (let i = 0; i < sessions[parseInt(currentSessionIdx)].times.length; i++) {
 		var solveBar = document.createElement("div");
 		solveBar.id = sessions[currentSessionIdx].times.length - i - 1;
 		solveBar.classList.add("solveBar");
@@ -1022,12 +917,12 @@ function generateTimes() {
 
 		var del = document.createElement("div");
 		del.classList.add("del");
-		del.innerHTML = "X";
+		del.innerHTML = '<i class="fas fa-times"></i>';
 		del.addEventListener("click", deleteSolve);
 
 		var exInfo = document.createElement("div");
 		exInfo.classList.add("exInfo");
-		exInfo.innerHTML = "...";
+		exInfo.innerHTML = '<i class="fas fa-ellipsis-h"></i>';
 		exInfo.addEventListener("click", showScram);
 		if (innerWidth < 1000) {
 			solveBar.addEventListener("click", showScram);
@@ -1060,8 +955,8 @@ function generateStats() {
 		return Math.max.apply(Math, array);
 	};
 
-	times = [];
-	for (time of sessions[currentSessionIdx].times) {
+	let times = [];
+	for (let time of sessions[currentSessionIdx].times) {
 		if (time.includes("DNF")) times.push("DNF");
 		else times.push(time.replace("+", ""));
 	}
@@ -1082,6 +977,8 @@ function generateStats() {
 		best.innerHTML = format(Math.min(...times.filter(e => !isNaN(parseInt(e)))) == Infinity ? "DNF" : Math.min(...times.filter(e => !isNaN(parseInt(e)))));
 
 		// Avg
+
+		let average;
 
 		var total = 0;
 		var avgTemp = 0;
