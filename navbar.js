@@ -99,3 +99,8 @@ document.querySelector(".overlay").addEventListener("click", function () {
     document.querySelector(".overlay").style.display = "none";
     document.querySelector(".creditpopup").style.display = "none";
 });
+
+var script = document.createElement('script');
+script.src = "collapse.js";
+script.async = true;
+document.body.appendChild(script);
