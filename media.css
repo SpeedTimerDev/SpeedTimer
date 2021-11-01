@@ -112,6 +112,10 @@
 		font-size: 14px;
 	}
 
+	.scramble {
+		padding: 20px;
+	}
+
 	.scrambleShow {
 		display: none;
 	}

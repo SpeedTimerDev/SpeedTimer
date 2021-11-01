@@ -310,12 +310,12 @@ function generateTimes() {
 
 		var del = document.createElement("div");
 		del.classList.add("del");
-		del.innerHTML = "X";
+		del.innerHTML = '<i class="fas fa-times"></i>';
 		del.addEventListener("click", deleteSolve);
 
 		var exInfo = document.createElement("div");
 		exInfo.classList.add("exInfo");
-		exInfo.innerHTML = "...";
+		exInfo.innerHTML = '<i class="fas fa-ellipsis-h"></i>';
 		exInfo.addEventListener("click", showScram);
 		if (innerWidth < 1000) {
 			solveBar.addEventListener("click", showScram);

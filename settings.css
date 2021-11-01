@@ -35,6 +35,22 @@
 	background-color: #151515;
 }
 
+#inspection {
+	width: 25px;
+	height: 25px;
+
+	color: #151515;
+	background-color: #151515;
+}
+
+#d3vis {
+	width: 25px;
+	height: 25px;
+
+	color: #151515;
+	background-color: #151515;
+}
+
 #import input {
 	padding: 10px;
 

@@ -48,6 +48,9 @@ createSection("index.html", "timer", "stopwatch", "Timer");
 createSection("sessions.html", "sessions", "list", "Sessions");
 createSection("algs-3-oll.html", "algorithms", "th", "Algorithms");
 createSection("cubeslist.html", "cubeslist", "cube", "Cubeslist");
+if(innerWidth > 900) {
+    createSection("games.html", "games", "gamepad", "Games");
+}
 createSection("settings.html", "settings", "cog", "Settings");
 
 leftT.appendChild(div);
