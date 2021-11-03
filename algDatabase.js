@@ -290,3 +290,8 @@ function restoreDefault() {
 
     localStorage.setItem("algDatabase", JSON.stringify(database));
 };
+
+var script = document.createElement('script');
+script.src = "algorithms.js";
+script.async = true;
+document.body.appendChild(script);

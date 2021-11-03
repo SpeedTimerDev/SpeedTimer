@@ -327,7 +327,20 @@ document.querySelector(".scrambleDrop").addEventListener("change", function () {
 async function generateScramble(type) {
 	scramble.innerHTML = "";
 
-	let scramStuff;
+	// document.querySelector(".scrambleShow").innerHTML = "No Visual";
+	// document.querySelector(".scrambleShow").style.color = "white";
+	// document.querySelector(".scrambleShow").style.fontSize = "200%";
+
+	let scramText, scramArray, scramStuff;
+
+	var codes = {
+		py: 'pyraminx',
+		sk: 'skewb',
+		cl: 'clock',
+		me: 'megaminx',
+		sq: 'square1',
+	}
+
 
 	switch (type) {
 		case "2x":
@@ -349,49 +362,58 @@ async function generateScramble(type) {
 			scramStuff = await randomScrambleForEvent("777");
 			break;
 		case "Py":
-			if(JSON.parse(localStorage.getItem("d3vis")) == false) {
-				document.querySelector(".scrambleShow").innerHTML = "No Visual";
-				document.querySelector(".scrambleShow").style.color = "white";
-				document.querySelector(".scrambleShow").style.fontSize = "200%";
-			}
-
 			scramStuff = await randomScrambleForEvent("pyram");
+
+			if(JSON.parse(localStorage.getItem("d3vis")) == false) {
+				scramText = scramStuff.toString();
+				scramArray = scramText.split(" ");
+
+				document.querySelector(".scrambleShow").innerHTML = '<twisty-player camera-distance = "7" visualization="2D" background = "none" control-panel = "none" style = "height: 85%; width: 85%;" experimental-setup-alg="' + scramText + '"' + 'puzzle="' + codes[type.toLowerCase()] + '"></twisty-player>';
+			}
 			break;
 		case "Sk":
+			scramStuff = await randomScrambleForEvent("skewb");
+
 			if(JSON.parse(localStorage.getItem("d3vis")) == false) {
-				document.querySelector(".scrambleShow").innerHTML = "No Visual";
-				document.querySelector(".scrambleShow").style.color = "white";
-				document.querySelector(".scrambleShow").style.fontSize = "200%";
+				scramText = scramStuff.toString();
+				scramArray = scramText.split(" ");
+
+				document.querySelector(".scrambleShow").innerHTML = '<twisty-player camera-distance = "7" visualization="2D" background = "none" control-panel = "none" style = "height: 85%; width: 85%;" experimental-setup-alg="' + scramText + '"' + 'puzzle="' + codes[type.toLowerCase()] + '"></twisty-player>';
 			}
 
-			scramStuff = await randomScrambleForEvent("skewb");
 			break;
 		case "Cl":
+			scramStuff = await randomScrambleForEvent("clock");
+
 			if(JSON.parse(localStorage.getItem("d3vis")) == false) {
-				document.querySelector(".scrambleShow").innerHTML = "No Visual";
-				document.querySelector(".scrambleShow").style.color = "white";
-				document.querySelector(".scrambleShow").style.fontSize = "200%";
+				scramText = scramStuff.toString();
+				scramArray = scramText.split(" ");
+
+				document.querySelector(".scrambleShow").innerHTML = '<twisty-player camera-distance = "7" visualization="2D" background = "none" control-panel = "none" style = "height: 85%; width: 85%;" experimental-setup-alg="' + scramText + '"' + 'puzzle="' + codes[type.toLowerCase()] + '"></twisty-player>';
 			}
 
-			scramStuff = await randomScrambleForEvent("clock");
 			break;
 		case "Me":
+			scramStuff = await randomScrambleForEvent("minx");
+
 			if(JSON.parse(localStorage.getItem("d3vis")) == false) {
-				document.querySelector(".scrambleShow").innerHTML = "No Visual";
-				document.querySelector(".scrambleShow").style.color = "white";
-				document.querySelector(".scrambleShow").style.fontSize = "200%";
+				scramText = scramStuff.toString();
+				scramArray = scramText.split(" ");
+
+				document.querySelector(".scrambleShow").innerHTML = '<twisty-player camera-distance = "7" visualization="2D" background = "none" control-panel = "none" style = "height: 95%; width: 95%;" experimental-setup-alg="' + scramText + '"' + 'puzzle="' + codes[type.toLowerCase()] + '"></twisty-player>';
 			}
 
-			scramStuff = await randomScrambleForEvent("minx");
 			break;
 		case "Sq":
+			scramStuff = await randomScrambleForEvent("sq1");
+
 			if(JSON.parse(localStorage.getItem("d3vis")) == false) {
-				document.querySelector(".scrambleShow").innerHTML = "No Visual";
-				document.querySelector(".scrambleShow").style.color = "white";
-				document.querySelector(".scrambleShow").style.fontSize = "200%";
+				scramText = scramStuff.toString();
+				scramArray = scramText.split(" ");
+
+				document.querySelector(".scrambleShow").innerHTML = '<twisty-player camera-distance = "7" visualization="2D" background = "none" control-panel = "none" style = "height: 85%; width: 85%;" experimental-setup-alg="' + scramText + '"' + 'puzzle="' + codes[type.toLowerCase()] + '"></twisty-player>';
 			}
 			
-			scramStuff = await randomScrambleForEvent("sq1");
 			break;
 		case "Ot":
 			if(JSON.parse(localStorage.getItem("d3vis")) == false) {
@@ -406,8 +428,8 @@ async function generateScramble(type) {
 	}
 
 	if(type != "Ot") {
-		var scramText = scramStuff.toString();
-		var scramArray = scramText.split(" ");
+		scramText = scramStuff.toString();
+		scramArray = scramText.split(" ");
 
 		if(!isNaN(type.slice(0, 1))) {
 			var mobileSize = 66.5 - parseInt(type);
@@ -468,16 +490,6 @@ async function generateScramble(type) {
 			}
 
 			if(JSON.parse(localStorage.d3vis) == true) {
-				var codes = {
-					py: 'pyraminx',
-					sk: 'skewb',
-					cl: 'clock',
-					me: 'megaminx',
-					sq: 'square1',
-				}
-
-				console.log(codes[type.toLowerCase()]);
-
 				document.querySelector(".scrambleShow").innerHTML = '<twisty-player camera-distance = "7" background = "none" control-panel = "none" style = "height: 100%; width: 100%;" experimental-setup-alg="' + scramText + '"' + 'puzzle="' + codes[type.toLowerCase()] + '"></twisty-player>';
 			}
 		}
@@ -870,14 +882,7 @@ document.querySelector(".refreshScram").addEventListener("click", function () {
 });
 
 document.querySelector(".copyScram").addEventListener("click", async function () {
-	sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
-	document.getElementById("copyStore").value = JSON.stringify(localStorage.getItem("scrambleTemp")).replace(/[\\"]/g, '').replace(/n[0-9]x[0-9]/g, '');
-	document.getElementById("copyStore").select();
-	document.execCommand("copy");
-
-	document.querySelector(".copied").classList.add("show");
-	await sleep(2000);
-	document.querySelector(".copied").classList.remove("show");
+	copyItem(JSON.stringify(localStorage.getItem("scrambleTemp")).replace(/[\\"]/g, '').replace(/n[0-9]x[0-9]/g, ''));
 });
 
 function generateTimes() {
@@ -1087,13 +1092,18 @@ function showScram() {
 
 		var sharelink = link + '/time.html?time=' + timeData + '&scramble=' + scrambleData + '&type=' + typeData;
 
-		sleep = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
-		document.getElementById("copyStore").value = sharelink;
-		document.getElementById("copyStore").select();
-		document.execCommand("copy");
-
-		document.querySelector(".copied").classList.add("show");
-		await sleep(2000);
-		document.querySelector(".copied").classList.remove("show");
+		copyItem(sharelink);
 	});
 }
+
+function copyItem(text) {
+	document.getElementById("copyStore").value = text;
+	document.getElementById("copyStore").select();
+	document.execCommand("copy");
+
+	document.querySelector(".copied").classList.add("show");
+
+	var copyTimeout = window.setTimeout(function() {
+		document.querySelector(".copied").classList.remove("show");
+	}, 2000);
+};
