@@ -58,7 +58,7 @@ function credits() {
 	document.querySelector(".creditpopup").style.display = "block";
 }
 
-if (localStorage.getItem("speedtimer") == null && document.location.href != "index.html") {
+if (localStorage.getItem("speedtimer") == null && new URL(location.href).pathname != "/index.html" ) {
 	document.location.href = "index.html";
 }
 
