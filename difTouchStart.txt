@@ -1,0 +1,52 @@
+
+let vars = {
+	interval: null,
+	start: 0,
+	myFunctionCalled: false
+};
+
+timer.addEventListener("touchstart", (event) => {
+	if (running == 0) {
+		if (event.which == 1) {
+			if (isTouchGood == false) {
+				if (innerWidth < 1300) {
+					if (localStorage.getItem("inputType") == "timer") {
+						if (timer.nodeName == "BUTTON") {
+							vars.start = performance.now();
+							vars.myFunctionCalled = false;
+							vars.interval = setInterval(() => {
+								let dur = performance.now() - vars.start;
+								if (dur > 500) {
+									timer.style.color = "lightgreen";
+									if (!vars.myFunctionCalled) {
+										vars.myFunctionCalled = true;
+										start();
+									}
+								} else if (dur > 200) {
+									timer.style.color = "orange";
+								}
+							}, 10);
+						}
+					}
+				}
+			}
+		}
+	} else {
+		running = 0;
+		getTime();
+		localStorage.setItem("speedtimer", JSON.stringify(sessions));
+		generateScramble(sType);
+
+		isTouchGood = false;
+
+		timer.style.color = "white";
+	}
+});
+
+timer.addEventListener("touchend", (event) => {
+	if (vars.interval && event.which == 1) {
+		clearInterval(vars.interval);
+		timer.style.color = "white";
+		vars.interval = null;
+	}
+});

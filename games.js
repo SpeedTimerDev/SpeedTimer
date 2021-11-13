@@ -1,3 +1,30 @@
+var algDb = {
+	pll: {
+		algs: ["x R' U R' D2 R U' R' D2 R2 x'",
+			"x R2' D2 R U R' D2 R U' R x'",
+			"x' R U' R' D R U R' D' R U R' D R U' R' D' x",
+			"R' U R U' R2' F' U' F U R F R' F' R2",
+			"R2 U R' U R' U' R U' R2 D U' R' U R D'",
+			"R' d' F R2 u R' U R U' R u' R2'",
+			"R2 u' R U' R U R' u R2 f R' f'",
+			"R U R' U' D R2 U' R U' R' U R' U R2 D'",
+			"M2' U' M2' U2' M2' U' M2'",
+			"x R2' F R F' R U2' r' U r U2' x'",
+			"R U R' F' R U R' U' R' F R2 U' R'",
+			"R F U' R' U R U F' R2' F' R U R U' R' F",
+			"r' D' F r U' r' F' D r2 U r' U' r' F r F'",
+			"R U' R' U' R U R D R' U' R D' R' U2 R'",
+			"R' U2 R' D' R U' R' D R U R U' R' U' R",
+			"R U R' U' R' F R2 U' R' U' R U R' F'",
+			"M2' U M U2' M' U M2'",
+			"M2' U' M U2' M' U' M2'",
+			"R' U R' U' R D' R' D R' U D' R2 U' R2' D R2",
+			"F R' F R2 U' R' U' R U R' F' R U R' U' F'",
+			"M2' U2' M U' M2' U' M2' U' M",
+		],
+	},
+}
+
 var gameScreen = document.querySelector(".gameScreen");
 var gameInfo = document.querySelector(".gameInfo");
 var closeBtn = document.querySelector(".gameScreenClose");
@@ -151,7 +178,8 @@ function countinuePLLRecogGame() {
         var idx = randomNumber(0, perms.length);
         idx = Math.floor(idx);
 
-        document.getElementById("pllImg").src = "pll/" + imgs[idx];
+        // document.getElementById("pllImg").src = "pll/" + imgs[idx];
+		document.getElementById("pllView").alg = algDb.pll.algs[idx] + " x2";
 
         var options = ["pllO1", "pllO2", "pllO3", "pllO4"];
 

@@ -86,7 +86,15 @@
                     <div class="left">
                         <div class="pllTitle">What is the Name of This PLL?</div>
                         <div class="pllImage">
-                            <img id = "pllImg" src = "pll/aaperm.jpg">
+                            <img id = "pllImg" src = "pll/aaperm.jpg" style = "display: none;">
+							<twisty-player 
+								id = "pllView"
+								alg="R U R' (U' D) R2 U' R U' R' U R' U R2 (D' U)"
+								experimental-setup-anchor="end"
+								visualization="experimental-2D-LL"
+								background="none"
+								control-panel="none"
+							></twisty-player>
                         </div>
                     </div>
                     <div class="right">
@@ -136,7 +144,7 @@
         </div>
 
 
-	
+		<script src="https://cdn.cubing.net/js/cubing/twisty" type="module"></script>
 		<script src="games.js" async defer></script>
 </body>
 

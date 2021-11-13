@@ -1,6 +1,8 @@
 // Cubing.js Scrambles
 
-import { randomScrambleForEvent } from "https://cdn.cubing.net/js/cubing/scramble";
+import {
+	randomScrambleForEvent
+} from "https://cdn.cubing.net/js/cubing/scramble";
 
 // Visualiser
 
@@ -95,7 +97,7 @@ const perform = (movesVar) => {
 		return;
 	}
 
-	if (!movesVar.match(/[a-zA-Z]/) || movesVar.match(/([^ 0-9'RUFLDBrufldbMESxyzw])/g) || movesVar.match(/([0-9][0-9RUFLDBrufldbMESxyz](?![w'2]{0,3} ))/g)?.length > 1) {
+	if (!movesVar.match(/[a-zA-Z]/) || movesVar.match(/([^ 0-9'RUFLDBrufldbMESxyzw])/g) || movesVar.match(/([0-9][0-9RUFLDBrufldbMESxyz](?![w'2]{0,3} ))/g) ?.length > 1) {
 		return;
 	}
 
@@ -364,7 +366,7 @@ async function generateScramble(type) {
 		case "Py":
 			scramStuff = await randomScrambleForEvent("pyram");
 
-			if(JSON.parse(localStorage.getItem("d3vis")) == false) {
+			if (JSON.parse(localStorage.getItem("d3vis")) == false) {
 				scramText = scramStuff.toString();
 				scramArray = scramText.split(" ");
 
@@ -374,7 +376,7 @@ async function generateScramble(type) {
 		case "Sk":
 			scramStuff = await randomScrambleForEvent("skewb");
 
-			if(JSON.parse(localStorage.getItem("d3vis")) == false) {
+			if (JSON.parse(localStorage.getItem("d3vis")) == false) {
 				scramText = scramStuff.toString();
 				scramArray = scramText.split(" ");
 
@@ -385,7 +387,7 @@ async function generateScramble(type) {
 		case "Cl":
 			scramStuff = await randomScrambleForEvent("clock");
 
-			if(JSON.parse(localStorage.getItem("d3vis")) == false) {
+			if (JSON.parse(localStorage.getItem("d3vis")) == false) {
 				scramText = scramStuff.toString();
 				scramArray = scramText.split(" ");
 
@@ -396,7 +398,7 @@ async function generateScramble(type) {
 		case "Me":
 			scramStuff = await randomScrambleForEvent("minx");
 
-			if(JSON.parse(localStorage.getItem("d3vis")) == false) {
+			if (JSON.parse(localStorage.getItem("d3vis")) == false) {
 				scramText = scramStuff.toString();
 				scramArray = scramText.split(" ");
 
@@ -407,45 +409,45 @@ async function generateScramble(type) {
 		case "Sq":
 			scramStuff = await randomScrambleForEvent("sq1");
 
-			if(JSON.parse(localStorage.getItem("d3vis")) == false) {
+			if (JSON.parse(localStorage.getItem("d3vis")) == false) {
 				scramText = scramStuff.toString();
 				scramArray = scramText.split(" ");
 
 				document.querySelector(".scrambleShow").innerHTML = '<twisty-player camera-distance = "7" visualization="2D" background = "none" control-panel = "none" style = "height: 85%; width: 85%;" experimental-setup-alg="' + scramText + '"' + 'puzzle="' + codes[type.toLowerCase()] + '"></twisty-player>';
 			}
-			
+
 			break;
 		case "Ot":
-			if(JSON.parse(localStorage.getItem("d3vis")) == false) {
+			if (JSON.parse(localStorage.getItem("d3vis")) == false) {
 				document.querySelector(".scrambleShow").innerHTML = "No Visual";
 				document.querySelector(".scrambleShow").style.color = "white";
 				document.querySelector(".scrambleShow").style.fontSize = "200%";
 			}
-			localStorage.setItem("scrambleTemp", JSON.stringify("Other" + "\n" + document.querySelector(".scrambleDrop").value));
+			localStorage.setItem("scrambleTemp", "Other");
 			break;
 		default:
 			break;
 	}
 
-	if(type != "Ot") {
+	if (type != "Ot") {
 		scramText = scramStuff.toString();
 		scramArray = scramText.split(" ");
 
-		if(!isNaN(type.slice(0, 1))) {
+		if (!isNaN(type.slice(0, 1))) {
 			var mobileSize = 66.5 - parseInt(type);
 
-			for(let i = 0; i < scramArray.length; i++) {
+			for (let i = 0; i < scramArray.length; i++) {
 				let sample = scramArray[i];
 
 				var span = document.createElement("span");
 				span.innerHTML = `${sample} `;
 				span.classList.add(sample);
-				span.style.color = sample.includes("R") ? "rgb(255,77,77)" : sample.includes("F") ? "lightgreen" : sample.includes("U") ? "white" : sample.includes("L") ? "rgb(255,166,77)" : sample.includes("D") ? "rgb(255,255,128)" : "lightblue";			
+				span.style.color = sample.includes("R") ? "rgb(255,77,77)" : sample.includes("F") ? "lightgreen" : sample.includes("U") ? "white" : sample.includes("L") ? "rgb(255,166,77)" : sample.includes("D") ? "rgb(255,255,128)" : "lightblue";
 				if (innerWidth > 1000) {
 					if (parseInt(type) == 7 || parseInt(type) == 6) {
 						span.style.fontSize = (mobileSize - 57.5 + ((parseInt(type) - 6) * 0.75)).toString() + "vh";
 					} else {
-						if(parseInt(type) != 5) {
+						if (parseInt(type) != 5) {
 							span.style.fontSize = (mobileSize - 59.5).toString() + "vh";
 						} else {
 							span.style.fontSize = (mobileSize - 58).toString() + "vh";
@@ -454,12 +456,12 @@ async function generateScramble(type) {
 				} else {
 					span.style.fontSize = (mobileSize - 60).toString() + "vw";
 				}
-		
+
 				scramble.appendChild(span);
 			}
-		
+
 			if (innerWidth > 1000) {
-				if(JSON.parse(localStorage.d3vis) == false) {
+				if (JSON.parse(localStorage.d3vis) == false) {
 					createCube(parseInt(type), "scrambleShow");
 					perform(scramText);
 				} else {
@@ -469,12 +471,12 @@ async function generateScramble(type) {
 
 			localStorage.setItem("scrambleTemp", JSON.stringify(scramText + "\n" + document.querySelector(".scrambleDrop").value));
 		} else {
-			for(let i = 0; i < scramArray.length; i++) {
+			for (let i = 0; i < scramArray.length; i++) {
 				let sample = scramArray[i];
 
 				var mobileSize = 63.5;
 
-				if(type == "Me") {
+				if (type == "Me") {
 					mobileSize = 62.5;
 				}
 
@@ -485,13 +487,23 @@ async function generateScramble(type) {
 				} else {
 					span.style.fontSize = (mobileSize - 60).toString() + "vw";
 				}
-		
+
 				scramble.appendChild(span);
 			}
 
-			if(JSON.parse(localStorage.d3vis) == true) {
+			if (JSON.parse(localStorage.d3vis) == true) {
 				document.querySelector(".scrambleShow").innerHTML = '<twisty-player camera-distance = "7" background = "none" control-panel = "none" style = "height: 100%; width: 100%;" experimental-setup-alg="' + scramText + '"' + 'puzzle="' + codes[type.toLowerCase()] + '"></twisty-player>';
 			}
+
+			var codes2 = {
+				pyraminx: "pyr",
+				skewb: "skw",
+				clock: "clc",
+				megaminx: "meg",
+				square1: "sq1",
+			}
+
+			localStorage.setItem("scrambleTemp", JSON.stringify(scramText + "\n" + codes2[document.querySelector(".scrambleDrop").value.toLowerCase()]));
 		}
 	}
 }
@@ -590,11 +602,6 @@ document.onkeydown = function (e) {
 	}
 }
 
-timer.onmousedown = e => {
-	e.preventDefault();
-	timer.style.color = "lightgreen";
-}
-
 // timer.on
 
 if (innerWidth < 1300) {
@@ -603,24 +610,57 @@ if (innerWidth < 1300) {
 	document.querySelector(".digits").disabled = true;
 }
 
-document.querySelector(".digits").addEventListener("mouseup", function () {
-	if (innerWidth < 1300) {
-		timer.style.color = "lightgreen";
-		if (localStorage.getItem("inputType") == "timer") {
-			if (timer.nodeName == "BUTTON") {
-				if (running == 0) {
-					start();
-				} else if (running == 1) {
-					running = 0;
-					getTime();
-					localStorage.setItem("speedtimer", JSON.stringify(sessions));
-					generateScramble(sType);
-					timer.style.color = "white";
+let timerValue = 0;
+let interval;
+let isTouchGood = false;
+
+const mousePress = () => {
+	if (running == 0) {
+		if (innerWidth < 1300) {
+			if (localStorage.getItem("inputType") == "timer") {
+				if (timer.nodeName == "BUTTON") {
+					interval = setInterval(() => {
+						timerValue++;
+						
+						if(timerValue === 2) {
+							timer.style.color = "orange";
+						}
+					
+						if(timerValue === 5) {
+							timer.style.color = "lightgreen";
+							isTouchGood = true;
+						}
+					}, 100);
 				}
 			}
 		}
+	} else {
+		running = 0;
+		getTime();
+		localStorage.setItem("speedtimer", JSON.stringify(sessions));
+		generateScramble(sType);
+
+		isTouchGood = false;
+
+		timer.style.color = "white";
 	}
-});
+}
+
+const mouseRelease = () => {
+	if(isTouchGood) {
+		start();
+	}
+
+	clearInterval(interval);
+	timerValue = 0;
+
+	isTouchGood = false;
+	
+	timer.style.color = "white";
+}
+
+timer.addEventListener("touchstart", mousePress);
+timer.addEventListener("touchend", mouseRelease);
 
 var timerDoTime = 0;
 var timerCheck;
@@ -653,7 +693,7 @@ document.body.onkeyup = function (e) {
 				var newTime = Math.floor(performance.now()) - timerDoTime;
 				timerDoTime = 0;
 				if (newTime > 400) {
-					if(JSON.parse(localStorage.wcaInspec) == false) {
+					if (JSON.parse(localStorage.wcaInspec) == false) {
 						start();
 						clearInterval(timerCheck);
 					}
@@ -738,7 +778,11 @@ document.querySelector(".inputTime").addEventListener("change", function () {
 				var timeofSolve = manualFormat(input.value);
 
 				sessions[currentSessionIdx].times.unshift(timeofSolve);
-				sessions[currentSessionIdx].scrambles.unshift(JSON.parse(localStorage.getItem("scrambleTemp")));
+				if (localStorage.getItem("scrambleTemp") != "Other") {
+					sessions[currentSessionIdx].scrambles.unshift(JSON.parse(localStorage.getItem("scrambleTemp")));
+				} else {
+					sessions[currentSessionIdx].scrambles.unshift(localStorage.getItem("scrambleTemp"));
+				}
 				localStorage.setItem("speedtimer", JSON.stringify(sessions));
 
 				generateTimes();
@@ -870,7 +914,11 @@ function getTime() {
 	var timeofSolve = timeFinish.toString();
 
 	sessions[currentSessionIdx].times.unshift(timeofSolve);
-	sessions[currentSessionIdx].scrambles.unshift(JSON.parse(localStorage.getItem("scrambleTemp")));
+	if (localStorage.getItem("scrambleTemp") != "Other") {
+		sessions[currentSessionIdx].scrambles.unshift(JSON.parse(localStorage.getItem("scrambleTemp")));
+	} else {
+		sessions[currentSessionIdx].scrambles.unshift(localStorage.getItem("scrambleTemp"));
+	}
 	localStorage.setItem("speedtimer", JSON.stringify(sessions));
 
 	generateTimes();
@@ -1042,6 +1090,7 @@ function ao(number) {
 	return false;
 }
 
+
 function deleteSolve() {
 	if (confirm('Are You Sure You Want To Delete This Solve?')) {
 
@@ -1055,7 +1104,7 @@ function deleteSolve() {
 	}
 }
 
-document.querySelector(".solveInfoClose").addEventListener("click", function () { 
+document.querySelector(".solveInfoClose").addEventListener("click", function () {
 	document.querySelector("#overlay2").style.display = "none";
 	document.querySelector(".solveInfo").style.display = "none";
 });
@@ -1073,17 +1122,52 @@ function showScram() {
 	document.getElementById("overlay2").style.display = "block";
 	document.querySelector(".solveInfo").style.display = "block";
 
-	document.querySelector(".solveInfoTime").innerHTML = format(sessions[currentSessionIdx].times[sessions[currentSessionIdx].times.length - idx - 1]);
-	document.querySelector(".solveInfoType").innerHTML = scrambleText.slice(scrambleText.length - 3, scrambleText.length);
-	document.querySelector(".solveInfoScramble").innerHTML = (scrambleText).slice(0, scrambleText.length - 3);
-	createCube(parseInt(scrambleText.slice(scrambleText.length - 1, scrambleText.length)), "solveInfoPreview");
-	perform(scrambleText.slice(0, scrambleText.length - 4));
+	if (!isNaN(parseInt(scrambleText.slice(scrambleText.length - 1, scrambleText.length)))) {
+		document.querySelector(".solveInfoTime").innerHTML = format(sessions[currentSessionIdx].times[sessions[currentSessionIdx].times.length - idx - 1]);
+		document.querySelector(".solveInfoType").innerHTML = scrambleText.slice(scrambleText.length - 3, scrambleText.length);
+		document.querySelector(".solveInfoScramble").innerHTML = (scrambleText).slice(0, scrambleText.length - 3);
+
+		createCube(parseInt(scrambleText.slice(scrambleText.length - 1, scrambleText.length)), "solveInfoPreview");
+		perform(scrambleText.slice(0, scrambleText.length - 4));
+	} else if (scrambleText.slice(scrambleText.length - 5, scrambleText.length) == "Other") {
+		document.querySelector(".solveInfoPreview").innerHTML = "No Visual";
+		document.querySelector(".solveInfoPreview").style.color = "white";
+		document.querySelector(".solveInfoPreview").style.fontSize = "200%";
+	} else {
+		var codes = {
+			pyr: "Pyraminx",
+			skw: "Skewb",
+			clc: "Clock",
+			meg: "Megaminx",
+			sq1: "Square-1",
+			her: "Other",
+		}
+
+		var codes2 = {
+			pyr: "pyraminx",
+			skw: "skewb",
+			clc: "clock",
+			meg: "megaminx",
+			sq1: "square1",
+		}
+
+		var sideEventName = codes[scrambleText.slice(scrambleText.length - 3, scrambleText.length)];
+
+		document.querySelector(".solveInfoTime").innerHTML = format(sessions[currentSessionIdx].times[sessions[currentSessionIdx].times.length - idx - 1]);
+		document.querySelector(".solveInfoType").innerHTML = sideEventName;
+		document.querySelector(".solveInfoScramble").innerHTML = (scrambleText).slice(0, scrambleText.length - 3);
+
+		document.querySelector(".solveInfoPreview").innerHTML = '<twisty-player camera-distance = "7" visualization="2D" background = "none" control-panel = "none" style = "height: 82.5%; width: 82.5%;" experimental-setup-alg="' + (scrambleText).slice(0, scrambleText.length - 3) + '"' + 'puzzle="' + codes2[scrambleText.slice(scrambleText.length - 3, scrambleText.length)] + '"></twisty-player>';
+	}
 
 	document.querySelector(".solveInfoShare").addEventListener("click", async function () {
 		var timeData = format(sessions[currentSessionIdx].times[sessions[currentSessionIdx].times.length - idx - 1]);
 		var scrambleData = (scrambleText).slice(0, scrambleText.length - 3);
-		var typeData = scrambleText.slice(scrambleText.length - 3, scrambleText.length);
-
+		if (scrambleText.includes("Oth")) {
+			var typeData = scrambleText;
+		} else {
+			var typeData = scrambleText.slice(scrambleText.length - 3, scrambleText.length);
+		}
 		timeData = window.btoa(timeData);
 		scrambleData = window.btoa(scrambleData);
 		typeData = window.btoa(typeData);
@@ -1103,7 +1187,7 @@ function copyItem(text) {
 
 	document.querySelector(".copied").classList.add("show");
 
-	var copyTimeout = window.setTimeout(function() {
+	var copyTimeout = window.setTimeout(function () {
 		document.querySelector(".copied").classList.remove("show");
 	}, 2000);
 };

@@ -76,8 +76,20 @@ exportBtn.addEventListener("click", function () {
 			text.push((ses[i].times.length - x).toString());
 			text.push(format(ses[i].times[x]));
 			text.push((ses[i].scrambles[x]).slice(0, ses[i].scrambles[x].length - 3));
-			text.push(ses[i].type);
+			if(!isNaN(parseInt((ses[i].scrambles[x]).slice(ses[i].scrambles[x].length - 1, ses[i].scrambles[x].length)))) {
+				text.push((ses[i].scrambles[x]).slice(ses[i].scrambles[x].length - 3, ses[i].scrambles[x].length));
+			} else {
+				var codes = {
+					pyr: "Pyraminx",
+					skw: "Skewb",
+					clc: "Clock",
+					meg: "Megaminx",
+					sq1: "Square-1",
+				};
 
+				text.push(codes[(ses[i].scrambles[x]).slice(ses[i].scrambles[x].length - 3, ses[i].scrambles[x].length)]);
+			}
+			
 			texts.push(text);
 		}
 

@@ -273,6 +273,45 @@ window.onload = function() {
     let typeText = document.getElementById('type');
     typeText.innerText = window.atob(type);
 
-    createCube(parseInt(window.atob(type).slice(0, 1)));
-	perform(window.atob(scramble).slice(0, window.atob(scramble).length - 4));
+	if(!isNaN(parseInt(window.atob(scramble).slice(window.atob(scramble).length - 1, window.atob(scramble).length)))) {
+		document.querySelector(".solveInfoTime").innerHTML = format(sessions[currentSessionIdx].times[sessions[currentSessionIdx].times.length - idx - 1]);
+		document.querySelector(".solveInfoType").innerHTML = scrambleText.slice(scrambleText.length - 3, scrambleText.length);
+		document.querySelector(".solveInfoScramble").innerHTML = (scrambleText).slice(0, scrambleText.length - 3);
+
+		createCube(parseInt(window.atob(type).slice(0, 1)));
+		perform(window.atob(scramble).slice(0, window.atob(scramble).length - 4));
+	} else if (window.atob(scramble).includes("Ot")) {
+		document.querySelector(".solveInfoTime").innerHTML = window.atob(time);
+		document.querySelector(".solveInfoType").innerHTML = "Other";
+		document.querySelector(".solveInfoScramble").innerHTML = "";
+
+		document.querySelector(".solveInfoPreview").innerHTML = "No Visual";
+		document.querySelector(".solveInfoPreview").style.color = "white";
+		document.querySelector(".solveInfoPreview").style.fontSize = "200%";
+	} else {
+		var codes = {
+			pyr: "Pyraminx",
+			skw: "Skewb",
+			clc: "Clock",
+			meg: "Megaminx",
+			sq1: "Square-1",
+			her: "Other",
+		}
+
+		var codes2 = {
+			pyr: "pyraminx",
+			skw: "skewb",
+			clc: "clock",
+			meg: "megaminx",
+			sq1: "square1",
+		}
+
+		var sideEventName = codes[window.atob(type)];
+
+		document.querySelector(".solveInfoTime").innerHTML = window.atob(time);
+		document.querySelector(".solveInfoType").innerHTML = sideEventName;
+		document.querySelector(".solveInfoScramble").innerHTML = window.atob(scramble);
+
+		document.querySelector(".solveInfoPreview").innerHTML = '<twisty-player camera-distance = "7" visualization="2D" background = "none" control-panel = "none" style = "height: 82.5%; width: 82.5%;" experimental-setup-alg="' + window.atob(scramble) + '"' + 'puzzle="' + codes2[window.atob(type)] + '"></twisty-player>';
+	}
 }
