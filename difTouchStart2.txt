@@ -1,0 +1,55 @@
+// var isTouchGood = false;
+
+// var timerTimeOut;
+
+// const triggerButton = () => {
+// 	console.log(isTouchGood);
+// 	if (running == 0) {
+// 		if (isTouchGood == false) {
+// 			if (innerWidth < 1300) {
+// 				if (localStorage.getItem("inputType") == "timer") {
+// 					if (timer.nodeName == "BUTTON") {
+// 						timerTimeOut = window.setTimeout(function() {
+// 							timer.style.color = "orange";	
+// 						}, 200);
+
+// 						timerTimeOut = window.setTimeout(function (){
+// 							timer.style.color = "lightgreen";
+
+// 							if(isTouchGood == false) {
+// 								isTouchGood = true;
+// 							}		
+
+// 							console.log("STARTED" + isTouchGood);
+// 						}, 500);
+// 					}
+// 				}
+// 			}
+// 		} else {
+// 			timer.style.color = "white";
+// 		}
+// 	} else {
+// 		running = 0;
+// 		getTime();
+// 		localStorage.setItem("speedtimer", JSON.stringify(sessions));
+// 		generateScramble(sType);
+
+// 		isTouchGood = false;
+
+// 		timer.style.color = "white";
+// 	}
+// }
+
+// timer.addEventListener("touchstart", triggerButton);
+
+// timer.addEventListener("touchend", function () {
+// 	window.clearTimeout(timerTimeOut);
+
+// 	if (isTouchGood) {
+// 		start();
+// 	}
+
+// 	isTouchGood = false;
+
+// 	timer.style.color = "white";
+// });
