@@ -930,7 +930,9 @@ document.querySelector(".refreshScram").addEventListener("click", function () {
 });
 
 document.querySelector(".copyScram").addEventListener("click", async function () {
-	copyItem(JSON.parse(localStorage.getItem("scrambleTemp")).split("\n")[0]);
+	const storedString = JSON.parse(localStorage.getItem("scrambleTemp"));
+	const scrambleString = storedString.slice(0, storedString.lastIndexOf("\n")); // Remove the last line.
+	copyItem(scrambleString);
 });
 
 function generateTimes() {
