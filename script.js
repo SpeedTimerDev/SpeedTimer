@@ -930,7 +930,7 @@ document.querySelector(".refreshScram").addEventListener("click", function () {
 });
 
 document.querySelector(".copyScram").addEventListener("click", async function () {
-	copyItem(JSON.stringify(localStorage.getItem("scrambleTemp")).replace(/[\\"]/g, '').replace(/n[0-9]x[0-9]/g, ''));
+	copyItem(JSON.parse(localStorage.getItem("scrambleTemp")).split("\n")[0]);
 });
 
 function generateTimes() {
