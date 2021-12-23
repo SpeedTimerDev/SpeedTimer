@@ -503,7 +503,7 @@ var cubesThree = [
         Img: "cubeslist/ganmaglev.jpeg",
         Price: "$77.99",
         Rating: "9/10",
-        Link: "https://speedcubing.org/collections/gan/products/gan-12-maglev-frosted",
+        Link: "https://speedcubing.org/collections/gan/products/gan-12-maglev-frosted/?sca_ref=1249093.DLjOmDm1Z6",
     },
     {
         Name: "Gan 12 M Leap",
