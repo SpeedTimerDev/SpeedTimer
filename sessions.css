@@ -37,6 +37,8 @@ body {
     background-color: var(--ok);
 
     border-radius: 8px;
+
+    cursor: pointer;
 }
 
 .sesBarBtn.highlight {

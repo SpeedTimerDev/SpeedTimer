@@ -39,7 +39,7 @@ function createDatabase() {
                 "M' U M2 U M2 U M' U2 M2",
             ],
             names: ["Jb", "Y", "Ua", "Ub", "H", "Z"],
-            imgs: ["sideperm.jpg", "cornerperm.jpg", "hperm.jpg", "uaperm.jpg", "ubperm.jpg", "zperm.jpg"],
+            imgs: ["sideperm.jpg", "cornerperm.jpg", "uaperm.jpg", "ubperm.jpg", "hperm.jpg", "zperm.jpg"],
             rots: ["zerod", "zerod", "zerod", "zerod", "zerod", "zerod"],
         },
         oll: {
@@ -257,30 +257,50 @@ function createDatabase() {
             ],
             rots: ["zerod", "zerod", "zerod", "zerod", "ninetyd", "zerod", "oneeightyd", "zerod", "twoseventyd", "zerod"],
         },
+        coll: {
+            algs: ["R U R' U R U' R' U R U2 R'", "F' U' L' U L U' f R' U' R U R S'", "R U R' U R U L' U R' U' L", "F R U R' U' R U R' U' R U R' U' F'",
+            "f R' U R' U' R D' R U l' S' R'", "R' U2 R' D' R U2 R' D R2", "R U2 R D R' U2 R D' R2", "F R' F' r U R U' r'", "F' r U R' U' r' F R", "R' U2 L U' R U R' L' U2 R",
+            "R' U' R U' R' U2 R", "R' F R F' U' F R' F' R F' L' U' L F ", "F U R' U' R F' U' R' U2 R", "R U2 R' U2 L' U R U' L R'", "L' U R U' L U R'", "R U2 r' F R' F' r U' R U' R'",
+            "R U R' U R U2 R'", "L' U2 L U2 R U' L' U L R'", "f' L' U L U' f U R U2 R'", "R' U' R S U' R' U R f R' f' U F R f'", "R U' L' U R' U' L", "R U R' U L' U R U' L U2 R'",
+            "R' U' R U' R' U2 R2 U R' U R U2 R'", "R U' R' U R U' f' U' F U' F' U' f R2", "R2 D R' U2 R D' R' U2 R'", "F' U R' D R U2 R' D' R U F", "R2 D' R U2 R' D R U2 R", "F R S U S' R' S U' f'",
+            "R U' R2 F R F' R U' f R' f' U' R'", "R' U R U2' r' R' F R F' r", "R' F' r U R U' r' F", "R U' F' U B2 U' F U B2 R'", "r U R' U' r' F R F'", "R' U R2 D r' U2 r D' R2 U' R",
+            "F U R U' R' S U R U' R' f'", "R' F2 R U2 R U2 R' F2 U' R U' R'", "F' r U r' U' r' F r F R U R' U' F'", "R U R' U' R' F R2 U R' U' R U R' U' F'", "R U R' U F' R U2' R' U2 R' F R", "S' R U R' S U R U' B U' B' R'",
+        ],
+            names: ["H1", "H2", "H3", "H4", 
+            "L1", "L2", "L3", "L4", "L5", "L6",
+            "AS1", "AS2", "AS3", "AS4", "AS5", "AS6",
+            "S1", "S2", "S3", "S4", "S5", "S6",
+            "U1", "U2", "U3", "U4", "U5", "U6",
+            "T1", "T2", "T3", "T4", "T5", "T6",
+            "Pi1", "Pi2", "Pi3", "Pi4", "Pi5", "Pi6",
+            ],
+            rots: ["zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod", "zerod"],
+        }
     };
 }
 
-function algData() {
-    if (localStorage.getItem("algVersion") == null) {
-        var version = "0.0.3";
-        localStorage.setItem("algVersion", version);
-    } else {
-        var version = localStorage.getItem("algVersion");
-    }
+var version;
 
+function algData() {
     if (localStorage.getItem("algDatabase") == null) {
         createDatabase();
+
+
+        version = "0.0.5";
+        localStorage.setItem("algVersion", version);
 
         localStorage.setItem("algDatabase", JSON.stringify(database));
     } else {
         database = JSON.parse(localStorage.algDatabase);
 
-        if (version != "0.0.3") {
+        if (version != "0.0.5") {
             createDatabase();
-            version = "0.0.3";
+            version = "0.0.5";
             localStorage.setItem("algVersion", version);
         }
     }
+
+    createDatabase();
 
     return database;
 }

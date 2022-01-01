@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Algorithm Viewer</title>
+        <meta name='description' content=''>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel='stylesheet' href='algviewer.css'>
+        <link rel='stylesheet' href='toolsvis.css'>
+        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.15.1/css/all.css' integrity='sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp' crossorigin='anonymous'>
+    </head>
+    <body>
+        <div class="copied">
+			<p>Copied!</p>
+		</div>
+        
+        <div class="inputs">
+            <input type="text" class="scramble" placeholder="Enter Alg Here...">
+            <select class="view">
+                <option value="2D" class="viewOption">2D</option>
+                <option value="3D" class="viewOption">3D</option>
+            </select>
+            <select class="types">
+                <option value="2x2" class="typeOption">2x2</option>
+                <option value="3x3" class="typeOption">3x3</option>
+                <option value="4x4" class="typeOption">4x4</option>
+                <option value="5x5" class="typeOption">5x5</option>
+                <option value="6x6" class="typeOption">6x6</option>
+                <option value="7x7" class="typeOption">7x7</option>
+                <option value="Pyraminx" class="typeOption">Pyraminx</option>
+                <option value="Megaminx" class="typeOption">Megaminx</option>
+                <option value="Skewb" class="typeOption">Skewb</option>
+                <option value="Square-1" class="typeOption">Square-1</option>
+                <option value="Clock" class="typeOption">Clock</option>
+            </select>
+        </div>
+
+        <div class="viewBox"></div>
+
+        <button id="generateLink"><span>Share Alg <span id = "stroke"><i class="fas fa-link"></i></span></span></button>
+    
+        <script src="https://cdn.cubing.net/js/cubing/twisty" type="module"></script>
+        <script src='algviewer.js' type="module" async defer></script>
+    </body>
+</html>

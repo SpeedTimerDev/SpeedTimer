@@ -10,13 +10,15 @@ if (document.URL.includes("algs-3-oll")) {
     loadAlgsLOLL(database.loll.names, database.loll.algs, database.loll.imgs, database.loll.rots);
 } else if (document.URL.includes("algs-3-2lpll")) {
     loadAlgsLPLL(database.lpll.names, database.lpll.algs, database.lpll.imgs, database.lpll.rots);
+} else if (document.URL.includes("algs-3-coll")) {
+    loadAlgsCOLL(database.coll.names, database.coll.algs, database.coll.rots);
 }
 
 function createLinks() {
     document.querySelector(".library").innerHTML = "";
 
-    var links = ["algs-3-oll", "algs-3-pll", "algs-3-2loll", "algs-3-2lpll"];
-    var names = ["OLL", "PLL", "2LOLL", "2LPLL"]
+    var links = ["algs-3-oll", "algs-3-pll", "algs-3-coll", "algs-3-2loll", "algs-3-2lpll"];
+    var names = ["OLL", "PLL", "COLL", "2LOLL", "2LPLL"]
 
     for (i = 0; i < links.length; i++) {
         var libA = document.createElement("a");
@@ -31,7 +33,102 @@ function createLinks() {
 createLinks();
 
 var algImgCol = localStorage.algImgCol;
-document.body.style.setProperty("--algImgCol", algImgCol)
+document.body.style.setProperty("--algImgCol", algImgCol);
+
+function sumUpToIndex(array, index) {
+    var result = 0;
+
+    for(i = 0; i < index; i++) {
+        result += array[i];
+    }
+
+    return result;
+}
+
+function loadAlgsCOLL(names, algors, rotations) {
+    var algs = document.querySelector(".algs");
+    algs.innerHTML = "";
+    
+    piecesCOLL = [0, 4, 6, 6, 6, 6, 6, 6];
+    sumsCOLL = [0, 4, 10, 16, 22, 28, 34, 40];
+    names2 = ["H", "L", "AS", "S", "U", "T", "Pi"];
+
+    for(x = 0; x < piecesCOLL.length - 1; x++) {
+        console.log("X:" + x);
+
+        var algSec = document.createElement("div");
+        algSec.classList.add("algSec");
+        algSec.innerHTML = names2[x];
+        algs.appendChild(algSec);
+
+        for (i = 0; i < piecesCOLL[x + 1]; i++) {
+            console.log(sumsCOLL[x] + i);
+
+            var algDiv = document.createElement("div");
+            algDiv.classList.add("alg");
+    
+            var leftAlg = document.createElement("div");
+            leftAlg.classList.add("leftAlg");
+    
+            var algImg = document.createElement("div");
+            algImg.classList.add("img");
+            algImg.classList.add("img" + (sumsCOLL[x] + i).toString());
+            algImg.innerHTML = '<twisty-player alg="' + algors[sumsCOLL[x] + i] + '" experimental-stickering="COLL" experimental-setup-anchor="end" visualization="experimental-2D-LL" background="none" control-panel="none" style = "width: 100%; height: 100%;"></twisty-player>';
+            algImg.id = rotations[sumsCOLL[x] + i];
+    
+            leftAlg.appendChild(algImg);
+    
+            var btnDiv = document.createElement("div");
+            btnDiv.classList.add("btnDiv");
+    
+            var rot = document.createElement("button");
+            rot.classList.add("rot");
+            rot.innerHTML = '<i class="fas fa-redo-alt"></i>';
+            rot.addEventListener("click", rotateImageAlg);
+            rot.id = sumsCOLL[x] + i;
+    
+            btnDiv.appendChild(rot);
+    
+            var edit = document.createElement("button");
+            edit.classList.add("edit");
+            edit.innerHTML = '<i class="fas fa-edit"></i>';
+            edit.addEventListener("click", changeAlgInput);
+            edit.id = sumsCOLL[x] + i;
+    
+            btnDiv.appendChild(edit);
+    
+            leftAlg.appendChild(btnDiv);
+    
+            algDiv.appendChild(leftAlg);
+    
+            var rightAlg = document.createElement("div");
+            rightAlg.classList.add("rightAlg");
+    
+            var titleAlg = document.createElement("div");
+            titleAlg.classList.add("titleAlg");
+            titleAlg.innerHTML = names[sumsCOLL[x] + i];
+    
+            rightAlg.appendChild(titleAlg);
+            var algText = document.createElement("div");
+            algText.classList.add("algText");
+            algText.classList.add("pllALG");
+            algText.innerHTML = algors[sumsCOLL[x] + i];
+            algText.id = "algNo" + (i).toString();
+            rightAlg.appendChild(algText);
+    
+            var changeAlg = document.createElement("textarea");
+            changeAlg.classList.add("changeAlg");
+            changeAlg.setAttribute('type', 'text');
+            changeAlg.style.display = "none";
+            changeAlg.id = "changeNo" + i.toString();
+            rightAlg.appendChild(changeAlg);
+    
+            algDiv.appendChild(rightAlg);
+    
+            algs.appendChild(algDiv);
+        }
+    }
+}
 
 function loadAlgsPLL(names, algors, images, rotations) {
     var algs = document.querySelector(".algs");
@@ -44,10 +141,11 @@ function loadAlgsPLL(names, algors, images, rotations) {
         var leftAlg = document.createElement("div");
         leftAlg.classList.add("leftAlg");
 
-        var algImg = document.createElement("img");
+        var algImg = document.createElement("div");
         algImg.classList.add("img");
         algImg.classList.add("img" + i.toString());
-        algImg.src = "pll/" + images[i];
+        // algImg.src = "pll/" + images[i];
+        algImg.innerHTML = '<twisty-player alg="' + algors[i] + '" experimental-setup-anchor="end" experimental-stickering="PLL" visualization="experimental-2D-LL" background="none" control-panel="none" style = "width: 100%; height: 100%;"></twisty-player>';
         algImg.id = rotations[i];
 
         leftAlg.appendChild(algImg);
@@ -328,7 +426,7 @@ function loadAlgsOLL(names, algors, images, rotations) {
     var algs = document.querySelector(".algs");
     algs.innerHTML = "";
 
-    var pieces = ["filler", 7, 8, 8, 2, 2, 2, 4, 6, 4, 4, 2, 2, 2, 4]
+    var pieces = ["filler", 7, 8, 8, 2, 2, 2, 4, 6, 4, 4, 2, 2, 2, 4];
 
     var algSec = document.createElement("div");
     algSec.classList.add("algSec");
@@ -1415,6 +1513,8 @@ function changeAlgInput() {
             alg.innerHTML = prevAlg;
         } else {
             alg.innerHTML = newAlg;
+
+            newVis = '<twisty-player alg="' + algors[pieces[x] + i] + ' x2" experimental-setup-anchor="end" visualization="experimental-2D-LL" background="none" control-panel="none" style = "width: 100%; height: 100%;"></twisty-player>'
         }
 
         inputObj.style.display = "none";
@@ -1422,9 +1522,16 @@ function changeAlgInput() {
 
     if (document.URL.includes("algs-3-pll")) {
         database.pll.algs[parseInt(this.id)] = alg.innerHTML;
-    } else {
+    } else if (document.URL.includes("algs-3-oll")){
         database.oll.algs[parseInt(this.id)] = alg.innerHTML;
+    } else if (document.URL.includes("algs-3-2loll")){
+        database.loll.algs[parseInt(this.id)] = alg.innerHTML;
+    } else if (document.URL.includes("algs-3-2lpll")){
+        database.lpll.algs[parseInt(this.id)] = alg.innerHTML;
+    } else if (document.URL.includes("algs-3-coll")){
+        database.coll.algs[parseInt(this.id)] = alg.innerHTML;
     }
+
     localStorage.setItem("algDatabase", JSON.stringify(database));
 }
 

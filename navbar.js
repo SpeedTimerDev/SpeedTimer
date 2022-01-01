@@ -25,7 +25,7 @@ div.style.flexDirection = "column";
 div.style.alignItems = "center";
 div.style.justifyContent = "space-evenly";
 
-function createSection(href, id, iconNo, name) {
+function createSection(href, id, iconNo, linkName) {
     var division = document.createElement("div");
 
     var anchor = document.createElement("a");
@@ -37,7 +37,7 @@ function createSection(href, id, iconNo, name) {
         anchor.classList.add("active");
     }
 
-    anchor.innerHTML = "<i class='fas fa-" + iconNo + "'></i>" + "&nbsp;" + "<span>" + name + "</span>";
+    anchor.innerHTML = "<i class='fas fa-" + iconNo + "'></i>" + "&nbsp;" + "<span>" + linkName + "</span>";
 
     division.appendChild(anchor);
 
@@ -48,6 +48,7 @@ createSection("index.html", "timer", "stopwatch", "Timer");
 createSection("sessions.html", "sessions", "list", "Sessions");
 createSection("algs-3-oll.html", "algorithms", "th", "Algorithms");
 createSection("cubeslist.html", "cubeslist", "cube", "Cubeslist");
+createSection("tools.html", "tools", "tools", "Tools");
 if(innerWidth > 900) {
     createSection("games.html", "games", "gamepad", "Games");
 }

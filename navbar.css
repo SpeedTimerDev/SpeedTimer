@@ -53,8 +53,8 @@
 
 .link {
     text-decoration: none;
-    color: rgb(164, 167, 185);
-    font-size: 18px;
+    color: rgb(204, 206, 221);
+    font-size: 16px;
 }
 
 .link.collapsed span {
@@ -62,7 +62,7 @@
 }
 
 .link.collapsed i {
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .lastPart {
