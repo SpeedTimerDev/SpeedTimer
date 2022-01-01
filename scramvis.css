@@ -1,0 +1,169 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(34, 34, 34);
+
+    font-family: sans-serif;
+}
+
+.inputs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 1vw;
+    
+    width: 98vw;
+}
+
+.types {
+    border: none;
+
+    width: 10vw;
+
+    border-radius: 10px;
+
+    height: 100%;
+
+    outline: none;
+
+    font-size: 100%;
+
+    background-color: rgb(50, 50, 50);
+
+    color: white;
+
+    padding: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.view {
+    border: none;
+
+    width: 6vw;
+
+    border-radius: 10px;
+
+    height: 100%;
+
+    outline: none;
+
+    font-size: 100%;
+
+    background-color: rgb(50, 50, 50);
+
+    color: white;
+
+    padding: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scramble {
+    border: none;
+
+    outline: none;
+
+    border-radius: 10px;
+
+    padding: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(50, 50, 50);
+
+    color: white;
+
+    font-size: 100%;
+
+    width: 80vw;
+}
+
+.viewBox {
+    margin-top: 8vh;
+
+    margin-left: 10vw;
+    margin-right: 10vw;
+
+    width: 80vw;
+    height: 70vh;
+
+    border: 5px solid rgb(92, 92, 92);
+
+    border-radius: 25px;
+
+    display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#generateLink {
+    width: 12vw;
+    height: 8vh;
+
+    margin-top: 3vh;
+
+    margin-left: 44vw;
+
+    font-size: 16px;
+    border-radius: 10px;
+
+    padding: 6px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+
+    color: whitesmoke;
+
+    background-color: #0F3460;
+
+    border: none;
+
+    outline: none;
+}
+
+#stroke {
+    -webkit-text-stroke: 0.5px #0F3460;
+}
+
+.copied {
+    padding: 20px;
+    position: absolute;
+    top: 50px;
+    background: rgb(92, 92, 92);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 48vw;
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0s ease;
+    color: whitesmoke;
+
+    z-index: 1000000;
+}
+
+.copied.show {
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}
+
+.copied.show p {
+    opacity: 1;
+    transition: opacity 0.25s ease;
+}

@@ -1,8 +1,6 @@
 // Cubing.js Scrambles
 
-import {
-	randomScrambleForEvent
-} from "https://cdn.cubing.net/js/cubing/scramble";
+import { randomScrambleForEvent } from "https://cdn.cubing.net/js/cubing/scramble";
 
 // Visualiser
 
@@ -435,6 +433,8 @@ async function generateScramble(type) {
 
 		if (!isNaN(type.slice(0, 1))) {
 			var mobileSize = 66.5 - parseInt(type);
+
+			scramble.innerHTML = "";
 
 			for (let i = 0; i < scramArray.length; i++) {
 				let sample = scramArray[i];
@@ -1180,11 +1180,9 @@ function showScram() {
 	});
 }
 
-function copyItem(text) {
-	document.getElementById("copyStore").value = text;
-	document.getElementById("copyStore").select();
-	document.execCommand("copy");
-
+async function copyItem(text) {
+	const success = await navigator.clipboard.writeText(text)
+	
 	document.querySelector(".copied").classList.add("show");
 
 	var copyTimeout = window.setTimeout(function () {

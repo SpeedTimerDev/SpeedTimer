@@ -1,0 +1,64 @@
+body {
+	--height: 15vh;
+	--n: 2;
+	--border: 2px;
+}
+
+.up,
+.down {
+	/* height: calc(var(--height) + (var(--n) * 2 * var(--border)));
+	width: calc(var(--height) + (var(--n) * 2 * var(--border))); */
+	width: var(--height);
+	height: var(--height);
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+	/* left: calc(-5px - ((var(--height) + (var(--n) * 2 * var(--border))) / 2)); */
+	left: calc(var(--height) / -2 - 5px);
+	margin: 5px;
+}
+
+.middle {
+	/* height: calc(var(--height) + (var(--n) * 2 * var(--border))); */
+	display: flex;
+	/* width: calc(var(--height) + (var(--n) * 2 * var(--border))); */
+	/* justify-content: center; */
+}
+
+.middle div {
+	/* width: calc(var(--height) + (var(--n) * 2 * var(--border))); */
+	width: calc(var(--height));
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.left,
+.front,
+.right,
+.back {
+	margin: 5px;
+}
+
+.piece,
+.middle div div {
+	background: white;
+	height: calc(var(--height) / var(--n));
+	width: calc(var(--height) / var(--n));
+	border: solid var(--border) black;
+	box-sizing: border-box;
+}
+
+.container {
+	border-radius: 20px;
+	background: #222;
+	width: 500px;
+	height: 250px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.piece {
+	border-radius: 5px;
+}
