@@ -930,7 +930,9 @@ document.querySelector(".refreshScram").addEventListener("click", function () {
 });
 
 document.querySelector(".copyScram").addEventListener("click", async function () {
-	copyItem(JSON.stringify(localStorage.getItem("scrambleTemp")).replace(/[\\"]/g, '').replace(/n[0-9]x[0-9]/g, ''));
+	const storedString = JSON.parse(localStorage.getItem("scrambleTemp"));
+	const scrambleString = storedString.slice(0, storedString.lastIndexOf("\n")); // Remove the last line.
+	copyItem(scrambleString);
 });
 
 function generateTimes() {
@@ -1181,11 +1183,14 @@ function showScram() {
 }
 
 async function copyItem(text) {
-	const success = await navigator.clipboard.writeText(text)
-	
-	document.querySelector(".copied").classList.add("show");
+    const success = await navigator.clipboard.writeText(text)
+    if (!success) {
+      return;
+    }
 
-	var copyTimeout = window.setTimeout(function () {
-		document.querySelector(".copied").classList.remove("show");
-	}, 2000);
+    document.querySelector(".copied").classList.add("show");
+
+    var copyTimeout = window.setTimeout(function () {
+      document.querySelector(".copied").classList.remove("show");
+    }, 2000);
 };
