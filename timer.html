@@ -7,12 +7,27 @@
         <meta name='description' content=''>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel='stylesheet' href='timer.css'>
+        <script src="stackmat.js" async></script>
         <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.15.1/css/all.css' integrity='sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp' crossorigin='anonymous'>
     </head>
     <body>
         <div class="copied">
 			<p>Copied!</p>
 		</div>
+
+        <div class="overlay" id="overlay3" style="display: none;"></div>
+        <div class="stackmatCheck" style="display: none;">
+            <div class="stackmatMsg">Would You Like to Connect Your Stackmat?</div>
+            <div class="stackmatCap">
+                Audio is Required for the Stackmat to Transmit Data.
+                <br>
+                Clicking 'No' will Disable the Stackmat Setting.
+            </div>
+            <div class="stackmatBtns">
+                <button class="btnYesStack">Yes</button>
+                <button class="btnNoStack">No</button>
+            </div>
+        </div>
 
         <button disabled="disabled" class="digits">00:00.00</button>
 
