@@ -11,6 +11,7 @@ if (localStorage.buttonbg != null) document.body.style.setProperty("--buttonbg",
 if (localStorage.algImgCol != null) document.body.style.setProperty("--algImgCol", localStorage.algImgCol);
 if (localStorage.wcaInspec == null) localStorage.setItem("wcaInspec", JSON.stringify(false));
 if (localStorage.d3vis == null) localStorage.setItem("d3vis", JSON.stringify(false));
+if (localStorage.stackmat == null) localStorage.setItem("stackmat", JSON.stringify(false));
 
 if (localStorage.getItem("borderView") != null) {
 	var ticked = JSON.parse(localStorage.getItem("borderView"));
@@ -40,4 +41,30 @@ if (localStorage.getItem("iconTop") != null) {
 } else {
 	localStorage.setItem("iconTop", true);
 	document.querySelector(".iconWrapper").id = "iconRow";
+}
+
+if(JSON.parse(localStorage.stackmat)) {
+	document.getElementById("overlay3").style.display = "block";
+	document.querySelector(".stackmatCheck").style.display = "block";
+
+	document.querySelector(".btnYesStack").onclick = function() {
+		stackmat.init();
+		
+		document.title = "SpeedTimer - Using Stackmat";
+
+		document.getElementById("overlay3").style.display = "none";
+		document.querySelector(".stackmatCheck").style.display = "none";
+	}
+
+	document.querySelector(".btnNoStack").onclick = function() {
+		localStorage.setItem("stackmat", JSON.stringify(false));
+
+		localStorage.setItem("inputType", "timer");
+
+		document.getElementById("overlay3").style.display = "none";
+		document.querySelector(".stackmatCheck").style.display = "none";
+	}
+} else {
+	localStorage.setItem("inputType", "timer");
+	localStorage.setItem("stackmat", JSON.stringify(false));
 }

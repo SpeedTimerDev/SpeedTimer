@@ -12,6 +12,7 @@ if (localStorage.algImgCol != null) document.body.style.setProperty("--algImgCol
 if (localStorage.algImgCol != null) document.getElementById("algImgCol").value = localStorage.algImgCol;
 //if (localStorage.wcaInspec != null) document.getElementById("inspection").value = JSON.parse(localStorage.wcaInspec);
 if (localStorage.d3vis != null) document.getElementById("d3vis").checked = JSON.parse(localStorage.getItem("d3vis"));
+if (localStorage.stackmat != null) document.getElementById("stackmat").checked = JSON.parse(localStorage.getItem("stackmat"));
 
 window.onload = () => {
 	input.value = ""
@@ -54,6 +55,10 @@ document.getElementById("algImgCol").addEventListener("input", function () {
 
 document.getElementById("d3vis").addEventListener("change", function () {
 	localStorage.setItem("d3vis", document.getElementById("d3vis").checked);
+});
+
+document.getElementById("stackmat").addEventListener("change", function () {
+	localStorage.setItem("stackmat", document.getElementById("stackmat").checked);
 });
 
 let clrAllSolves = document.getElementById("clrAllSolves");
