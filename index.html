@@ -15,6 +15,7 @@
 	<link rel="stylesheet" href="cubeimage.css">
 	<link rel="stylesheet" href="media.css">
 	<script src="navbar.js" async></script>
+	<script src="stackmat.js" async></script>
 	<link rel="stylesheet" href="cubeslist.css">
 	<link rel="icon" href="logo1.jpg">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
@@ -25,9 +26,23 @@
 	<div class="dataStore" style="display:none">
 		stuff
 	</div>
+	<input id="copyStore" style="position: absolute; left: -55555px;" type="text">
 
 	<div class="leftT"></div>
 
+	<div class="overlay" id="overlay3" style="display: none;"></div>
+	<div class="stackmatCheck" style="display: none;">
+		<div class="stackmatMsg">Would You Like to Connect Your Stackmat?</div>
+		<div class="stackmatCap">
+			Audio is Required for the Stackmat to Transmit Data.
+			<br>
+			Clicking 'No' will Disable the Stackmat Setting.
+		</div>
+		<div class="stackmatBtns">
+			<button class="btnYesStack">Yes</button>
+			<button class="btnNoStack">No</button>
+		</div>
+	</div>
 
 	<div class="rightT">
 		<div class="copied">

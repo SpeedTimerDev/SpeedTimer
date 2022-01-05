@@ -262,6 +262,7 @@ const perform = (movesVar) => {
 }
 
 // Main Vars
+
 var advance;
 
 let plus2col = 'orange';
@@ -904,6 +905,10 @@ document.querySelector(".type").onclick = e => {
 	type.innerHTML = type.innerHTML == '<i class="fas fa-keyboard"></i>' ? "<i class='fas fa-stopwatch'></i>" : "<i class='fas fa-keyboard'></i>";
 }
 
+if(JSON.parse(localStorage.stackmat)) {
+	localStorage.setItem("inputType", "stackmat");
+}
+
 function getTime() {
 	var timeFinish = timer.innerHTML.slice(0, 2) + timer.innerHTML.slice(3, 5);
 	if (timer.innerHTML.slice(6, 7) == "0") {
@@ -930,9 +935,7 @@ document.querySelector(".refreshScram").addEventListener("click", function () {
 });
 
 document.querySelector(".copyScram").addEventListener("click", async function () {
-	const storedString = JSON.parse(localStorage.getItem("scrambleTemp"));
-	const scrambleString = storedString.slice(0, storedString.lastIndexOf("\n")); // Remove the last line.
-	copyItem(scrambleString);
+	copyItem(JSON.stringify(localStorage.getItem("scrambleTemp")).replace(/[\\"]/g, '').replace(/n[0-9]x[0-9]/g, ''));
 });
 
 function generateTimes() {
@@ -1183,14 +1186,118 @@ function showScram() {
 }
 
 async function copyItem(text) {
-    const success = await navigator.clipboard.writeText(text)
-    if (!success) {
-      return;
-    }
+	const success = await navigator.clipboard.writeText(text)
+	
+	document.querySelector(".copied").classList.add("show");
 
-    document.querySelector(".copied").classList.add("show");
-
-    var copyTimeout = window.setTimeout(function () {
-      document.querySelector(".copied").classList.remove("show");
-    }, 2000);
+	var copyTimeout = window.setTimeout(function () {
+		document.querySelector(".copied").classList.remove("show");
+	}, 2000);
 };
+
+// Stackmat
+
+var stackmatRunning = false;
+var on = false;
+
+if(JSON.parse(localStorage.stackmat)) {
+	runStackmat();
+}
+
+function runStackmat() {  
+	stackmat.setCallBack(SMCallback);
+
+    function SMCallback(state) {
+        if(state.running) {
+			var tempMins = Math.floor(state.time_milli / 60000);
+
+            var tempTime = (state.time_milli - (tempMins * 60000)).toString();
+            timer.innerHTML = stackmatFormat(tempTime.slice(0, tempTime.length - 1), tempMins) + tempTime.slice(tempTime.length - 1, tempTime.length);
+
+            stackmatRunning = true;
+        } else {
+            if(state.time_milli > 0 && stackmatRunning == true) {
+				var tempMins = Math.floor(state.time_milli / 60000);
+
+				var tempTime = (state.time_milli - (tempMins * 60000)).toString();
+				var newTempTime = tempTime.slice(0, tempTime.length - 1);
+				var tempSubmit = stackmatSubmitFormat(tempMins.toString() + newTempTime);
+                stackmatRunning = false;
+
+				sessions[currentSessionIdx].times.unshift(tempSubmit);
+				if (localStorage.getItem("scrambleTemp") != "Other") {
+					sessions[currentSessionIdx].scrambles.unshift(JSON.parse(localStorage.getItem("scrambleTemp")));
+				} else {
+					sessions[currentSessionIdx].scrambles.unshift(localStorage.getItem("scrambleTemp"));
+				}
+				localStorage.setItem("speedtimer", JSON.stringify(sessions));
+
+				generateTimes();
+				generateStats();
+			}
+        }
+
+        if(state.time_milli == 0) {
+            timer.innerHTML = "00:00.000";
+        }
+
+		if(!state.on) {
+			timer.innerHTML = "---------";
+			on = false;
+		} else {
+			if(!state.running && !state.time_milli > 0 && !on) {
+				on = true;
+				timer.innerHTML = "00:00.000";
+			}
+		}
+    }
+}
+
+function stackmatFormat(time, mins) {  
+    var temp = time.toString();
+	var temp2;
+
+	if (temp.length == 4) {
+		temp2 = temp.slice(0, 2) + "." + temp.slice(2, 4);
+	} else if (temp.length == 3) {
+		temp2 = "0" + temp.slice(0, 1) + "." + temp.slice(1, 3);
+	} else if (temp.length == 2) {
+		temp2 = "00." + temp.slice(0, 2);
+	} else if (temp.length == 1) {
+		temp2 = "00.0" + temp.slice(0, 1);
+	}
+
+	var temp3 = mins.toString();
+	var temp4;
+	if(mins < 10) {
+		temp4 = "0" + temp3 + ":" + temp2;
+	} else {
+		temp4 = temp3 + ":" + temp2;
+	}
+
+	return temp4;
+}
+
+function stackmatSubmitFormat(time) {
+	var temp, temp2;
+	temp = time.toString();
+	if (temp.length == 6) {
+		temp2 = temp;
+		return temp2.toString();
+	} else if (temp.length == 5) {
+		temp2 = "0" + temp.slice(0, 5);
+		return temp2.toString();
+	} else if (temp.length == 4) {
+		temp2 = "00" + temp.slice(0, 4);
+		return temp2.toString();
+	} else if (temp.length == 3) {
+		temp2 = "000" + temp.slice(0, 3);
+		return temp2.toString();
+	} else if (temp.length == 2) {
+		temp2 = "0000" + temp.slice(0, 2);
+		return temp2.toString();
+	} else if (temp.length == 1) {
+		temp2 = "00000" + temp.slice(0, 1);
+		return temp2.toString();
+	}
+}
