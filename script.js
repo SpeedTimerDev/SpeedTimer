@@ -1212,7 +1212,7 @@ function runStackmat() {
 			var tempMins = Math.floor(state.time_milli / 60000);
 
             var tempTime = (state.time_milli - (tempMins * 60000)).toString();
-            timer.innerHTML = stackmatFormat(tempTime.slice(0, tempTime.length - 1), tempMins) + tempTime.slice(tempTime.length - 1, tempTime.length);
+            timer.innerHTML = stackmatFormat(tempTime.slice(0, tempTime.length - 1), tempMins); // + tempTime.slice(tempTime.length - 1, tempTime.length);
 
             stackmatRunning = true;
         } else {
@@ -1234,11 +1234,13 @@ function runStackmat() {
 
 				generateTimes();
 				generateStats();
+
+				generateScramble(sType);
 			}
         }
 
         if(state.time_milli == 0) {
-            timer.innerHTML = "00:00.000";
+            timer.innerHTML = "00:00.00";
         }
 
 		if(!state.on) {
@@ -1247,7 +1249,7 @@ function runStackmat() {
 		} else {
 			if(!state.running && !state.time_milli > 0 && !on) {
 				on = true;
-				timer.innerHTML = "00:00.000";
+				timer.innerHTML = "00:00.00";
 			}
 		}
     }
