@@ -1,3 +1,5 @@
+alert("SpeedTimer is moving to speedtimer01.netlify.app on 5/6/23. please export your data if you would like it to be saved, and if you have any thoughts, please email contactspeedtimer@gmail.com - sorry for any inconvenience amd for the repeated showing of this message");
+
 // Cubing.js Scrambles
 
 import { randomScrambleForEvent } from "https://cdn.cubing.net/js/cubing/scramble";
