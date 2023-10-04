@@ -1,6 +1,6 @@
-var tools = ["Scramble Viewer", "Alg Viewer", "Timer", "Scramble Generator"];
-var toolLinks = ["scrambleviewer", "algviewer", "timer", "scramblegenerator"];
-var toolDescs = ["A lightweight online tool where you can enter your scramble and have it displayed in 2D or 3D. Works with all WCA puzzles.", "A lightweight online tool where you can enter your algorithm and have it display the case it solves in 2D or 3D. Works with all WCA puzzles.", "A webpage where you can simply time a single solve without having any data recorded. Like a stopwatch.", "Need a scramble? Choose your puzzle and have a WCA correct puzzle generated for you. Easily copyable."];
+var tools = ["Scramble Viewer", "Alg Viewer", "Timer", "Scramble Generator", "Stackmat Display"];
+var toolLinks = ["scrambleviewer", "algviewer", "timer", "scramblegenerator", "display"];
+var toolDescs = ["A lightweight online tool where you can enter your scramble and have it displayed in 2D or 3D. Works with all WCA puzzles.", "A lightweight online tool where you can enter your algorithm and have it display the case it solves in 2D or 3D. Works with all WCA puzzles.", "A webpage where you can simply time a single solve without having any data recorded. Like a stopwatch.", "Need a scramble? Choose your puzzle and have a WCA correct puzzle generated for you. Easily copyable.", "After you plug in your stackmat, you can get a live replay of the stackmat's times on the screen, with no other objects on the screen. Reset using escape or refreshing and reconnecting."];
 
 var toolInfoDiv = document.querySelector(".toolInfo");
 
