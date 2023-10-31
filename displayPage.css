@@ -52,7 +52,7 @@ button.digits {
     align-items: center;
     cursor: default;
 
-    font-size: 13vw;
+    font-size: 18vw;
 }
 
 .copied {
@@ -112,9 +112,9 @@ button.digits {
     margin-right: 44.5vw;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1000px) {
     button.digits {
-        font-size: 18vh;
+        font-size: 18vh; 
     }
 }
 
