@@ -30,7 +30,7 @@ if(JSON.parse(localStorage.stackmat)) {
 	document.querySelector(".btnNoStack").onclick = function() {
 		localStorage.setItem("stackmat", JSON.stringify(false));
 
-		window.location.href = "tools.html";
+		window.location.href = "timer.html";
 
 		localStorage.setItem("inputType", "timer");
 
