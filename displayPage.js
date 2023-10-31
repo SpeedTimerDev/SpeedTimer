@@ -30,6 +30,8 @@ if(JSON.parse(localStorage.stackmat)) {
 	document.querySelector(".btnNoStack").onclick = function() {
 		localStorage.setItem("stackmat", JSON.stringify(false));
 
+		window.location.href = "tools.html";
+
 		localStorage.setItem("inputType", "timer");
 
 		document.getElementById("overlay3").style.display = "none";
